@@ -3,11 +3,11 @@
   <title>Poetry&#39;s Blog</title>
   
   <subtitle>Choose a gesture to allow yourself to live irreplaceable.</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://github.com/haodex/blog.github.io.git/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://github.com/haodex/blog.github.io.git/"/>
   <updated>2021-11-01T11:43:16.000Z</updated>
-  <id>http://example.com/</id>
+  <id>https://github.com/haodex/blog.github.io.git/</id>
   
   <author>
     <name>Poetry</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>73条日常Linux shell命令汇总</title>
-    <link href="http://example.com/2016/04/17/73%E6%9D%A1%E6%97%A5%E5%B8%B8Linux-shell%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/"/>
-    <id>http://example.com/2016/04/17/73%E6%9D%A1%E6%97%A5%E5%B8%B8Linux-shell%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</id>
+    <link href="https://github.com/haodex/blog.github.io.git/2016/04/17/73%E6%9D%A1%E6%97%A5%E5%B8%B8Linux-shell%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/"/>
+    <id>https://github.com/haodex/blog.github.io.git/2016/04/17/73%E6%9D%A1%E6%97%A5%E5%B8%B8Linux-shell%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</id>
     <published>2016-04-17T01:32:41.000Z</published>
     <updated>2021-11-01T11:43:16.000Z</updated>
     
@@ -30,10 +30,10 @@
     
     
     
-    <category term="Back-end" scheme="http://example.com/categories/Back-end/"/>
+    <category term="Back-end" scheme="https://github.com/haodex/blog.github.io.git/categories/Back-end/"/>
     
     
-    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://github.com/haodex/blog.github.io.git/tags/Linux/"/>
     
   </entry>
   
