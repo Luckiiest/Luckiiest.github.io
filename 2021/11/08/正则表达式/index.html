@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>正则表达式 | Haodex Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="正则表达式," />
+  
+
+  <meta name="description" content="正则表达式正则表达式就是一个表达式，用来查找一个有指定【特点】的表达式，规则匹配的。 正则表达式方法正则表达式定义的方式var reg &#x3D; &#x2F;abc&#x2F;;var reg &#x3D; new RegExp(&amp;#x27;abc&amp;#x27;);  正则表达式使用方法reg.test(str);str.match(reg);  特殊属性  i&#x2F;g&#x2F;m g代表的是global全局匹配  i代表ignoreCase忽略">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Haodex Blog">
+<meta property="og:description" content="正则表达式正则表达式就是一个表达式，用来查找一个有指定【特点】的表达式，规则匹配的。 正则表达式方法正则表达式定义的方式var reg &#x3D; &#x2F;abc&#x2F;;var reg &#x3D; new RegExp(&amp;#x27;abc&amp;#x27;);  正则表达式使用方法reg.test(str);str.match(reg);  特殊属性  i&#x2F;g&#x2F;m g代表的是global全局匹配  i代表ignoreCase忽略">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
+<meta property="article:modified_time" content="2021-11-08T07:50:45.210Z">
+<meta property="article:author" content="Haodex">
+<meta property="article:tag" content="正则表达式">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+<link href="/css/other.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  <!-- 聊天系统 -->
+  
+    
+   <link type="text/css" rel="stylesheet" href="/renxi/default.css">
+   <style>
+      #modal {
+        position: static !important;
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fe5757;
+        animation: colorChange 30s ease-in-out infinite;
+        animation-fill-mode: both;
+        mix-blend-mode: overlay;
+      }
+  
+      @keyframes colorChange {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .9;
+        }
+      }
+   </style>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Haodex Blog" type="application/atom+xml">
+</head>
+
+<body>
+  
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-text">正则表达式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9A%E4%B9%89%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-text">正则表达式定义的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">正则表达式使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7-i-g-m"><span class="toc-text">特殊属性  i&#x2F;g&#x2F;m</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="toc-text">特殊字符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%8B%AC%E5%8F%B7"><span class="toc-text">方括号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E5%AD%97%E7%AC%A6"><span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8F%E8%AF%8D"><span class="toc-text">量词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-text">RegExp对象属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RegExp%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">RegExp对象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95"><span class="toc-text">字符串方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D"><span class="toc-text">正则类型匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D%E9%A2%98"><span class="toc-text">字符匹配题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%8C%B9%E9%85%8D"><span class="toc-text">位置匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">面试题</span></a></li></ol></li></ol></li></ol>
+  </div>
+  
+
+
+
+
+<div class="content content-post CENTER">
+   <!-- canvas 彩带 -->
+<canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+
+<!-- <div class="qrcode_container">
+  <div class="tencent_code">
+    <h4>关注作者公众号</h4> 
+    <p>和万千小伙伴一起学习</p> 
+    <img src="https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg" alt="">
+  </div> 
+</div> -->
+
+<article id="post-正则表达式" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header" style="position:relative;">
+    <h1 class="post-title">正则表达式</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.11.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Haodex</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+       
+          <span class="post-count">
+            <i class="fa fa-file-word-o"></i>&nbsp
+            <span>字数统计 1.4k字</span>
+          </span>
+
+          <span class="post-count">
+            <i class="fa fa-columns"></i>&nbsp
+            <span>阅读时长 5分</span>
+          </span>
+      
+      
+    </div>
+
+    <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:0;right:0;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+
+  </header>
+
+  <div class="article-content">
+    
+      <div id="container">
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式就是一个表达式，用来查找一个有指定【特点】的表达式，规则匹配的。</p>
+<h2 id="正则表达式方法"><a href="#正则表达式方法" class="headerlink" title="正则表达式方法"></a>正则表达式方法</h2><h3 id="正则表达式定义的方式"><a href="#正则表达式定义的方式" class="headerlink" title="正则表达式定义的方式"></a>正则表达式定义的方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var reg = /abc/;</span><br><span class="line">var reg = new RegExp(&#x27;abc&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式使用方法"><a href="#正则表达式使用方法" class="headerlink" title="正则表达式使用方法"></a>正则表达式使用方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reg.test(str);</span><br><span class="line">str.match(reg);</span><br></pre></td></tr></table></figure>
+
+<h3 id="特殊属性-i-g-m"><a href="#特殊属性-i-g-m" class="headerlink" title="特殊属性  i/g/m"></a>特殊属性  i/g/m</h3><ul>
+<li><p><code>g</code>代表的是<code>global</code>全局匹配</p>
+</li>
+<li><p><code>i</code>代表<code>ignoreCase</code>忽略大小写，</p>
+</li>
+<li><p><code>m</code>代表<code>multiline</code>多行匹配，</p>
+</li>
+</ul>
+<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p>具有特殊含义的字符。</p>
+<ul>
+<li><p><code>\</code>   转义字符</p>
+</li>
+<li><p><code>|</code>   或</p>
+</li>
+</ul>
+<h4 id="方括号"><a href="#方括号" class="headerlink" title="方括号"></a>方括号</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[abc]  查找方括号内的任意一个字符</span><br><span class="line"></span><br><span class="line">[^abc]   查找任何不在方括号内的字符</span><br><span class="line"></span><br><span class="line">[0-9]  查找0-9之间的数字</span><br><span class="line"></span><br><span class="line">[a-z]  查找任何小写字母</span><br><span class="line"></span><br><span class="line">[A-Z]  查找任何大写字母</span><br><span class="line"></span><br><span class="line">[A-z]  查找任何字母</span><br><span class="line"></span><br><span class="line">(red|blue|green)  查找指定字符串（子表达式）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.       查找单个字符，除了换行和行结束符。</span><br><span class="line">\w      查找单词字符（匹配字母、数字、下划线。等价于&#x27;[A-Za-z0-9_]&#x27;）</span><br><span class="line">\W      查找非单词字符</span><br><span class="line">\d      查找数字</span><br><span class="line">\D      查找非数字</span><br><span class="line">\s      查找空白字符 </span><br><span class="line">\S      查找非空白字符</span><br><span class="line">\b      查找单词边界</span><br><span class="line">\B      查找非单词边界</span><br><span class="line">\n      查找换行符</span><br><span class="line">\f      查找换页符</span><br><span class="line">\r      查找回车符</span><br><span class="line">\t      查找制表符</span><br><span class="line">\v      查找垂直制表符</span><br><span class="line">\uxxx   查找以十六位进制数xxxx规定的Unicode字符</span><br><span class="line">[\u4e00-\u9fa5] 所有中文字符</span><br></pre></td></tr></table></figure>
+
+<h4 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">以下均遵循贪婪匹配：</span><br><span class="line"></span><br><span class="line">n+      匹配任何包含至少一个n的字符</span><br><span class="line">n*      匹配任何包含0个或多个n的字符</span><br><span class="line">n?      匹配任何0个或一个n的字符</span><br><span class="line">n&#123;X&#125;    匹配X个n的序列字符串</span><br><span class="line">n&#123;X,Y&#125;  匹配X至Y个n的序列字符串</span><br><span class="line">n$      匹配以n结尾的字符串</span><br><span class="line">^n      匹配任何以n开头的字符串</span><br><span class="line">?=n     正向肯定预查匹配任何后面紧接着指定字符串n的字符串</span><br><span class="line">		匹配n前面的那个位置</span><br><span class="line">?!n     正向否定预查匹配任何其后没有紧接着指定字符串n的字符串</span><br><span class="line">		匹配除了n前面的那个位置，?=n的反面意思</span><br><span class="line">?&lt;=n    反向肯定预查匹配任何前面紧跟着指定字符串n的字符串</span><br><span class="line">		匹配n后面的那个位置</span><br><span class="line">?&lt;!n    反向否定预查匹配任何前面没有紧接着指定字符串n的字符串</span><br><span class="line">		匹配除了n后面的那个位置，?&lt;=n的反面意思</span><br><span class="line">非贪婪匹配：</span><br><span class="line">n+?    n*? ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(?:n)   匹配时子表达式中没有这一项（不补获分组）</span><br></pre></td></tr></table></figure>
+
+<h3 id="RegExp对象属性"><a href="#RegExp对象属性" class="headerlink" title="RegExp对象属性"></a>RegExp对象属性</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">global      查看RegExp对象是否具有g标志</span><br><span class="line">ignoreCase  查看RegExp对象是否具有i标志</span><br><span class="line">multiline   查看RegExp对象是否具有m标志</span><br><span class="line">source      查看正则表达式源文本</span><br><span class="line">lastIndex   一个整数标志开始下一次匹配的字符位置（一般与exec一起使用）</span><br></pre></td></tr></table></figure>
+
+<h3 id="RegExp对象方法"><a href="#RegExp对象方法" class="headerlink" title="RegExp对象方法"></a>RegExp对象方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">compile    编译正则表达式。	（就是改变这个正则表达式）</span><br><span class="line">exec       检索字符串中指定的值。返回找到的值，并确定其位置。	</span><br><span class="line">test       检索字符串中指定的值。返回 true 或 false。	</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search          检索正则表达式相匹配的值</span><br><span class="line">match           查找所有符合正则匹配条件的结果</span><br><span class="line">replace			替换与正则表达式匹配的字符串</span><br><span class="line">split           把字符串分割成数组(注： 用字表达式分割的话会保留子表达式)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="正则类型匹配"><a href="#正则类型匹配" class="headerlink" title="正则类型匹配"></a>正则类型匹配</h2><h3 id="字符匹配题"><a href="#字符匹配题" class="headerlink" title="字符匹配题"></a>字符匹配题</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配16进制颜色</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/^#([0-9a-fA-F]&#123;6&#125;|[0-9a-fA-F]&#123;3&#125;)/g</span>;</span><br><span class="line"><span class="comment">// 匹配24小时时间</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/^(0?[0-9]|[01][0-9]|[2][0-3]):(0?[0-9]|[0-5][0-9])$/</span>;</span><br><span class="line"><span class="comment">// 匹配日期（格式：2017-06-10）</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/^([0-9]&#123;4&#125;)-([0][1-9]|[1][0-2])-([0][0-9]|[12][0-9]|[3][12])$/</span>;</span><br><span class="line"><span class="comment">// 匹配window文件路径（格式：盘符:\\文件夹\文件夹\文件夹\）</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/^[a-zA-Z]:\\([^\\:&lt;&gt;?|*&quot;\r\n/]+\/)*([^\\:&lt;&gt;?*&quot;|\r\n/]+)?$/</span>;</span><br><span class="line"><span class="comment">// 匹配id</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/id=&quot;[^&quot;]*&quot;/</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h3><ul>
+<li>对于位置的理解，我们可以理解成空字符 “”。<ul>
+<li>比如 “hello” 字符串等价于如下的形式：</li>
+<li><code>&quot;hello&quot; == &quot;&quot; + &quot;h&quot; + &quot;&quot; + &quot;e&quot; + &quot;&quot; + &quot;l&quot; + &quot;&quot; + &quot;l&quot; + &quot;&quot; + &quot;o&quot; + &quot;&quot;;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配开头和结尾，并替换#</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/^|$/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">str.replace(regexp,<span class="string">&quot;#&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配单词边界，并替换#</span></span><br><span class="line"><span class="keyword">var</span> regexo = <span class="regexp">/\b/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;[JS] Lesson_01.mp4&quot;</span>;</span><br><span class="line">str.replace(regexp,<span class="string">&quot;#&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配非单词边界，并替换#</span></span><br><span class="line"><span class="keyword">var</span> regexo = <span class="regexp">/\B/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;[JS] Lesson_01.mp4&quot;</span>;</span><br><span class="line">str.replace(regexp,<span class="string">&quot;#&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配l字符前面的位置</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?=l)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regexp,<span class="string">&#x27;#&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配除了n前面的那个位置，?=n的反面意思</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?!l)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regexp,<span class="string">&#x27;#&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配l字符后面的位置</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?&lt;=l)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regexp,<span class="string">&#x27;#&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//匹配除了n后面的那个位置，?=n的反面意思</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?&lt;!l)/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regexp,<span class="string">&#x27;#&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不匹配任何东西的正则</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/.^/</span>;</span><br><span class="line"><span class="comment">// 因为此正则要求只有一个字符，但该字符后面是开头，而这样的字符串是不存在的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 把123456789变成123,456,789</span></span><br><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$)/g</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><blockquote>
+<ol>
+<li> 正则表达式实现aabb的形式变成bbaa</li>
+<li>给10000000000三位打点 变成 10.000.000.000<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regexp = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$)/g</span>;</span><br></pre></td></tr></table></figure></li>
+<li> 字符串去重 aaaaaaaaaaaaaaaaaaaaaabbbbbbbbcccccccccc变成abc</li>
+<li> 把the-first-name转换成小驼峰式theFirstName</li>
+<li> 匹配结尾的数字</li>
+<li> 统一空格数</li>
+<li> 判断字符串是不是由数字构成</li>
+<li> 删除字符串中的空格</li>
+<li> 身份证号匹配</li>
+<li> 将字符串”select student.*,result.* from student inner join result on student.id = result.studentid” 和字符串”select * from student “中的student替换成key值   </li>
+</ol>
+</blockquote>
+
+      </div>
+    
+  </div>
+
+</article>
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+  <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+  <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+
+
+<!-- 微信公众号引流 openwrite.cn -->
+<!-- 
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+  const btw = new BTWPlugin();
+  btw.init({
+    id: "container",
+    blogId: "",
+    name: "前端之旅",
+    qrcode: "https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg",
+    keyword: "3a3b3c",
+  });
+</script> -->
+
+<script type="text/javascript">
+
+// white theme
+var body = {color: "#555", background: "#000"};
+var a_tag = {color: "#222"};
+var header = { background: "#222"};
+var logo_line_i = {background: "#222"};
+// var post_code = {background: "#eee", color: "#222"};
+
+function switch_theme() {
+ $("body").css(body);
+ $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+ $(".header, .footer").css(header);
+ $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+ //$(".post code").css(post_code);
+ $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+ $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+ 
+ // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+ //$("#assist_btn1").hide(1500);
+}
+
+$(function () {
+$("#assist_btn2").css("display","none");
+ $("#assist_btn1").click(function() {
+     switch_theme();
+$("div#toc.toc-article").css({
+ "background":"#eaeaea",
+ "opacity":1
+});
+$(".toc-article ol").show();
+$("#toc.toc-article .toc-title").css("color","#a98602");
+$("#assist_btn1").css("display","none");
+$("#assist_btn2").css("display","block");
+ });
+$("#assist_btn2").click(function() {
+$("#assist_btn2").css("display","none");
+$("#assist_btn1").css("display","block");
+$("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+     $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+$(".toc-article ol").toggle(1000);
+ });
+});
+
+
+//背景随机
+
+var Y, O, E, L, B, C, T, z, N, S, A, I;
+!function() {
+var e = function() {
+for (O.clearRect(0, 0, L, B), T = [{
+x: 0,
+y: .7 * B + C
+}, {
+x: 0,
+y: .7 * B - C
+}]; T[1].x < L + C;) t(T[0], T[1])
+}, t = function(e, t) {
+O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+var n = t.x + (2 * I() - .25) * C,
+ r = a(t.y);
+O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+ x: n,
+ y: r
+}
+}, a = function n(e) {
+var t = e + (2 * I() - 1.1) * C;
+return t > B || t < 0 ? n(e) : t
+};
+Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+}()
+
+   
+$("#toc-eye").click(function(){
+$("#toc.toc-article").toggle(1000);
+});
+
+</script>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Haodex</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/11/08/HTML5%20&%20CSS3/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2021/11/08/PackageManager/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "nkvLdnK5xBRTBnMkXqpCq3Ie-gzGzoHsz",
+            appKey: "r2K6NaTBu6ebcvjzHlNUFKWR",
+            avatar:'mm',
+            placeholder: "有什么问题，欢迎留言指正与交流...",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+ 
+  
+</body>
+</html>

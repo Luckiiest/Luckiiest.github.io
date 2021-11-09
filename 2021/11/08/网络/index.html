@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>网络 | Haodex Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="网络," />
+  
+
+  <meta name="description" content="网络冯诺依曼式计算机–冯诺依曼（计算机之父） 运算器：  CPU，GPU（显卡）  存储器：  内存（断电数据清空，读写速度快） 硬盘（辅存）：（数据可以持久化，读写速度，相对较慢）  控制器：  主板上的一些器件  输入设备：  键盘，鼠标，麦克风，网口  输出设备：  显示器，耳机，网口  IP地址IP自动地址的格式： IP地址分为四个段：xxx.xxx.xxx.xxx，每个段0~255，每个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Haodex Blog">
+<meta property="og:description" content="网络冯诺依曼式计算机–冯诺依曼（计算机之父） 运算器：  CPU，GPU（显卡）  存储器：  内存（断电数据清空，读写速度快） 硬盘（辅存）：（数据可以持久化，读写速度，相对较慢）  控制器：  主板上的一些器件  输入设备：  键盘，鼠标，麦克风，网口  输出设备：  显示器，耳机，网口  IP地址IP自动地址的格式： IP地址分为四个段：xxx.xxx.xxx.xxx，每个段0~255，每个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.sevencdn.com/HAODEabcd/Note/master/Web/jQ/HTTP.jpg">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/threeShakes.png">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/fourShakes.png">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/request-message.jpg">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/response-message.jpg">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/Date.png">
+<meta property="og:image" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/%E7%BD%91%E7%BB%9C/CacheControl.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/haodex/Note/master/Web/network/jsonp1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/haodex/Note/master/Web/network/jsonp2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/haodex/Note/master/Web/network/CookieSize.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/haodex/Note/master/Web/network/cookieDomain.png">
+<meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
+<meta property="article:modified_time" content="2021-11-09T12:21:46.572Z">
+<meta property="article:author" content="Haodex">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.sevencdn.com/HAODEabcd/Note/master/Web/jQ/HTTP.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+<link href="/css/other.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  <!-- 聊天系统 -->
+  
+    
+   <link type="text/css" rel="stylesheet" href="/renxi/default.css">
+   <style>
+      #modal {
+        position: static !important;
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fe5757;
+        animation: colorChange 30s ease-in-out infinite;
+        animation-fill-mode: both;
+        mix-blend-mode: overlay;
+      }
+  
+      @keyframes colorChange {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .9;
+        }
+      }
+   </style>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Haodex Blog" type="application/atom+xml">
+</head>
+
+<body>
+  
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-text">网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-text">IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E8%87%AA%E5%8A%A8%E5%9C%B0%E5%9D%80%E7%9A%84%E6%A0%BC%E5%BC%8F%EF%BC%9A"><span class="toc-text">IP自动地址的格式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="toc-text">IP地址的分类：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="toc-text">五层网络模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E4%B8%8EDNS%E8%A7%A3%E6%9E%90"><span class="toc-text">域名与DNS解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%9F%9F%E5%90%8D%E5%92%8CIP%E5%BD%A2%E6%88%90%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="toc-text">用域名和IP形成对应关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%90%91%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E6%A0%8F%E4%B8%AD%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAurl%E6%8C%89%E5%9B%9E%E8%BD%A6%E4%B9%8B%E5%90%8E%EF%BC%8C%E7%BD%91%E7%BB%9C%E4%B8%AD%E9%83%BD%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">当向浏览器的地址栏中输入一个url按回车之后，网络中都会发生什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="toc-text">DNS解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#form%E8%A1%A8%E5%8D%95"><span class="toc-text">form表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Get%E4%B8%8EPost%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">Get与Post请求方式的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax"><span class="toc-text">ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax%E7%AE%80%E4%BB%8B"><span class="toc-text">Ajax简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAAjax%E8%AF%B7%E6%B1%82"><span class="toc-text">创建一个Ajax请求</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#XMLHttpRequest%EF%BC%88XHR%EF%BC%89%E5%AF%B9%E8%B1%A1%E7%94%A8%E4%BA%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%A4%E4%BA%92%E3%80%82%E9%80%9A%E8%BF%87-XMLHttpRequest-%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%AF%B7%E6%B1%82%E7%89%B9%E7%82%B9URL%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E3%80%82%E8%BF%99%E5%85%81%E8%AE%B8%E7%BD%91%E9%A1%B5%E5%9C%A8%E4%B8%8D%E5%BD%B1%E5%93%8D%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%B1%80%E9%83%A8%E5%86%85%E5%AE%B9%E3%80%82XMLHttpRequest-%E5%9C%A8-AJAX-%E7%BC%96%E7%A8%8B%E4%B8%AD%E8%A2%AB%E5%A4%A7%E9%87%8F%E4%BD%BF%E7%94%A8"><span class="toc-text">XMLHttpRequest（XHR）对象用于服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特点URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest 在 AJAX 编程中被大量使用</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%B0%81%E8%A3%85%E5%87%BD%E6%95%B0"><span class="toc-text">ajax封装函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">ajax对象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95"><span class="toc-text">ajax属性方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="toc-text">同源策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE"><span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-text">域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-text">端口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E4%BD%A0%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAurl%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88-Depth"><span class="toc-text">当你在浏览器输入一个url发生了什么(Depth)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%BD%92%E7%BA%B3"><span class="toc-text">简单归纳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-UDP-%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-text">TCP&#x2F;UDP(传输层协议)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-text">四次挥手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%8A%A5%E6%96%87"><span class="toc-text">http报文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="toc-text">请求报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">响应报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-text">浏览器缓存机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F"><span class="toc-text">跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text">关于跨域的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%A3%E4%BA%9B%E4%B8%9C%E8%A5%BF%E5%B1%9E%E4%BA%8E%E8%B5%84%E6%BA%90%EF%BC%9FJS%E7%AE%97%E8%B5%84%E6%BA%90%E5%90%97%EF%BC%9F"><span class="toc-text">那些东西属于资源？JS算资源吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E8%B5%84%E6%BA%90%E7%AE%97%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-text">哪些资源算跨域的资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E8%BF%99%E7%A7%8D%E8%A1%8C%E4%B8%BA%E5%8F%91%E7%94%9F%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-text">跨域这种行为发生在哪里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%E5%8F%AF%E4%BB%A5%E5%9C%A8Web%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%8F%91%E5%87%BA%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82"><span class="toc-text">有哪些方式可以在Web网络中发出一个请求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">解决跨域的几种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash%EF%BC%88%E4%B8%8D%E5%81%9A%E8%AE%A8%E8%AE%BA%EF%BC%89"><span class="toc-text">Flash（不做讨论）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%90%86%E4%B8%AD%E8%BD%AC"><span class="toc-text">服务器代理中转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#document-domain"><span class="toc-text">document.domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CORS"><span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jsonp"><span class="toc-text">jsonp</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#jsonp%E5%8E%9F%E7%90%86"><span class="toc-text">jsonp原理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-text">cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E8%AE%B0%E5%BD%95%E7%94%A8%E6%88%B7%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-text">跟踪记录用户的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="toc-text">Cookie的分类：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie%E4%BD%BF%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-text">Cookie使用的过程：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">Cookie的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cookie%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-text">Cookie的增删改查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iframe"><span class="toc-text">iframe</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iframe%E5%88%A9%E5%BC%8A"><span class="toc-text">iframe利弊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E4%BA%8Eiframe%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">浏览器对于iframe的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%8A%96-amp-%E8%8A%82%E6%B5%81"><span class="toc-text">防抖&amp;节流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96"><span class="toc-text">防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E6%B5%81"><span class="toc-text">节流</span></a></li></ol></li></ol></li></ol>
+  </div>
+  
+
+
+
+
+<div class="content content-post CENTER">
+   <!-- canvas 彩带 -->
+<canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+
+<!-- <div class="qrcode_container">
+  <div class="tencent_code">
+    <h4>关注作者公众号</h4> 
+    <p>和万千小伙伴一起学习</p> 
+    <img src="https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg" alt="">
+  </div> 
+</div> -->
+
+<article id="post-网络" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header" style="position:relative;">
+    <h1 class="post-title">网络</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.11.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Haodex</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+       
+          <span class="post-count">
+            <i class="fa fa-file-word-o"></i>&nbsp
+            <span>字数统计 12.2k字</span>
+          </span>
+
+          <span class="post-count">
+            <i class="fa fa-columns"></i>&nbsp
+            <span>阅读时长 47分</span>
+          </span>
+      
+      
+    </div>
+
+    <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:0;right:0;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+
+  </header>
+
+  <div class="article-content">
+    
+      <div id="container">
+        <h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><p><strong>冯诺依曼式计算机–冯诺依曼（计算机之父）</strong></p>
+<p><strong>运算器：</strong></p>
+<ul>
+<li>CPU，GPU（显卡）</li>
+</ul>
+<p><strong>存储器：</strong></p>
+<ul>
+<li>内存（断电数据清空，读写速度快）</li>
+<li>硬盘（辅存）：（数据可以持久化，读写速度，相对较慢）</li>
+</ul>
+<p><strong>控制器：</strong></p>
+<ul>
+<li>主板上的一些器件</li>
+</ul>
+<p><strong>输入设备：</strong></p>
+<ul>
+<li>键盘，鼠标，麦克风，网口</li>
+</ul>
+<p><strong>输出设备：</strong></p>
+<ul>
+<li>显示器，耳机，网口</li>
+</ul>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><h3 id="IP自动地址的格式："><a href="#IP自动地址的格式：" class="headerlink" title="IP自动地址的格式："></a>IP自动地址的格式：</h3><ul>
+<li><code>IP</code>地址分为四个段：<code>xxx.xxx.xxx.xxx</code>，每个段0~255，每个段都是由8个0、1组成的。</li>
+</ul>
+<h3 id="IP地址的分类："><a href="#IP地址的分类：" class="headerlink" title="IP地址的分类："></a>IP地址的分类：</h3><ul>
+<li><p>一个IP地址分为两个部分：网络<code>ID</code>，主机<code>ID</code></p>
+</li>
+<li><ul>
+<li>A类：0.0.0.0 ~ 127.255.255.255（一个网络能有1600+万台）</li>
+<li>B类：128.0.0.0 ~ 191.255.255.255（有的用户网络也可以是：172.16.0.0 ~ 172.31.255.255）</li>
+<li>C类：192.0.0.0 ~ 223.255.255.255（C类为家用网络：192.168.xxx.xxx）</li>
+<li>D类：（多播地址）</li>
+<li>E类：</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="五层网络模型"><a href="#五层网络模型" class="headerlink" title="五层网络模型"></a>五层网络模型</h2><ul>
+<li>应用层：<code>HTTP</code>协议，<code>DNS</code>协议</li>
+<li>运输层：<code>TCP</code>协议、<code>UDP</code>协议</li>
+<li>网络层：<code>IP</code>地址 – <code>IP</code>协议</li>
+<li>数据链路层：mac地址</li>
+<li>物理层</li>
+<li>*用户传输的自上而下的，浏览器解析是自下而上的</li>
+</ul>
+<h2 id="域名与DNS解析"><a href="#域名与DNS解析" class="headerlink" title="域名与DNS解析"></a>域名与DNS解析</h2><p><code>www.baidu.com</code> -&gt; <strong>域名</strong></p>
+<p>问：能通过域名直接访问到一台机器吗？</p>
+<p>答：不可以的。</p>
+<h3 id="用域名和IP形成对应关系"><a href="#用域名和IP形成对应关系" class="headerlink" title="用域名和IP形成对应关系"></a>用域名和IP形成对应关系</h3><ul>
+<li>首先，计算机是不知道域名对应的<code>IP</code>的。</li>
+<li>问路由器，如果路由器认识这个域名，就返回一个<code>IP</code>，然后计算机访问这个<code>IP</code>。</li>
+<li>如果路由器不认识，他就问上一层路由器。</li>
+<li>如果问到了城市这个级别的路由器的时候，<code>DNS</code>服务器。</li>
+<li>如果<code>DNS</code>服务器不认识这个域名，继续向上级<code>DNS</code>服务器查找。</li>
+</ul>
+<p>互联网建立的时候，全球有13台的<code>DNS</code>服务器。</p>
+<h3 id="当向浏览器的地址栏中输入一个url按回车之后，网络中都会发生什么？"><a href="#当向浏览器的地址栏中输入一个url按回车之后，网络中都会发生什么？" class="headerlink" title="当向浏览器的地址栏中输入一个url按回车之后，网络中都会发生什么？"></a>当向浏览器的地址栏中输入一个url按回车之后，网络中都会发生什么？</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入`https://www.baidu.com`，这时`DNS`解析出`ip`地址，客户端发送http请求，经历三次握手，访问服务器，访问服务器过后，进行四次挥手，也就是断开连接，返回服务器的内容</span><br></pre></td></tr></table></figure>
+
+<p>![url request.png (1208×446) (raw.githubusercontent.com)](url request-163619392933719.png)</p>
+<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><ul>
+<li><p>当前在客户端当中输入了一个<code>www.baidu.com</code>，那么我们的这个客户端，当前会有一个<code>DNS</code>客户端，<code>DNS</code>客户端会获取当前我们输入的域名，向<code>DNS</code>服务器端发送一个检查报文，由这个<code>DNS</code>服务器根据这个域名解析出来这个唯一的<code>IP</code>地址</p>
+</li>
+<li><p>，然后这个<code>DNS</code>服务器，会把解析出来的<code>IP</code>地址发送给<code>DNS</code>客户端，也就是发送到我们本机上面，发送到本机上之后，一旦浏览器收取到了<code>DNS</code>解析出来的这个<code>IP</code>地址之后，就可以向该<code>IP</code>地址定位，给服务器发送<code>http</code>请求了。</p>
+</li>
+<li><p><code>DNS</code>域名服务器解析域名时，是倒着解析的，是一个树状图的一个形状，例如<code>www.baidu.com</code>，先解析<code>.com</code>，解析出来<code>.com</code>的<code>IP</code>地址，.com下面有很多的域名，找到baidu，然后解析<code>baidu</code>的<code>IP</code>地址，然后找<code>baidu</code>下面的<code>www</code>，然后解析<code>www</code>的域名，这三段<code>IP</code>地址构成了百度的绝对的<code>IP</code>地址，然后就可以根据这个<code>IP</code>地址给服务器发送请求了</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		__________________________.com________________________________</span><br><span class="line">  		|			   		|					|				|</span><br><span class="line">  ____baidu____			 tencent		 	 alibaba		……</span><br><span class="line"> |		  |     |</span><br><span class="line">zhidao  www   	……</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a>form表单</h2><blockquote>
+<p><code>form</code>表单获取数据一次就会刷新一次，不会局部获取数据，所以就要通过ajax来弥补</p>
+</blockquote>
+<ul>
+<li><strong><code>method</code>:<code>get</code>（获得数据） <code>post</code>（传入数据）等</strong></li>
+<li><strong><code>action</code>: <code>address</code>(地址)</strong></li>
+<li><code>entype</code>: 规定在发送表单数据之前如果对其进行编码<ul>
+<li><code>application/x-www-form-urlencoded </code>（在发送前编码所有字符（默认）</li>
+<li><code>multipart/form-data (&lt;input type=&#39;file&#39;&gt;)</code> 所有的字符都不编码，使用包含文件上传控件的表单时，必须使用该值</li>
+</ul>
+</li>
+</ul>
+<h3 id="Get与Post请求方式的区别"><a href="#Get与Post请求方式的区别" class="headerlink" title="Get与Post请求方式的区别"></a>Get与Post请求方式的区别</h3><ul>
+<li>是基于什么前提的？如果什么前提都没有，不使用任何规范，只考虑语法和理论上的HTTP协议。<br>答：<code>GET</code>和<code>POST</code>几乎没有什么区别，只有名字不一样。</li>
+<li>如果是基于<code>RFC</code>规范的。<br>（1）理论上（<code>Specification</code>）：<code>GET</code>和<code>POST</code>具有相同语法的，但是又不同的语义。<code>GET</code>是用来获取数据的，<code>POST</code>是用来发送数据的，其他方面没有区别。<br>（2）实现上的（<code>Implementation</code>）：各种浏览器，就是这个规范的实现者。<br>常见的那些不同</li>
+<li>1）<code>GET</code>请求的数据在请求主体是看不到数据的，但是在URL是可见的。<code>POST</code>请求不显示在<code>URL</code>中，但是显示在请求主体中。</li>
+<li>2）<code>GET</code>对长度是有限制的，<code>POST</code>可以传入很多数据。</li>
+<li>3）<code>GET</code>请求的数据可以收藏为书签，<code>POST</code>请求到的数据不可收藏为书签。</li>
+<li>4）<code>GET</code>请求后，按后退按钮、刷新按钮无影响，<code>POST</code>数据会被重新提交。</li>
+<li>5）<code>GET</code>编码类型：<code>application/x-www-form-url</code>，<code>POST</code>的编码类型：有很多种：<code>encodeapplication/x-www-form-urlencoded、multipart/form-data</code></li>
+<li>6）<code>GET</code>历史参数会被保留在浏览器里，<code>POST</code>不会保存在浏览器中的。</li>
+<li>7）<code>GET</code>只允许<code>ASCII</code>，<code>POST</code>没有编码限制，允许发二进制的。</li>
+<li>8）<code>GET</code>与<code>POST</code>相比，<code>GET</code>安全性较差，因为所发的数据是<code>URL</code>的一部分。</li>
+</ul>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><h3 id="Ajax简介"><a href="#Ajax简介" class="headerlink" title="Ajax简介"></a>Ajax简介</h3><ul>
+<li><p><code>Asynchronous Javascript And XML</code> （异步的<br> <code>JavaScript</code>和<code>XML</code>）</p>
+</li>
+<li><p> 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体</p>
+</li>
+<li><p><strong><code>Ajax</code>优势与不足</strong></p>
+<ul>
+<li><strong><code>Ajax</code>优势</strong><ul>
+<li>优秀的用户体验<ul>
+<li>这是<code>Ajax</code>下最大的优点，能在不刷新整个页面前提下更新数据</li>
+</ul>
+</li>
+<li>提高<code>web</code>程序的性能<ul>
+<li> 与传统模式相比，<code>Ajax</code>模式在性能上最大的区别在于传输数据的方式，在传统模式中，数据的提交时通过表单来实现的。<code>Ajax</code>模式只是通过<code>XMLHttpRequest</code>对象向服务器提交希望提交的数据，即按需发送</li>
+</ul>
+</li>
+<li>减轻服务器和带宽的负担<ul>
+<li> <code>Ajax</code>的工作原理相当于在用户和服务器之间加了一个中间层，似用户操作与服务器响应异步化。它在客户端创建<code>Ajax</code>引擎，把传统方式下的一些服务器负担的工作转移到客户端，便于客户端资源来处理，减轻服务器和带宽的负担</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Ajax的不足</strong><ul>
+<li>浏览器对<code>XMLHttpRequest</code>对象的支持度不足</li>
+<li>破坏浏览器前进、后退按钮的正常功能</li>
+<li>对搜索引擎的支持的不足</li>
+<li>开发和调试工具的缺乏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建一个Ajax请求"><a href="#创建一个Ajax请求" class="headerlink" title="创建一个Ajax请求"></a>创建一个Ajax请求</h3><ul>
+<li><p><strong><code>serialize()</code></strong> 方法</p>
+<ul>
+<li>串联表单对象，序列表表格内容为字符串，用于 Ajax 请求。</li>
+</ul>
+</li>
+<li><p><strong><code>serializeArray()</code></strong> 方法</p>
+<ul>
+<li>把串联表单对象的形式用数组表示出来</li>
+</ul>
+</li>
+<li><p><code>Ajax</code>的核心是<code>XMLHttpRequest</code>对象，它是<code>Ajax</code>实现的关键，发送异步请求、接受响应以及执行回调都是通过它来完成</p>
+</li>
+<li><p><strong>创建<code>ajax</code>对象 <code>var xhr = new XMLHttpRequest();</code></strong></p>
+</li>
+<li><p><strong>准备发送请求</strong></p>
+<ul>
+<li><p><strong><code>get</code> / <code>post</code></strong></p>
+<ul>
+<li><p><strong><code>get</code></strong></p>
+<ul>
+<li>传递的数据放在<code>URL</code>后面</li>
+<li>中文编码 <code>encodeURI( &#39;&#39; )</code>;</li>
+<li>缓存 在数据后面加上随机数或者日期对象或者……</li>
+</ul>
+</li>
+<li><p><strong><code>post</code></strong></p>
+<ul>
+<li>传递的数据放在<code>send()</code>里面，并且一定要规定数据格式</li>
+<li>没有缓存问题</li>
+</ul>
+</li>
+<li><p><code>form</code>表单中:</p>
+<ul>
+<li><code>action</code>:<ul>
+<li><code>method</code>: (默认是<code> get</code>)<ul>
+<li><code>get</code>: 会在<code>url</code>里面以 <code>name=value</code> , 两个数据之间用 <code>&amp;</code> 连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>post</code>:</li>
+</ul>
+</li>
+<li><p><code>enctype</code>: <code>&quot;application/x-www-form-urlencoded&quot;</code></p>
+</li>
+</ul>
+</li>
+<li><p> <code>url</code></p>
+</li>
+<li><p> 是否异步</p>
+</li>
+<li><p> 同步(<code>false</code>)：阻塞</p>
+</li>
+<li><p> 异步(<code>true</code>)：非阻塞</p>
+</li>
+</ul>
+</li>
+<li><p><strong>正式发送请求</strong></p>
+</li>
+<li><p><strong><code>ajax</code>请求处理过程</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">			alert( xhr.responseText );</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>onreadystatechange</code> ：当处理过程发生变化的时候执行下面的函数</p>
+</li>
+<li><p><code>readyState</code> ：<code>ajax</code>处理过程</p>
+<ul>
+<li>0：请求未初始化（还没有调用 <code>open()</code>）。</li>
+<li>1：请求已经建立，但是还没有发送（还没有调用 <code>send()</code>）。</li>
+<li>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</li>
+<li>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</li>
+<li>4：响应已完成；您可以获取并使用服务器的响应了。</li>
+</ul>
+</li>
+<li><p><code>responseText</code> ：请求服务器返回的数据存在该属性里面</p>
+</li>
+<li><p><code>status</code> : <code>http</code>状态码</p>
+<p><img src="https://raw.sevencdn.com/HAODEabcd/Note/master/Web/jQ/HTTP.jpg" alt="HTTP状态码"></p>
+</li>
+</ul>
+<p><strong>人类语言中的异步和机器语言的异步正好是相反的，同步也一样</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">举例：</span><br><span class="line">	订外卖</span><br><span class="line">    <span class="number">1.</span> 需要一个设备：手机、电脑</span><br><span class="line">    <span class="number">2.</span> 设备里面要有app：美团外卖、饿了么、百度外卖</span><br><span class="line">    <span class="number">3.</span> 打开app ，选择商家---选择商品---张亮麻辣烫</span><br><span class="line">	<span class="number">4.</span> 然后下单（不要麻辣不要汤）</span><br><span class="line">    <span class="number">5.</span> 监听外卖信息（就是查看外卖的情况，店家是否接单、骑手是否接单、外卖送到哪里）</span><br><span class="line">    <span class="number">6.</span> 开门---验货---处理</span><br><span class="line"></span><br><span class="line">	ajax</span><br><span class="line">    <span class="number">1.</span> 设备：浏览器（必需，如果没有浏览器，ajax是发不出去的）</span><br><span class="line">    <span class="number">2.</span> 要有一个ajax对象</span><br><span class="line">    <span class="number">3.</span> ajax.open(method,url,flag)</span><br><span class="line">		<span class="comment">/* ajax.open 初始化的意思，可以传入三个值</span></span><br><span class="line"><span class="comment">    		 method：请求的方式(get,post)</span></span><br><span class="line"><span class="comment">    		 url：你想请求谁家的数据</span></span><br><span class="line"><span class="comment">    		 flag：处理同步还是异步的方式（true为异步，false为同步）</span></span><br><span class="line"><span class="comment">    	*/</span></span><br><span class="line">	<span class="number">4.</span> ajax.send()</span><br><span class="line">		<span class="comment">// 使用ajax.send()方法把数据发送出去</span></span><br><span class="line">	<span class="number">5.</span> onreadystatechage</span><br><span class="line">		<span class="comment">// 监听数据是否已经响应</span></span><br><span class="line">    	<span class="comment">// 0 1 2 3 4，有一个响应过程，0为一开始的状态，4就是最后响应已经返回的状态</span></span><br><span class="line">    <span class="number">6.</span> 判断返回的状态，看一下是那种状态 status == <span class="number">200</span>（数据回来了），<span class="number">404</span>（数据没有），<span class="number">503</span>（服务器出问题了）</span><br></pre></td></tr></table></figure>
+
+<h6 id="XMLHttpRequest（XHR）对象用于服务器交互。通过-XMLHttpRequest-可以在不刷新页面的情况下请求特点URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest-在-AJAX-编程中被大量使用"><a href="#XMLHttpRequest（XHR）对象用于服务器交互。通过-XMLHttpRequest-可以在不刷新页面的情况下请求特点URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest-在-AJAX-编程中被大量使用" class="headerlink" title="XMLHttpRequest（XHR）对象用于服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特点URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest 在 AJAX 编程中被大量使用"></a><strong><code>XMLHttpRequest（XHR）</code>对象用于服务器交互。通过 <code>XMLHttpRequest</code> 可以在不刷新页面的情况下请求特点URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。<code>XMLHttpRequest</code> 在 AJAX 编程中被大量使用</strong></h6><p><strong><code>XMLHttpRequest</code>是<code>W3c</code>标准的，<code>ActiveXObject(&#39;Microsoft.XMLHttp&#39;)</code>是兼容IE的</strong></p>
+<h3 id="ajax封装函数"><a href="#ajax封装函数" class="headerlink" title="ajax封装函数"></a>ajax封装函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">ajax封装</span><br><span class="line">	<span class="comment">/* </span></span><br><span class="line"><span class="comment">		method：发送的方式（GET，POST）</span></span><br><span class="line"><span class="comment">		url：发送的数据地址</span></span><br><span class="line"><span class="comment">		data：传入的参数</span></span><br><span class="line"><span class="comment">		callback：回调函数，通过回调函数展示在页面</span></span><br><span class="line"><span class="comment">		flag：同步(false)/异步(true)</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">ajaxFun</span>(<span class="params">method,url,data,callback,flag</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 创建XMLHttpRequest对象</span></span><br><span class="line">        <span class="keyword">var</span> xhr = <span class="literal">null</span>;</span><br><span class="line">       	<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">            <span class="comment">// W3c 标准</span></span><br><span class="line">            xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// IE兼容</span></span><br><span class="line">            xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">&#x27;Microsoft.XMLHttp&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 小写变大写，toUpperCase</span></span><br><span class="line">        method.toUpperCase();</span><br><span class="line">        <span class="comment">// GET请求会拼接在地址栏</span></span><br><span class="line">        <span class="keyword">if</span>(method == <span class="string">&#x27;GET&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 一个时间戳，为了不占用浏览器的缓存</span></span><br><span class="line">            <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">            	timer = date.getTime();</span><br><span class="line">            <span class="comment">// 让每一个url加一个无关紧要的参数，且唯一的不占用浏览器缓存</span></span><br><span class="line">            xhr.open(method,url + <span class="string">&#x27;?&#x27;</span> + data + <span class="string">&#x27;&amp;timer&#x27;</span> + timer,flag);</span><br><span class="line">            xhr.send();</span><br><span class="line">        <span class="comment">// POST请求会通过send()方法传入参数拼接</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">&#x27;POST&#x27;</span>)&#123;</span><br><span class="line">            xhr.open(method,url,flag);</span><br><span class="line">            <span class="comment">// 使用POST需要有一个请求头，就是xhr.setRequstHeader(&#x27;Content-type&#x27;,&#x27;application/x-www-form-urlencoded&#x27;);</span></span><br><span class="line">            xhr.setRequestHeader(<span class="string">&#x27;Content-type&#x27;</span>,<span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>);</span><br><span class="line">            xhr.send(data);</span><br><span class="line">        <span class="comment">// PUT请求方法，非简单请求方法</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">&#x27;PUT&#x27;</span>) &#123;</span><br><span class="line">            xhr.open(method,url,flag);</span><br><span class="line">            xhr.setRequestHeader(<span class="string">&#x27;person&#x27;</span>,<span class="string">&#x27;aimee&#x27;</span>);</span><br><span class="line">            xhr.send();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// onreadystatechange 状态改变的事件触发器，就是改变一次触发一次</span></span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// readyState 是状态值，0 1 2 3 4 逐个推进状态，分别是 未初始化 读取中 已读取 交互中 完成</span></span><br><span class="line">            <span class="keyword">if</span>(xhr.readystate == <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="comment">// status 服务器返回的状态码，200（成功）、404（文件未找到）、500（服务器内部错误）、304（资源未被修改）</span></span><br><span class="line">                <span class="keyword">if</span>(xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">                    <span class="comment">// responseText 返回数据的字符串信息</span></span><br><span class="line">                    callback(xhr.responseText);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ajax对象方法"><a href="#ajax对象方法" class="headerlink" title="ajax对象方法"></a>ajax对象方法</h3><table>
+<thead>
+<tr>
+<th>Ajax 对象方法</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><code>abort()</code></td>
+<td>如果请求已被发出，则立刻中止请求。</td>
+</tr>
+<tr>
+<td><code>getAllResponseHeaders()</code></td>
+<td>把http请求的所有响应首部作为键/值对返回,以字符串的形式返回所有用<code>CRLF</code>分隔的响应头，如果没有收到响应，则返回<code>null</code></td>
+</tr>
+<tr>
+<td><code>getResponseHeader(&#39;server&#39;)</code></td>
+<td>返回值指定首部的串值,返回包含指定响应头的字符串，如果响应尚未收到或响应中不存在该报头，则返回<code>null</code></td>
+</tr>
+<tr>
+<td><code>open(&#39;method&#39;,&#39;url&#39;,flag)</code></td>
+<td>建立对服务器的调用，初始化一个请求。该方法只能在 <code>JavaScript</code>代码中使用，若要在<code>native code</code>中初始化请求，请使用 <code>openRequest()</code>; <code>method</code>参数可以是<code>GET</code>，<code>POST</code>或<code>PUI</code>。<code>url</code>参数可以是相对<code>URL</code>或绝对<code>URL</code>。<code>flag</code>参数是同步或者异步，<code>true</code>为异步（一般为这个），<code>false</code>为同步，这个方法还包括3个可选参数</td>
+</tr>
+<tr>
+<td><code>overrideMimeType</code></td>
+<td>覆写由服务器返回的<code>MIME</code>类型</td>
+</tr>
+<tr>
+<td><code>send(content)</code></td>
+<td>向服务器发送请求,发送请求。如果请求是异步的（默认），那么该方法将在请求发送后立即返回</td>
+</tr>
+<tr>
+<td><code>setRequestHeader(&#39;label&#39;,&#39;value&#39;)</code></td>
+<td>设置 <code>HTTP</code> 请求头的值。必须在 <code>open()</code> 之后、<code>send()</code> 之前调用 <code>setRequestHeader()</code> 方法，把指定首部设置为所提供的值。在设置任何首部之前必须先调用<code>open()</code>,传的参数一般为<code>Content-type&#39;,&#39;application/x-www-form-urlencoded</code></td>
+</tr>
+<tr>
+<td><code>init</code></td>
+<td>在C++代码中初始一个XHR对象</td>
+</tr>
+<tr>
+<td><code>openRequest</code></td>
+<td>初始化一个请求。这个方法只能在原生<code>C++</code>代码中使用；如果用<code>JavaScript</code> 代码来初始化请求，使用<code>open()</code>代替。可参考<code>open()</code>的文档</td>
+</tr>
+<tr>
+<td><code>sendAsBinary</code></td>
+<td><code>send()</code>方法的变体，用来发送二进制的数据</td>
+</tr>
+</tbody></table>
+<h3 id="ajax属性方法"><a href="#ajax属性方法" class="headerlink" title="ajax属性方法"></a>ajax属性方法</h3><table>
+<thead>
+<tr>
+<th>Ajax 属性方法</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>属性</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><code>onreadystatechange</code></td>
+<td>状态改变的事件触发器，就是状态改变一次触发一次，当<code>readyState</code>发生变化时，调用的<code>EventHandler</code></td>
+</tr>
+<tr>
+<td><code>readyState</code></td>
+<td>返回一个无符号短整型数字，代表请求的状态码，对象状态<code>（integer）</code>，状态值 <code>0</code> = 未初始化，未调用<code>send()</code>方法，<code>1</code> = 读取中，已调用<code>send()</code>，正在发送请求，<code>2</code> = 已读取，<code>send()</code>方法执行完成，接收到全部响应内容，<code>3</code> = 交互中，正在解析相应内容，<code>4</code> = 完成，相应内容解析完成</td>
+</tr>
+<tr>
+<td><code>responseText</code></td>
+<td>获得字符串形式的响应数据，返回一个<code>DOMString</code>，该<code>DOMString</code>包含对请求的响应，如果请求未成功或尚未成功或尚未发送，则返回<code>null</code></td>
+</tr>
+<tr>
+<td><code>responseXML</code></td>
+<td>获得XML形式的响应数据，返回一个 <code>Document</code>，其中包含该请求的响应，如果请求未成功、尚未发送或时不能被解析为 <code>XML</code> 或 <code>HTML</code>，则返回 <code>null</code></td>
+</tr>
+<tr>
+<td><code>responseType</code></td>
+<td>一个用于定义响应类型的枚举值（<code>enumerated value</code>）</td>
+</tr>
+<tr>
+<td><code>responseURL</code></td>
+<td>返回经过序列化的响应<code>URL</code>，如果该<code>URL</code>为空，则返回空字符串</td>
+</tr>
+<tr>
+<td><code>statusText&#39;</code></td>
+<td>服务器返回的状态文本信息，返回一个<code>DOMString</code>，其中包含<code>HTTP</code>服务器返回的响应状态。与<code>XMLHTTPRequest.status</code>不同的是，它包含完整的响应状态文本（例如，<code>&quot;200 OK&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>response</code></td>
+<td>返回一个<code>ArrayBuffer</code>、<code>Blob</code>、<code>Document</code>或<code>DomString</code>，具体是哪种类型取决于<code>XMLHttpRequest.responseType</code>的值。其中包括整个响应实体（<code>response entity body</code>）</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>返回一个无符号短整形数字，代表请求的响应状态，服务器返回的响应状态，如：404 = “文件未找到”，200 = “成功”，500 = “服务器内部错误”，304 = “资源未被修改”</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>一个无符号长整形数字，表示该请求的最大请求时间（毫秒），若超出该事件，请求会自动终止</td>
+</tr>
+<tr>
+<td><code>ontimeout</code></td>
+<td>当请求超市调用的<code>EventHandler</code></td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td>代表上传进度</td>
+</tr>
+<tr>
+<td><code>withCredentials</code></td>
+<td>一个布尔值，用来指定跨域<code>Access-Control</code>请求是否应当带有授权信息，如<code>cookie</code>或授权<code>header</code>头</td>
+</tr>
+<tr>
+<td><code>channel</code></td>
+<td>一个<code>nsIChannel</code>，对象在执行请求时使用的通道 （非标准属性）</td>
+</tr>
+<tr>
+<td><code>mozAnon</code></td>
+<td>一个布尔值，如果为真，请求将在没有<code>cookie</code>和身份验证<code>header</code>头的情况下发送 （非标准属性）</td>
+</tr>
+<tr>
+<td><code>mozSystem</code></td>
+<td>一个布尔值，如果为真，则在请求时不会执行同源策略 （非标准属性）</td>
+</tr>
+<tr>
+<td><code>mozBackgroundRequest</code></td>
+<td>一个布尔值，它指示对象是否是后台服务器端的请求 （非标准属性）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Ajax受同源策略的限制</p>
+</blockquote>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><blockquote>
+<p>浏览器有一个很重要的概念——同源策略（Same-Origin Policy）。所谓同源策略是指：协议，域名，端口相同才可读取服务器资源，不同源的客户端脚本（javascript、ActionScript）在没明确授权的情况下，不能读写对方的资源</p>
+</blockquote>
+<p><code>简单的来说，浏览器不允许包含在腾讯页面的脚本访问阿里巴巴页面的数据资源，会受到同源策略的限制</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">举例: https:<span class="comment">//www.baidu.com</span></span><br><span class="line">协议：http:<span class="comment">//</span></span><br><span class="line">域名：www.baidu.com</span><br><span class="line">端口：<span class="number">443</span>（默认端口可以省略）</span><br></pre></td></tr></table></figure>
+
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><ul>
+<li><p>协议：<code>http</code> / <code> https</code></p>
+<ul>
+<li><p><code>http</code>不加密，而<code>https</code>是加密传输数据的；</p>
+</li>
+<li><p><code>http</code>链接简单无状态，<code>https</code>是有<code>ssl+http</code>协议构建的可进行加密传输；</p>
+</li>
+<li><p><code>http</code>协议使用的端口是80，<code>https</code>使用的端口是443；</p>
+</li>
+<li><p><code>http</code>是免费申请的，<code>https</code>是需要到<code>CA</code>申请证书的。</p>
+</li>
+<li><p><code>localStorage</code>和<code>sessionStorage</code>的区别</p>
+</li>
+<li><p>  答：前者长期存放在浏览器中的，写入<code>localStorage</code>（无论窗口是否关闭都需要储存）。后者是这次会话临时需要存储的变量，每次窗口关闭的时候，都会自动清空。</p>
+</li>
+<li><p><code>localStorage</code>和<code>cookie</code>的区别</p>
+</li>
+<li><p><code>localStorage</code>在发送请求时不会把数据发送出去，<code>cookie</code>会把所有数据带出去；</p>
+<pre><code>   - `cookie`存储的数据比较少`4k`，`localStorage`可以存放较多的内容，`5M`左右。
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><ul>
+<li><code>.com</code> —— 顶级域名，顶级域名分为两类，一类按照国家分类，一类是按照国际分类，<code>DNS</code>先根据顶级域名判断网络范围在根据域名查找主机<code>ip</code>地址<ul>
+<li>国家域名分类：<ul>
+<li>中国：<code>.cn</code></li>
+<li>日本：<code>.jp</code></li>
+<li>美国：<code>.us</code></li>
+<li>法国：<code>.fr</code></li>
+<li>……</li>
+<li>国际域名分类：<ul>
+<li>工商、金融、商业机构：<code>.com</code>，<code>.top</code></li>
+<li>科研技术：<code>.tech</code></li>
+<li>教育机构：<code>.edu</code></li>
+<li>政府部门：<code>.gob</code></li>
+<li>从事互联网服务的机构：<code>.net</code></li>
+<li>非盈利性组织：<code>.org</code></li>
+<li>国内商业机构：<code>.com.cn</code></li>
+<li>国内互联网机构：<code>.net.cn</code></li>
+<li>国内非盈利性组织：<code>.org.cn</code></li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>baidu.com</code> —— （一）二级域名<ul>
+<li>为什么<code>baidu.com</code>是二级域名呢，因为中国在国际互联网网络中心正式注册且运行的顶级域名是<code>.cn</code>，在顶级域名之下，中国又分出了几个二级域名：<code>.com</code>，<code>.top</code>，<code>.net</code>，<code>.org</code>，<code>.edu</code>,<code>.tech </code>，<code>.gov</code>，他们在中国其实是<code>.com.cn</code>，在后面加了一个<code>.cn</code>，所以<code>baidu.com</code>是二级域名，如果说有一些地方没有把国家顶级域名设置为一级域名的话，那么<code>.com</code>也可以作为一级域名，如果<code>baidu.com</code>不是一个中国的网站，它又没有一个注册好的一级域名，那<code>baidu.com</code>就是一级域名</li>
+</ul>
+</li>
+<li><code>zhidao.baidu.com</code> —— （二）三级域名</li>
+<li><code>www</code>：二级域名的前缀，表示万维网维护的<ul>
+<li><code>www</code>扩展：最开始<code>Internet</code>提供的主要服务有万维网（<code>WWW</code>）、文件传输（<code>FTP</code>）、电子邮件（<code>E-mail</code>）、远程登录（<code>Telnet</code>）等。也就是说，那个时候的<code>www</code> <code>(World Wide Web)</code>是标识这是一个需要你用浏览器来访问的网页服务，而不是需要你用<code>telnet</code>访问的<code>bbs</code>，或者<code>ftp</code>工具访问的文件传输服务。所以那个时候网站主页的域名前面要用<code>www</code>，现在还带有<code>www</code>的主要是遵循用户的习惯，当然还有一些技术上的原因，如果<code>www.baidu.com</code>，如果不带<code>www</code>，它可以被叫做一个裸域名，裸域名只能绑定<code>DNS</code>的<code>A</code>记录，不能绑定<code>CNAME</code>记录<ul>
+<li><code>A</code>记录：通俗的来说就是服务器的一个<code>IP</code>，域名绑定<code>A</code>记录就是告诉<code>DNS</code>，当你输入域名的时候，给你引导向设置的<code>DNS</code>中的<code>A</code>记录所对应的服务器，简单来说就是A记录是指域名对应的<code>IP</code>地址，<code>A</code>记录就相当于<code>www.baidu.com</code>对应的<code>IP</code>地址。</li>
+<li><code>CNAME</code>记录：<ul>
+<li>除了<code>www.baidu.com</code>会解析出来一个<code>IP</code>地址之外，<code>baidu.com</code>也会解析出来一个<code>IP</code>地址，正常情况下，我们通常认为<code>baidu.com</code>和<code>www.baidu.com</code>是一个页面，，我们输入<code>baidu.com</code>也可以访问到<code>www.baidu.com</code>这一个页面，那是因为它把<code>baidu.com</code>和<code>www.baidu.com</code>这一个网址绑定到一起了，就相当于给<code>www.baidu.com</code>起了一个别名叫<code>baidu.com</code>，也就是不管输入<code>www.baidu.com</code>还是<code>baidu.com</code>都可以找到<code>www.baidu.com</code>的那个<code>IP</code>地址。像<code>www.baiduc.com</code>这样前面带有<code>www</code>的网址可以绑定这样的别名，但是如果没有<code>www</code>的网址，也就是裸域名不可以绑定别名，裸域名只能对应自己那唯一的<code>IP</code>，现在很多公司网址的网址都带有<code>www</code>，就是因为它们还有一些别的网址要和这个网址绑定，和他一样要对应着同一个<code>IP</code>地址。</li>
+<li>裸域名的<code>cookie</code>作用域范围大</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>baidu</code>有多个服务区为它服务。不同的子域名对应处理不同服务的服务器现在，把任务分配到多台服务器，不需要通过子域名来区分了。<code>http://google.com</code>一个地址背后有多台服务器支持运作。还采用<code>www</code>只是尊重用户习惯，方便用户看。国外其实已经不用写<code>www</code>。</li>
+</ul>
+</li>
+<li><code>www.baidu.com</code>： 属于特殊的三级域名</li>
+</ul>
+<h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><ul>
+<li>端口：<code>https</code>在默认情况下的端口是443，<code>http</code>的默认端口是80，端口是可以更改的<ul>
+<li>常用端口：21、22、23、25、69、79、80、88、110、113、119、220、44</li>
+</ul>
+</li>
+<li>如果把<code>IP</code>地址比作一间房子，端口就是出入这间房子的门。真正的房子只有几个门，但是这个<code>IP</code>地址的端口可以有多个，浏览网页服务<code>http</code>默认端口是80，<code>https</code>是443，因此只需要输入网址即可，不用输入“:80/443”</li>
+</ul>
+<h2 id="当你在浏览器输入一个url发生了什么-Depth"><a href="#当你在浏览器输入一个url发生了什么-Depth" class="headerlink" title="当你在浏览器输入一个url发生了什么(Depth)"></a>当你在浏览器输入一个url发生了什么(Depth)</h2><p>![url request.png (1208×446) (raw.githubusercontent.com)](url request.png)</p>
+<h3 id="简单归纳"><a href="#简单归纳" class="headerlink" title="简单归纳"></a>简单归纳</h3><ol>
+<li><p>浏览器通过<code>DNS</code>域名解析到服务器<code>IP</code>（ping <a target="_blank" rel="noopener" href="http://www.baidu.com)/">www.baidu.com）</a></p>
+</li>
+<li><p>客户端（浏览器）通过<code>TCP</code>协议建立到服务器的<code>TCP</code>连接（三次握手）</p>
+</li>
+<li><p>客户端（浏览器）向web服务器端（<code>HTTP</code>服务器）发送<code>HTTP</code>协议包，请求服务器里的资源文档（<code>telnet</code>模拟）</p>
+</li>
+<li><p>服务器向客户端发送<code>HTTP</code>协议应答包</p>
+</li>
+<li><p>客户端和服务器断开（四次挥手），客户端开始解释处理<code>HTML</code>文档</p>
+</li>
+</ol>
+<h3 id="TCP-UDP-传输层协议"><a href="#TCP-UDP-传输层协议" class="headerlink" title="TCP/UDP(传输层协议)"></a>TCP/UDP(传输层协议)</h3><p><strong>面向连接的TCP</strong></p>
+<p>TCP（<code>Transmission Control Protocol</code>，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个<code>TCP</code>连接必须要经过三次“对话”才能建立起来，其中的过程非常复杂，我们这里制作简单、形象的介绍，你只要做到能够理解这个过程即可。</p>
+<p><strong>面对非连接的UDP协议</strong></p>
+<p>“面向非连接”就是在正式通信前不必与对方先建立连接，不管对方状态就直接发送。与手机短信非常相似：你再发短信的时候，只需要输入对方手机号就OK了。</p>
+<p><code>UDP</code>（<code>User Data Protocol</code>，用户数据报协议）是与<code>TCP</code>相对应的协议。它是面向非连接的协议，它不与对方建立连接，而是直接就把数据包发送过去！</p>
+<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><ul>
+<li><p>三次握手</p>
+<ul>
+<li>第一次握手：建立连接时，客户端<code>A</code>发送<code>SYN</code>包<code>（SYN=j）</code>到服务器<code>B</code>，并进入<code>SYN_SEND</code>状态，等待服务器<code>B</code>确认。</li>
+<li>第二次握手：服务器<code>B</code>收到<code>SYN</code>包，必须确认客户<code>A</code>的<code>SYN（ACK=j+1）</code>，同时自己也发送一个<code>SYN</code>包<code>（SYN=k）</code>，即<code>SYN+ACK</code>包，此时服务器B进入<code>SYN_RECV</code>状态。</li>
+<li>第三次握手：客户端<code>A</code>收到服务器<code>B</code>的<code>SYN＋ACK</code>包，向服务器<code>B</code>发送确认包<code>ACK（ACK=k+1）</code>，此包发送完毕，客户端<code>A</code>和服务器<code>B</code>进入<code>ESTABLISHED</code>状态，完成三次握手。</li>
+<li>完成三次握手，客户端与服务器开始传送数据</li>
+</ul>
+<p><img src="threeShakes.png" alt="threeShakes.png (432×418) (raw.githubusercontent.com)"></p>
+</li>
+</ul>
+<ol>
+<li><p>先<code>Client</code>端发送链接，链接建立成功之后，请求报文</p>
+</li>
+<li><p><code>Server</code>端接受连接后恢复<code>ACK</code>报文，并未这次连接分配资源。</p>
+</li>
+<li><p><code>Client</code>端接收到<code>ACK</code>报文后也向Server端发送<code>ACK</code>报文，并分配资源，这样<code>TCP</code>连接就建立了</p>
+</li>
+</ol>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><ol>
+<li><p><code>Client</code>端发起中断连接请求，也就是发送<code>FIN</code>报文。<code>Server</code>端接到<code>FIN</code>报文后，意思是说“我<code>Client</code>端没有数据要发给你了”，但是如果你还有数据没有发送完成，则不要急着关闭（<code>Socket</code>），可以继续发送数据。</p>
+</li>
+<li><p><code>server</code>这时发送一个<code>ACK</code>的应答包，“告诉<code>Client</code>端，你的请求我收到了，但是我还没准备好，请继续等我的消息”。</p>
+<p><code>wait</code>：这个时候<code>Client</code>端就进入<code>FIN_WAIT</code>状态，继续等待<code>Server</code>端的<code>FIN</code>报文。</p>
+</li>
+<li><p>当<code>Server</code>端确定数据已经发送完成，则向<code>Client</code>端发送FIN报文，“告诉<code>Client</code>端，好了，我这边数据发完了，准备好关闭连接了。”</p>
+</li>
+<li><p><code>Client</code>端收到<code>FIN</code>报文后，“就知道可以关闭链接了，但是他还是不相信网络，怕<code>Server</code>不知道要关闭，所以发送<code>ACK</code>后进入<code>TIME_WAIT</code>状态，如果<code>Server</code>端没有收到<code>ACK</code>则可以重传”。<code>Server</code>端收到<code>ACK</code>后，就知道可以断开连接了，<code>Client</code>端等待了<code>2MSL</code>后依然没有收到回复，则证明<code>Server</code>端已正常关闭，那好，我<code>Client</code>端也可以关闭链接了。<code>Ok</code>，<code>TCP</code>链接就这样关闭了。</p>
+</li>
+</ol>
+<p><img src="fourShakes.png" alt="fourShakes.png (401×507) (raw.githubusercontent.com)"></p>
+<h2 id="http报文"><a href="#http报文" class="headerlink" title="http报文"></a>http报文</h2><blockquote>
+<p>请求报文、响应报文（通过报文进行沟通）</p>
+</blockquote>
+<p><strong>前端和后台在相互访问数据的时候一定要以一个规范来进行书写，这样前后端都可以识别出来你的需求是什么</strong></p>
+<h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><ul>
+<li><strong>请求头</strong><ul>
+<li><a target="_blank" rel="noopener" href="http://tools.jb51.net/table/http_header">http://tools.jb51.net/table/http_header</a> (请求头)</li>
+</ul>
+</li>
+<li><strong>请求行</strong><ul>
+<li>请求方法<ul>
+<li><code>GET</code>/<code>POST</code>/<code>DELETE</code>/<code>HEAD</code>/<code>TRACE</code>/<code>OPTION</code></li>
+<li>`<a target="_blank" rel="noopener" href="http://tools.jb51.net/table/http_request_method">http://tools.jb51.net/table/http_request_method</a> (请求方法)</li>
+</ul>
+</li>
+<li>请求资源（<code>URL</code>）</li>
+<li>请求版本（<code>HTTP/1.1</code>）<ul>
+<li>1.1版本可以长链接，发送多个请求，得到多个响应</li>
+<li>1.0版本只可以发送一个请求，得到一个响应，然后断开链接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>请求主体</strong><ul>
+<li>表单提交数据如：<code>name=aimee&amp;age=18</code>;</li>
+</ul>
+</li>
+<li><img src="request-message.jpg" alt="request-message.jpg (875×513) (raw.githubusercontent.com)"></li>
+</ul>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><ul>
+<li><strong>响应头</strong><ul>
+<li><a target="_blank" rel="noopener" href="http://tools.jb51.net/table/http_header">http://tools.jb51.net/table/http_header</a> (响应头)</li>
+</ul>
+</li>
+<li><strong>响应行</strong><ul>
+<li>响应版本号（HTTP/1.1）</li>
+<li>响应状态码（200）<a target="_blank" rel="noopener" href="http://tool.oschina.net/commons?type=5">http://tool.oschina.net/commons?type=5</a></li>
+<li>响应状态文字 （OK）<a target="_blank" rel="noopener" href="http://tools.jb51.net/table/http_status_code">http://tools.jb51.net/table/http_status_code</a></li>
+<li><strong>每一个状态码都有一个对应的响应文字，就如200的响应文字是OK，404的状态响应文字是No Found</strong></li>
+</ul>
+</li>
+<li><strong>响应主体</strong><ul>
+<li><code>sign success</code> (注册成功)</li>
+</ul>
+</li>
+<li><img src="response-message.jpg" alt="response-message.jpg (1099×650) (raw.githubusercontent.com)"></li>
+</ul>
+<h3 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h3><ul>
+<li><p><strong>304定向缓存</strong></p>
+</li>
+<li><p>304 上次缓存的资源没有改变—-浏览器如何知道是否直接取缓存的内容？</p>
+</li>
+<li><p>理解部分：请求头、响应头</p>
+<ul>
+<li><p>请求头：</p>
+<ul>
+<li><code>if-None-Match</code>：匹配<code>etag</code>，如果服务器中<code>etag</code>的值修改了，不取缓存，重新获取服务器资源</li>
+</ul>
+</li>
+<li><p><code>if-Modified-Since</code>：将先前服务器端发过来的最后修改时间戳发送回去x</p>
+</li>
+<li><p>响应头：</p>
+<ul>
+<li><code>etag</code>：标记资源位置</li>
+</ul>
+</li>
+<li><p><code>last-Modified</code>：服务器最后修改的事件，和<code>etag</code>配合使用&gt;**</p>
+</li>
+<li><p><strong>当客户端第一次请求改资源时，etag和if-None-Match<del><em>的工作原理</em></del>是在HTTP Response中添加该资源的etag信息。当客户端再次请求该资源时，将HTTP Request中加入if-None-Match信息（etag的值）。如果服务器验证资源的etag没有改变（该资源没有改变），将返回一个304的状态，读取缓存，如果服务器中的etag值发生了改变，则服务器将返回200状态，并重新返回该资源和新的etag值</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Date</strong>：服务器相应内容的日期</p>
+</li>
+<li><p><img src="Date.png" alt="Date.png (1148×606) (raw.githubusercontent.com)"></p>
+</li>
+<li><p><strong>Cache-Control</strong>：内容缓存时间</p>
+<p><img src="CacheControl.png" alt="CacheControl.png (645×345) (raw.githubusercontent.com)"></p>
+</li>
+<li><p><strong>no-cache</strong>：不被缓存的，每次在向客户端（浏览器）提供响应数据时，缓存都要向服务器评估缓存相应的有效性，就是每次拿到<code>if-None-Match</code>都不缓存，没有有效时间</p>
+</li>
+<li><p><strong>no-store</strong>：用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。根据缓存超时（就是如果有重要的信息，不会被缓存）</p>
+</li>
+<li><p><strong>max-age</strong>：指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应，意思是在规定的时间之内再次发送请求，不会去服务器请求了，而是会直接去请求缓存。</p>
+</li>
+<li><p><strong>min-fresh</strong>：指导客户机可以接收响应时间小于当前时间加上指定时间的响应，它可以接收<code>max-age</code>和<code>max-stale</code>之和的一个缓存对象</p>
+</li>
+<li><p><strong>max-stale</strong>：指示客户机可以接收超时期间的响应消息。如果指定<code>max-stale</code>消息的值，那么客户机可以接收超出超时期指定值之内的响应消息</p>
+</li>
+<li><p><strong>Expires</strong>：内容保质期，表示存在时间， 允许客户端在这个事件之前不去检查（发请求），等同于max-age的效果。但是如果同时存在，则会被<code>cache-control</code>的<code>max-age</code>覆盖。</p>
+</li>
+<li><p><strong>referer</strong>：用来判断我们从哪个网站点击过来的</p>
+<ul>
+<li><p>网站点击量统计</p>
+</li>
+<li><p>如果从浏览器地址栏输入地址请求头没有<code>referer</code></p>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2></li>
+</ul>
+</li>
+</ul>
+<h3 id="关于跨域的一些问题"><a href="#关于跨域的一些问题" class="headerlink" title="关于跨域的一些问题"></a>关于跨域的一些问题</h3><h4 id="那些东西属于资源？JS算资源吗？"><a href="#那些东西属于资源？JS算资源吗？" class="headerlink" title="那些东西属于资源？JS算资源吗？"></a>那些东西属于资源？JS算资源吗？</h4><ul>
+<li><code>js</code>文件肯定是算资源的，但是<code>js</code>文件是允许被跨域请求的。</li>
+<li><code>css</code>文件，<code>jpg</code>，<code>png</code>等。<code>src</code>属性的资源都是可以被跨域请求的。<code>href</code>资源大部分都是可以被跨域请求的</li>
+</ul>
+<h4 id="哪些资源算跨域的资源"><a href="#哪些资源算跨域的资源" class="headerlink" title="哪些资源算跨域的资源"></a>哪些资源算跨域的资源</h4><ul>
+<li>后端接口的数据</li>
+<li>其它域的<code>cookie</code></li>
+<li>其它域的缓存</li>
+<li>什么是其他的域呢？怎么才算跨域<ul>
+<li>页面本身：协议，域名，端口，有任何一个不同就算跨域</li>
+<li>要请求的数据：<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com:80</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="跨域这种行为发生在哪里"><a href="#跨域这种行为发生在哪里" class="headerlink" title="跨域这种行为发生在哪里"></a>跨域这种行为发生在哪里</h4><ul>
+<li>即使跨域了（协议、域名、端口不一样），请求也可以发出去</li>
+<li>服务器端也可以接收、处理、返回数据的</li>
+<li>浏览器也可以接收到这些数据</li>
+<li>接收到之后，发现当前页面的域和请求的域不同，所以判定跨域</li>
+<li>我们的代码会在这里等着结果，但是因为浏览器判定跨域了，不会把结果传递给我们的代码</li>
+</ul>
+<h4 id="有哪些方式可以在Web网络中发出一个请求"><a href="#有哪些方式可以在Web网络中发出一个请求" class="headerlink" title="有哪些方式可以在Web网络中发出一个请求"></a>有哪些方式可以在Web网络中发出一个请求</h4><ul>
+<li><p>直接在地址栏填写地址</p>
+</li>
+<li><p>通过代码发送网络请求</p>
+<ul>
+<li><code>location.href=&#39;url&#39;</code>，可以发送网络请求，但是页面会跳转</li>
+<li>带有<code>src</code>属性的标签，可以发送请求，服务器是可以正常处理的也是可以返回的。但是在返回之后，能够被应用，还得看浏览器。</li>
+<li>带有<code>href</code>属性的标签，请求是可以发出的，服务器是可以处理的也是可以返回的。但是返回后是否能被应用，还得看浏览器。</li>
+<li>带有<code>action</code>属性的标签，</li>
+<li>例如<code>form</code>表单，也是可以向后端发出请求的。但是<code>form</code>表单发出请求后页面会跳转。</li>
+</ul>
+</li>
+</ul>
+<h3 id="解决跨域的几种方法"><a href="#解决跨域的几种方法" class="headerlink" title="解决跨域的几种方法"></a>解决跨域的几种方法</h3><h4 id="Flash（不做讨论）"><a href="#Flash（不做讨论）" class="headerlink" title="Flash（不做讨论）"></a>Flash（不做讨论）</h4><h4 id="服务器代理中转"><a href="#服务器代理中转" class="headerlink" title="服务器代理中转"></a>服务器代理中转</h4><ul>
+<li>借助自己同源的服务器向别人的服务器去取资源</li>
+<li><img src="https://raw.githubusercontent.com/haodex/Note/master/Web/network/jsonp1.png">)</li>
+<li>当浏览器发送了一个<code>ajax</code>请求，这个<code>ajax</code>请求指向的是别人服务器的一个文件<code>xxx.php</code>，那么可以请求成功吗？不能。浏览器可以请求成功的前提是域名、端口和协议都相同，但别人的服务器和我的同源策略都不相同，所以无法请求文件。</li>
+<li><img src="https://raw.githubusercontent.com/haodex/Note/master/Web/network/jsonp2.png"></li>
+<li>我们向别的服务器请求不成功是因为同源策略的限制，这时，我们可以向自己的服务器请求文件<code>yy.php</code>，在<code>yy.php</code>文件链接到其他的服务器，由<code>yy.php</code>向<code>xx.php</code>发送请求，请求数据，这时，因为<code>yy.php</code>和<code>xx.php</code>都是在服务器中进行的数据交换，不存在浏览器（同源策略只是浏览器的一个安全策略），所以不受同源策略的限制，这时，我们的<code>yy.php</code>就可以向<code>xx.php</code>请求数据了，<code>xx,php</code>把数据返回给<code>localhost</code>服务器下面的<code>yy.php</code>，然后<code>yy.php</code>再把<code>xx.php</code>给它的数据返回给浏览器。</li>
+</ul>
+<h4 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h4><p><strong>针对基础域名相同的情况</strong></p>
+<p><code>bj58.com    document.domain = &#39;58.com&#39;</code><br><code>tj58.com    document.domain = &#39;58.com&#39;</code></p>
+<ul>
+<li><p>这两个都是58同城的网页，<code>bj</code>代表北京，<code>tj</code>代表天津，这时两个不同的页面，服务器也不相同，如果从<code>bj58.com</code>向<code>tj58.com</code>获取数据，会受到同源策略的限制吗？会的，域名不相同。</p>
+</li>
+<li><p>但是，这两个域名都有一个相同的基础域名<code>58.com</code>，它要怎么跨域呢？在他们当前域名的脚本下都写上一句<code>document.domain = &#39;58.com&#39;</code>，意思是，<code>document</code>设置一个基础域名叫<code>58.com</code>，这样就可以相互访问数据了。</p>
+</li>
+<li><p>但是这样有一个前提，他们的基础域名必须是一样的。</p>
+</li>
+</ul>
+<h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><ul>
+<li><code>jsonp</code>和<code>json</code>不一样，<code>json</code>是一种数据格式，<code>jsonp</code>算是一个技术，小应用，我们使用<code>jsonp</code>可以实现网络中的跨域拿、取数据。</li>
+<li><code>ajax</code>会受同源策略的限制</li>
+<li><strong>JSONP格式：callback + ( + JSON + )</strong></li>
+<li><strong>JSONP跨域只能使用get请求方法</strong></li>
+</ul>
+<h5 id="jsonp原理"><a href="#jsonp原理" class="headerlink" title="jsonp原理"></a>jsonp原理</h5><ul>
+<li><p><code>Web</code>页面上用<code>&lt;script&gt;</code>引入<code>js</code>文件则不受是否跨域影响，也就是不受同源策略的限制，不仅如此，我们还发现凡是拥有<code>&quot;src&quot;</code>这个属性的标签都拥有跨域的能力，比如<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;iframe&gt;</code>。</p>
+</li>
+<li><p>于是我们把数据放到服务器，并且数据为<code>json</code>形式（因为<code>js</code>可以轻松处理<code>json</code>数据）</p>
+</li>
+<li><p>因为我们无法监控通过<code>&lt;script&gt;</code>的<code>src</code>属性是否把数据获取完成，所以我们需要做一个处理。</p>
+</li>
+<li><p>实现定义好处理跨域获取数据的函数，如<code>function ddoJSON(data)&#123;&#125;</code></p>
+</li>
+<li><p>用<code>src</code>获取数据的时候添加一个参数<code>cb=&#39;doJSON&#39;</code>（服务器端会根据参数<code>cb</code>的值返回对应的内容）此内容为以<code>cb</code>对应的值<code>doJSON</code>为函数真实要传递的数据为函数的参数的一串字符，如<code>doJSON</code>（’数据’）</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">判断请求与当前页面的域，是否同源，如果同源则发送正常的ajax，就没有跨域的事情了。</span><br><span class="line">如果不同源，生成一个script标签</span><br><span class="line">生成一个随机的callback名字，还得创建一个名为这个的方法。</span><br><span class="line">设置script标签的src，设置为要请求的接口。</span><br><span class="line">将callback作为参数拼接在后面。</span><br><span class="line">---------------------以上是前端部分---------------------</span><br><span class="line">后端接收到请求后，开始准备要返回的数据</span><br><span class="line">后端拼接数据，将要返回的数据用callback的值和括号包裹起来</span><br><span class="line">例如：callback=aa，要返回的数据为&#123;<span class="string">&quot;a&quot;</span>:<span class="number">1</span>, <span class="string">&quot;b&quot;</span>:<span class="number">2</span>&#125;,</span><br><span class="line">就要拼接为：aa(&#123;<span class="string">&quot;a&quot;</span>:<span class="number">1</span>, <span class="string">&quot;b&quot;</span>:<span class="number">2</span>&#125;);</span><br><span class="line">将内容返回。</span><br><span class="line">---------------------以上是后端部分---------------------</span><br><span class="line">浏览器接收到内容，会当做js代码来执行。</span><br><span class="line">从而执行名为aa的方法。这样我们就接收到了后端返回给我们的对象。</span><br><span class="line"></span><br><span class="line">简易:</span><br><span class="line">	<span class="keyword">var</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    oScript.src = <span class="string">&#x27;?cb=aa&#x27;</span>;</span><br><span class="line"> 	<span class="built_in">document</span>.body.appendChild(oScript);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">aa</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	index.js里面的内容: aa(&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;yzl&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line">困难:</span><br><span class="line"><span class="keyword">var</span> $ = &#123;</span><br><span class="line">    <span class="attr">ajax</span>: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> url = options.url;</span><br><span class="line">        <span class="keyword">var</span> type = options.type;</span><br><span class="line">        <span class="keyword">var</span> dataType = options.dataType;</span><br><span class="line">        <span class="comment">//判断是否同源（协议，域名，端口号）</span></span><br><span class="line">        <span class="comment">//获取目标url的域</span></span><br><span class="line">        <span class="keyword">var</span> targetProtocol = <span class="string">&quot;&quot;</span>;<span class="comment">//目标接口的协议</span></span><br><span class="line">        <span class="keyword">var</span> targetHost = <span class="string">&quot;&quot;</span>;<span class="comment">//目标接口的host，host是包涵域名和端口的</span></span><br><span class="line">        <span class="comment">//如果url不带http，那么访问的一定是相对路径，相对路径一定是同源的。</span></span><br><span class="line">        <span class="keyword">if</span> (url.indexOf(<span class="string">&quot;http://&quot;</span>) == <span class="number">0</span> || url.indexOf(<span class="string">&quot;https://&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> targetUrl = <span class="keyword">new</span> URL(url);</span><br><span class="line">            targetProtocol = targetUrl.protocol;</span><br><span class="line">            targetHost = targetUrl.host;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            targetProtocol = location.protocol;</span><br><span class="line">            targetHost = location.host;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//首先判断是否为jsonp，因为不是jsonp不用做其他的判断，直接发送ajax</span></span><br><span class="line">        <span class="keyword">if</span> (dataType == <span class="string">&quot;jsonp&quot;</span>) &#123;</span><br><span class="line">        <span class="comment">//要看是否同源</span></span><br><span class="line">            <span class="keyword">if</span> (location.protocol == targetProtocol &amp;&amp; location.host == targetHost) &#123;<span class="comment">//表示同源</span></span><br><span class="line">                <span class="comment">//此处省略。因为同源，jsonp会当做普通的ajax做请求</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;<span class="comment">//不同源，跨域</span></span><br><span class="line">                <span class="comment">//随机生成一个callback</span></span><br><span class="line">                <span class="keyword">var</span> callback = <span class="string">&quot;cb&quot;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">1000000</span>);</span><br><span class="line">                <span class="comment">//给window上添加一个方法</span></span><br><span class="line">                <span class="built_in">window</span>[callback] = options.success;</span><br><span class="line">                <span class="comment">//生成script标签。</span></span><br><span class="line">                <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span> (url.indexOf(<span class="string">&quot;?&quot;</span>) &gt; <span class="number">0</span>) &#123;<span class="comment">//表示已经有参数了</span></span><br><span class="line">                    script.src = url + <span class="string">&quot;&amp;callback=&quot;</span> + callback;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;<span class="comment">//表示没有参数</span></span><br><span class="line">                    script.src = url + <span class="string">&quot;?callback=&quot;</span> + callback;</span><br><span class="line">                &#125;</span><br><span class="line">                script.id = callback;</span><br><span class="line">                <span class="built_in">document</span>.head.appendChild(script);</span><br><span class="line">             &#125;</span><br><span class="line">      	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//http://developer.duyiedu.com/edu/testJsonp?callback</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;http://developer.duyiedu.com/edu/testJsonp&quot;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&quot;jsonp&quot;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><blockquote>
+<p>Cookie是由服务器端生成，发送给User-Agent（一般是浏览器），（服务器告诉浏览器设置一下cookie），浏览器会把Cookie以key/value保存到某个目录下的文本文件内，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。</p>
+</blockquote>
+<ul>
+<li><code>Cookie</code>就是一个小型文件（浏览器对cookie的内存大小是有限制的——–用来记录一些信息）</li>
+</ul>
+<h3 id="跟踪记录用户的方式"><a href="#跟踪记录用户的方式" class="headerlink" title="跟踪记录用户的方式"></a>跟踪记录用户的方式</h3><ol>
+<li><p>标记了用户身份<code>http</code>请求首部</p>
+<ol>
+<li><strong>form</strong>：<code>e-mail</code>（发送<code>e-mail</code>）<ol>
+<li>不安全，可以根据<code>e-mail</code>发送垃圾邮件</li>
+</ol>
+</li>
+<li><strong>user-agen</strong>：浏览器本身的一些信息<ol>
+<li>只能看浏览器的一些信息，不完全</li>
+</ol>
+</li>
+<li><strong>referer</strong>：跳转链接（上一次的访问内容）<ol>
+<li>可以知道用户的习惯，但是也不完全</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>IP</strong>地址（根据客户端的IP地址进行识别）</p>
+<ol>
+<li><code>ip</code>地址只能标记机器，不能标记用户</li>
+<li><code>ip</code>地址不稳定，动态<code>ip</code>，容易伪造</li>
+</ol>
+</li>
+<li><p>用户登录</p>
+</li>
+<li><p>胖<strong>URL</strong></p>
+<ul>
+<li><em>在原来的<code>url</code>中添加了一个特定字段（特殊标记）</em>*</li>
+</ul>
+<ol>
+<li>字段过长</li>
+<li>会对服务器产生额外的负载</li>
+<li>无法共享</li>
+<li>存在的生命周期过短（关闭窗口后就会消失，重新进入后会重新生成一段特定字段）</li>
+</ol>
+</li>
+<li><p><strong>cookie</strong></p>
+<ol>
+<li>服务器在浏览器设置的一些信息，设置在本地文件中。</li>
+<li>使用时自动发送给浏览器，接收时自动存储</li>
+</ol>
+</li>
+</ol>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="Cookie的分类："><a href="#Cookie的分类：" class="headerlink" title="Cookie的分类："></a>Cookie的分类：</h4><ul>
+<li><p>会话<code>Cookie</code>（临时<code>Cookie</code>，在当前窗口中才有用）</p>
+</li>
+<li><p>永久<code>Cookie</code>（有保质期）</p>
+<h4 id="Cookie使用的过程："><a href="#Cookie使用的过程：" class="headerlink" title="Cookie使用的过程："></a>Cookie使用的过程：</h4><ul>
+<li>初始状态：没有登录</li>
+<li>访问对方网站，输入用户名及密码</li>
+<li>对方服务器响应后会在这个域名下设置一个<code>set-cookie</code>的值，<code>set-cookie</code>就是对方服务器对于你的id标识，会在这个<code>set-cookie</code>值中存储你的数据信息</li>
+<li>响应成功后会在响应头中添加<code>set-cookie</code>值随着响应报文返回给你的浏览器，浏览器会把<code>set-cookie</code>的值存在本地cookie文件中。</li>
+<li>当你再一次向对方网站发送请求，浏览器会自动在请求头中添加上<code>set-cookie</code>值，发送给对方服务器。</li>
+<li>对方服务器会尝试获取<code>set-cookie</code>值，如果有，就说明这个用户以前登陆过，找到对应的<code>set-cookie</code>值对应的数据信息返回给你的浏览器。</li>
+</ul>
+</li>
+<li><p><strong>Cookie</strong>内存大小受限制</p>
+<ul>
+<li><p><code>Cookie</code>有个数和大小的限制，大小一般是<code>4K</code></p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/haodex/Note/master/Web/network/CookieSize.png"></p>
+<h4 id="Cookie的特点"><a href="#Cookie的特点" class="headerlink" title="Cookie的特点"></a>Cookie的特点</h4></li>
+<li><p>满足同源策略</p>
+<ul>
+<li><p>虽然网站<code>images.google.com</code>与网站<code>www.google.com</code>同属于Google，但是域名不一样，二者同样不能互相操作彼此的Cookie。</p>
+<p>问题来了 举个例子：</p>
+<p>访问完<code>zhidao.baidu.com</code>再访问<code>wenku.baidu.com</code>还需要重新登陆百度账号吗？</p>
+</li>
+</ul>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li>设置<code>cookie</code>的<code>document.domain</code>，<code>document.domain=&#39;baidu.com&#39;</code></li>
+<li><img src="https://raw.githubusercontent.com/haodex/Note/master/Web/network/cookieDomain.png"></li>
+<li>当页面都属于<code>baidu.com</code>这个基础域名之下的话，那么只要是<code>baidu.com</code>这个基础域名之下的域名都可以相互<code>cookie</code>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cookie在本地可以被更改文件，敏感的数据不要放在cookie。</strong></p>
+</li>
+</ul>
+<h4 id="Cookie的增删改查"><a href="#Cookie的增删改查" class="headerlink" title="Cookie的增删改查"></a>Cookie的增删改查</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cookie的使用</span><br><span class="line">	cookie常用的属性值：</span><br><span class="line">    	name：cookie的名字</span><br><span class="line">        value：cookie的值</span><br><span class="line">        domain：cookie的域名</span><br><span class="line">        path：cookie的路径</span><br><span class="line">        Expires/max-age：cookie的保质期时间（Session就代表是临时cookie）</span><br><span class="line">		Size：cookie的字符长度（一般不会设置）</span><br><span class="line">    </span><br><span class="line">	通过<span class="built_in">document</span>.cookie 设置cookie</span><br><span class="line">    	格式：<span class="string">&quot;属性=值;&quot;</span></span><br><span class="line">	例如：</span><br><span class="line">    	<span class="built_in">document</span>.cookie = <span class="string">&#x27;age=18;max-age=1000;path=/&#x27;</span>;</span><br><span class="line">		<span class="built_in">document</span>.cookie = <span class="string">&#x27;name=amiee;expires=&#x27;</span> + <span class="keyword">new</span> <span class="built_in">Date</span>() + <span class="number">1</span> + <span class="string">&quot;;path=/&quot;</span>;</span><br><span class="line">   </span><br><span class="line">	<span class="built_in">document</span>可以设置cookie，其中</span><br><span class="line">    <span class="string">&quot;age=18;&quot;</span> 是name=value</span><br><span class="line">	<span class="string">&quot;max-age=1000;&quot;</span> 是这个Cookie的保质期时长是<span class="number">1000</span>秒，不设置就是Session</span><br><span class="line">    <span class="string">&quot;path=&#x27;/&#x27;&quot;</span> 是cookie的路径，不设置就是cookie原来的路径</span><br><span class="line">    </span><br><span class="line">    删除cookie就只需要把max-age或者expires的时间给改成负数就好了</span><br><span class="line">	如：<span class="string">&quot;max-age=-1;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>虽然我们可以读取和更改cookie，但是一直用document.cookie来更改会很麻烦。所以封装一个增删改查的函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Cookie的增删改查封装函数</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> manageCookie = &#123;</span><br><span class="line">    <span class="comment">// 创建Cookie，name为名字，value是内容，time是时间，path是路径</span></span><br><span class="line">    <span class="attr">setCookie</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name,value,time,path</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.cookie = name + <span class="string">&#x27;=&#x27;</span> + value + <span class="string">&quot;;max-age=&quot;</span> + time +<span class="string">&quot;;path=&quot;</span> + path;</span><br><span class="line">    	<span class="comment">// 返回this让它可以链式调用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 删除cookie，name就是要删除的cookie的name</span></span><br><span class="line">    <span class="attr">removeCookie</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 返回this让它可以链式调用</span></span><br><span class="line">        <span class="comment">// 借用setCookie函数直接删除</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.setCookie(name,<span class="string">&#x27;&#x27;</span>,-<span class="number">1</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 查找cookie，name是名字,callback是回调函数（处理最后返回来的数据）</span></span><br><span class="line">    <span class="attr">getCookie</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name,callback</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// console.log(allCookieArr); </span></span><br><span class="line">        <span class="comment">// 把cookie字符串按照 ;+空格 拆分</span></span><br><span class="line">        <span class="keyword">var</span> allCookieArr = <span class="built_in">document</span>.cookie.split(<span class="string">&#x27;; &#x27;</span>);</span><br><span class="line">        <span class="comment">// 循环遍历数组allCookieArr</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; allCookieArr.length; i++) &#123;</span><br><span class="line">            <span class="comment">// console.log(itemCookieArr); 把已经变成数组的cookie字符串按照 =（等于号）拆分成一个一个的数组</span></span><br><span class="line">            <span class="keyword">var</span> itemCookieArr = allCookieArr[i].split(<span class="string">&#x27;=&#x27;</span>);</span><br><span class="line">            <span class="comment">// 如果itemCookieArr的第0位等于我输入的name值</span></span><br><span class="line">            <span class="keyword">if</span>(itemCookieArr[<span class="number">0</span>] == name) &#123;</span><br><span class="line">                callback(itemCookieArr[<span class="number">1</span>]);</span><br><span class="line">                <span class="comment">// 如果找到了就返回this</span></span><br><span class="line">               	<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果找不到cookie的name值，就返回一个undefined</span></span><br><span class="line">        callback(<span class="literal">undefined</span>);</span><br><span class="line">        <span class="comment">// 返回一个this让它可以链式调用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链式调用</span></span><br><span class="line">manageCookie.setCookie(<span class="string">&#x27;color&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>,<span class="number">1000</span>)</span><br><span class="line">            .setCookie(<span class="string">&#x27;teater&#x27;</span>,<span class="string">&#x27;aimee&#x27;</span>,<span class="number">2000</span>)</span><br><span class="line">            .removeCookie(<span class="string">&#x27;teater&#x27;</span>)</span><br><span class="line">            .getCookie(<span class="string">&#x27;color&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(data);</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><ul>
+<li><p><code>iframe</code>就是一个标签<code>dom</code>元素</p>
+</li>
+<li><p>可以在一个网页里嵌入另一个网页</p>
+<ul>
+<li>可以做导航栏tab切换页（古老的做法）、在线编辑器、广告植入</li>
+</ul>
+</li>
+<li><p>历史记录管理，解决<code>ajax</code>化网站响应浏览器前进后退按钮的方法</p>
+</li>
+<li><p>跨域通信等</p>
+</li>
+</ul>
+<h3 id="iframe利弊"><a href="#iframe利弊" class="headerlink" title="iframe利弊"></a>iframe利弊</h3><ul>
+<li><strong>iframe</strong>阻塞页面加载</li>
+<li>触发<code>window.onload</code>事件是非常重要的。<code>onload</code>事件触发使浏览器的”忙”指示器停止，告诉用户已经加载完毕。当<code>onload</code>事件加载延迟后，它给用户的感觉就是这个网页非常慢</li>
+<li><code>window.onload</code>事件需要在所有的<code>iframe</code>标签加载完毕后（包含里面的元素）才会触发。通过<code>JavaScript</code>动态设置<code>iframe</code>的<code>src</code>属性可以避免这种阻塞情况</li>
+<li>解决跨域问题（已经不怎么用了）</li>
+</ul>
+<h3 id="浏览器对于iframe的方法"><a href="#浏览器对于iframe的方法" class="headerlink" title="浏览器对于iframe的方法"></a>浏览器对于iframe的方法</h3><ul>
+<li><p>获取<code>iframe</code>的<code>window</code>窗口：</p>
+<ul>
+<li><strong>W3C</strong>专用<ul>
+<li><code>dom.contentWindow</code></li>
+<li><code>contentWindow</code>就是来获取<code>iframe</code>的<code>window</code>对象的，只要选中<code>DOM</code>，用<code>DOM</code>来操作<code>contentWindow</code>。</li>
+<li>简易写法：<code>window.iframe[iframe</code>标签的<code>name</code>属性]</li>
+</ul>
+</li>
+<li><strong>IE</strong>专用<ul>
+<li><code>document.iframe[iframe</code>标签的<code>name</code>属性]<code>.contentWindow</code></li>
+<li><code>document.iframe[第i个iframe</code>标签<code>].contentWindow</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ifrmae</strong>父子页面窗口的关系</p>
+<ul>
+<li><code>window.self</code>——<code>window</code>自己</li>
+<li><code>window.parent</code>——<code>iframe</code>父级窗口对象</li>
+<li><code>window.top</code>——顶级窗口对象</li>
+</ul>
+</li>
+<li><p>判断<strong>iframe</strong>是否加载完成</p>
+<ul>
+<li><p>非<code>ie</code>下使用<code>onload</code>事件</p>
+<ul>
+<li><code>iframe(dom元素).onload = function() &#123;&#125;</code></li>
+</ul>
+</li>
+<li><p>IE下使用<code>onreadystatechange</code>事件</p>
+<ul>
+<li>```js<br>dom.onreadystatechange = function() {<pre><code>if(iframe.readyState == &#39;complete&#39; || iframe.readyState == &#39;loaded&#39;) &#123;
+    alert(&quot;Local iframe is now loaded&quot;);
+&#125;
+</code></pre>
+}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- `**iframe**跨域</span><br><span class="line"></span><br><span class="line">  - 可以使用哈希值跨域</span><br><span class="line"></span><br><span class="line">      - 解决子页面访问父页面数据问题</span><br><span class="line"></span><br><span class="line">      - **window.location.hash**</span><br><span class="line">  </span><br><span class="line">      - ```html</span><br><span class="line">          &lt;iframe src=&amp;quot;https:.../.../.../B.html#1&gt; // #1就是哈希值</span><br><span class="line">          </span><br><span class="line">          // 主页面</span><br><span class="line">          &lt;script&gt;</span><br><span class="line">          	var oIframe = document.getElementsByTagName(&amp;#39;iframe&amp;#39;)[0];</span><br><span class="line">          	var oldAge = 55;</span><br><span class="line">          </span><br><span class="line">          	var oSrc = oIframe.src; // 单独获取出来方便更改哈希值</span><br><span class="line">          	document.onclick = function() &#123;</span><br><span class="line">                  oIframe.src = oSrc + &amp;#39;#&amp;#39; + oldAge;</span><br><span class="line">                  oldAge++;</span><br><span class="line">              &#125;</span><br><span class="line">          &lt;/script&gt;</span><br><span class="line">          </span><br><span class="line">          // iframe子页面 B.html</span><br><span class="line">          &lt;script&gt;</span><br><span class="line">              var age = 20;</span><br><span class="line">          	var lastHash = window.location.hash; // location.hash 可以取window下面的hash值</span><br><span class="line">          	setInterval(function() &#123;</span><br><span class="line">                  if(lastHash != window.location.hash) &#123;</span><br><span class="line">                      console.log(location.hash.splice(1)) // 打印出来的值会有#号，用splice截取掉</span><br><span class="line">                      lastHash = window.location.hash;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;,10)</span><br><span class="line">          	// 使用计时器来10毫秒捕获一次页面的哈希值，非常的耗费性能，所以现在基本上不用了</span><br><span class="line">        &lt;/script&gt;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>window.name</strong></p>
+<ul>
+<li><p>可以解决父页面访问子页面数据的问题</p>
+</li>
+<li><p>页面重载、刷新在本窗口<code>window.name</code>值不变，即使换了一个页面</p>
+</li>
+<li><p>用一个代理文件，和应用页面在同一个域中</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> &lt;iframe src=<span class="string">&quot;https:.../.../.../B.html#1&quot;</span>&gt; <span class="comment">// #1就是哈希值</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 主页面</span></span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="keyword">var</span> oIframe = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;iframe&#x27;</span>)[<span class="number">0</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="keyword">var</span> flag = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="comment">// 给一个锁，不然会死循环</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	oIframe.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="keyword">if</span>(flag)&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             <span class="comment">// 因为window.name的特性，所以iframe访问的页面完成后换成同一个域下的数据文件，这样符合同源策略，而且window.name还是不变的</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">             oIframe.src = <span class="string">&#x27;./C.html&#x27;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             flag = <span class="literal">false</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; <span class="keyword">else</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             <span class="comment">// 等自己域下的数据文件代替了iframe的src后，获取自己数据文件的window.name属性</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">           <span class="built_in">console</span>.log(oIframe.contentWindow.name);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">   &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// iframe子页面 B.html</span></span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">     <span class="keyword">var</span> age = <span class="number">20</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="built_in">window</span>.name = age;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="防抖-amp-节流"><a href="#防抖-amp-节流" class="headerlink" title="防抖&amp;节流"></a>防抖&amp;节流</h2><blockquote>
+<p>在前端开发中有一部分的用户行为会频繁的触发事件执行，而对于DOM操作、资源加载等耗费性能的处理，很可能导致界面卡顿，甚至浏览器的崩溃。函数节流（throttle）和函数防抖（debounce）就是为了解决类似需求应运而生的。</p>
+</blockquote>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><ul>
+<li><p>函数防抖就是在函数需要频繁出发情况时，只有足够空闲的时间，才执行一次。好像电梯会等人，当电梯等了几秒要关门时上来一个人，电梯会在等几秒，直到几秒后没人了在运行</p>
+</li>
+<li><p>场景</p>
+<ul>
+<li>实时搜索（<strong>keyup</strong>）<ul>
+<li>等到指定时间，搜索区域没有动静了，再触发请求</li>
+</ul>
+</li>
+<li>窗口调整（<strong>resize</strong>）<ul>
+<li>等到指定时间，浏览器窗口不再移动或着改变大小了，再触发事件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// func是回调函数，time是你想要多长时间响应一次时间，flag是你想要先触发后等待(true)，还是先等待后触发（false）;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func,time,falg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">var</span> debouced = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 把this定义为一个变量，方便dom元素访问</span></span><br><span class="line">        <span class="keyword">var</span> _this = <span class="built_in">this</span>,</span><br><span class="line">            <span class="comment">// 把所有形参当作参数</span></span><br><span class="line">            argu = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">        <span class="comment">// 如果flag为true，那么先执行函数，后等待时间</span></span><br><span class="line">        <span class="keyword">if</span>(flag) &#123;</span><br><span class="line">            <span class="comment">// 当timer没有值的时候执行函数</span></span><br><span class="line">            <span class="keyword">if</span>(!timer) func.apply(_this,argu);</span><br><span class="line">            <span class="comment">// 当函数先执行了之后，立马给timer赋值，把timer清空，等time秒之后可以再次执行</span></span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                timer = <span class="literal">null</span>;</span><br><span class="line">            &#125;,time)</span><br><span class="line">        <span class="comment">// 如果flag是false，那么就还是等time秒触发</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 调换this指向和把所有形参传入回调函数</span></span><br><span class="line">                func.apply(_this,argu);</span><br><span class="line">			<span class="comment">// time响应时间</span></span><br><span class="line">            &#125;,time)</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当如果调用这个方法的时候，立即停止计时器</span></span><br><span class="line">    debounced.cancel = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">        timer = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 把计时器return出去了，这样每次执行的时候只有一个timer，闭包</span></span><br><span class="line">    <span class="keyword">return</span> debounced;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><ul>
+<li><p>函数节流就是预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行。好像水滴攒到了一定重量才会落下一样。</p>
+</li>
+<li><p>场景：</p>
+<ul>
+<li>页面滚动（<strong>scroll</strong>）</li>
+<li>抢购（<strong>mousedown</strong>）</li>
+<li>拖拽（<strong>mousemove</strong>）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间戳实现节流函数</span></span><br><span class="line">	<span class="comment">// func是回调函数，wait是你想要多长时间响应一次时间</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func,wait</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 上一次事件响应的时间</span></span><br><span class="line">        <span class="keyword">var</span> lastTime = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 现在事件响应的时间,+new Date() 就相当于 new Date().getTime()</span></span><br><span class="line">            <span class="keyword">var</span> nowTime = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">            <span class="keyword">if</span>(nowTime - lastTime &gt; wait) &#123;</span><br><span class="line">                <span class="comment">// 调换this指向和把所有形参传入参数</span></span><br><span class="line">                func.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">                <span class="comment">// 把这一次的时间赋给lastTime</span></span><br><span class="line">                lastTime = nowTime;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计时器实现节流函数</span></span><br><span class="line">	<span class="comment">// func是回调函数，wait是你想要多长时间响应一次时间</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func,wait</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 把计时器return出去了，这样每次执行的时候只有一个timer，闭包</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> _this = <span class="built_in">this</span>,</span><br><span class="line">                argu = <span class="built_in">arguments</span>;</span><br><span class="line">            <span class="comment">// 如果计时器没有值，是空的时候，才可以给他绑定计时器，如果有值就不会再绑定计时器</span></span><br><span class="line">           	<span class="keyword">if</span>(!timer) &#123;</span><br><span class="line">                timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="comment">// 调换this指向和把所有形参传入参数</span></span><br><span class="line">                    func.apply(_this,argu);</span><br><span class="line">                    <span class="comment">// 调用完了之后再把计时器清空</span></span><br><span class="line">                    timer = <span class="literal">null</span>;</span><br><span class="line">                &#125;,wait)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+    
+  </div>
+
+</article>
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+  <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+  <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+
+
+<!-- 微信公众号引流 openwrite.cn -->
+<!-- 
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+  const btw = new BTWPlugin();
+  btw.init({
+    id: "container",
+    blogId: "",
+    name: "前端之旅",
+    qrcode: "https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg",
+    keyword: "3a3b3c",
+  });
+</script> -->
+
+<script type="text/javascript">
+
+// white theme
+var body = {color: "#555", background: "#000"};
+var a_tag = {color: "#222"};
+var header = { background: "#222"};
+var logo_line_i = {background: "#222"};
+// var post_code = {background: "#eee", color: "#222"};
+
+function switch_theme() {
+ $("body").css(body);
+ $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+ $(".header, .footer").css(header);
+ $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+ //$(".post code").css(post_code);
+ $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+ $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+ 
+ // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+ //$("#assist_btn1").hide(1500);
+}
+
+$(function () {
+$("#assist_btn2").css("display","none");
+ $("#assist_btn1").click(function() {
+     switch_theme();
+$("div#toc.toc-article").css({
+ "background":"#eaeaea",
+ "opacity":1
+});
+$(".toc-article ol").show();
+$("#toc.toc-article .toc-title").css("color","#a98602");
+$("#assist_btn1").css("display","none");
+$("#assist_btn2").css("display","block");
+ });
+$("#assist_btn2").click(function() {
+$("#assist_btn2").css("display","none");
+$("#assist_btn1").css("display","block");
+$("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+     $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+$(".toc-article ol").toggle(1000);
+ });
+});
+
+
+//背景随机
+
+var Y, O, E, L, B, C, T, z, N, S, A, I;
+!function() {
+var e = function() {
+for (O.clearRect(0, 0, L, B), T = [{
+x: 0,
+y: .7 * B + C
+}, {
+x: 0,
+y: .7 * B - C
+}]; T[1].x < L + C;) t(T[0], T[1])
+}, t = function(e, t) {
+O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+var n = t.x + (2 * I() - .25) * C,
+ r = a(t.y);
+O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+ x: n,
+ y: r
+}
+}, a = function n(e) {
+var t = e + (2 * I() - 1.1) * C;
+return t > B || t < 0 ? n(e) : t
+};
+Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+}()
+
+   
+$("#toc-eye").click(function(){
+$("#toc.toc-article").toggle(1000);
+});
+
+</script>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Haodex</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/11/08/webpack/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2021/11/08/jQuery/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "nkvLdnK5xBRTBnMkXqpCq3Ie-gzGzoHsz",
+            appKey: "r2K6NaTBu6ebcvjzHlNUFKWR",
+            avatar:'mm',
+            placeholder: "有什么问题，欢迎留言指正与交流...",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+ 
+  
+</body>
+</html>

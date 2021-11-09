@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>包管理器 | Haodex Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="packageManager," />
+  
+
+  <meta name="description" content="包管理器包管理工具概述 本门课程的前置知识：JavaScript、ES6、模块化、git本门课程的所有代码均书写在 nodejs 环境中，不涉及浏览器环境  概念模块（module） 通常以单个文件形式存在的功能片段，入口文件通常称之为入口模块或主模块 库（library，简称lib） 以一个或多个模块组成的完整功能块，为开发中某一方面的问题提供完整的解决方案 包（package） 包含元数据的库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="包管理器">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/PackageManager/index.html">
+<meta property="og:site_name" content="Haodex Blog">
+<meta property="og:description" content="包管理器包管理工具概述 本门课程的前置知识：JavaScript、ES6、模块化、git本门课程的所有代码均书写在 nodejs 环境中，不涉及浏览器环境  概念模块（module） 通常以单个文件形式存在的功能片段，入口文件通常称之为入口模块或主模块 库（library，简称lib） 以一个或多个模块组成的完整功能块，为开发中某一方面的问题提供完整的解决方案 包（package） 包含元数据的库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/%E6%A6%82%E8%BF%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm9.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm10.png">
+<meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
+<meta property="article:modified_time" content="2021-11-08T07:51:58.034Z">
+<meta property="article:author" content="Haodex">
+<meta property="article:tag" content="packageManager">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/%E6%A6%82%E8%BF%B0.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+<link href="/css/other.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  <!-- 聊天系统 -->
+  
+    
+   <link type="text/css" rel="stylesheet" href="/renxi/default.css">
+   <style>
+      #modal {
+        position: static !important;
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fe5757;
+        animation: colorChange 30s ease-in-out infinite;
+        animation-fill-mode: both;
+        mix-blend-mode: overlay;
+      }
+  
+      @keyframes colorChange {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .9;
+        }
+      }
+   </style>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Haodex Blog" type="application/atom+xml">
+</head>
+
+<body>
+  
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">包管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%A6%82%E8%BF%B0"><span class="toc-text">包管理工具概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">前端包管理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm"><span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">包的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85"><span class="toc-text">本地安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85"><span class="toc-text">全局安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E9%85%8D%E7%BD%AE"><span class="toc-text">包配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text">保存依赖关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">包的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-%E7%AE%80%E6%98%93%E6%95%B0%E6%8D%AE%E7%88%AC%E8%99%AB"><span class="toc-text">[练习] 简易数据爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E7%89%88%E6%9C%AC"><span class="toc-text">语义版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E8%BF%98%E5%8E%9F%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-text">避免还原的差异</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%B1%95-npm%E7%9A%84%E5%B7%AE%E5%BC%82%E7%89%88%E6%9C%AC%E5%A4%84%E7%90%86"><span class="toc-text">[扩展]npm的差异版本处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm-%E8%84%9A%E6%9C%AC-%EF%BC%88npm-scripts%EF%BC%89"><span class="toc-text">npm 脚本 （npm scripts）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">运行环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8node%E4%B8%AD%E8%AF%BB%E5%8F%96package-json"><span class="toc-text">在node中读取package.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96npm%E5%91%BD%E4%BB%A4-ignore"><span class="toc-text">其他npm命令 {ignore}</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-text">查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E5%8C%85"><span class="toc-text">卸载包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#npm-%E9%85%8D%E7%BD%AE"><span class="toc-text">npm 配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E5%8C%85"><span class="toc-text">发布包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-text">发布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE"><span class="toc-text">开源协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yarn"><span class="toc-text">yarn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yarn-%E7%AE%80%E4%BB%8B"><span class="toc-text">yarn 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yarn-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4"><span class="toc-text">yarn 的核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yarn-%E7%9A%84%E7%89%B9%E5%88%AB%E7%A4%BC%E7%89%A9"><span class="toc-text">yarn 的特别礼物</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">其他包管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cnpm"><span class="toc-text">cnpm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nvm"><span class="toc-text">nvm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">下载和安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8nvm"><span class="toc-text">使用nvm</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pnpm"><span class="toc-text">pnpm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">安装和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pnpm%E5%8E%9F%E7%90%86"><span class="toc-text">pnpm原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pnpm-%E5%8E%9F%E7%90%86"><span class="toc-text">pnpm 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pnpm%E5%8E%9F%E7%90%86-1"><span class="toc-text">pnpm原理</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+  </div>
+  
+
+
+
+
+<div class="content content-post CENTER">
+   <!-- canvas 彩带 -->
+<canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+
+<!-- <div class="qrcode_container">
+  <div class="tencent_code">
+    <h4>关注作者公众号</h4> 
+    <p>和万千小伙伴一起学习</p> 
+    <img src="https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg" alt="">
+  </div> 
+</div> -->
+
+<article id="post-PackageManager" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header" style="position:relative;">
+    <h1 class="post-title">包管理器</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.11.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Haodex</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/packageManager/">packageManager</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+       
+          <span class="post-count">
+            <i class="fa fa-file-word-o"></i>&nbsp
+            <span>字数统计 8.3k字</span>
+          </span>
+
+          <span class="post-count">
+            <i class="fa fa-columns"></i>&nbsp
+            <span>阅读时长 30分</span>
+          </span>
+      
+      
+    </div>
+
+    <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:0;right:0;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+
+  </header>
+
+  <div class="article-content">
+    
+      <div id="container">
+        <h1 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h1><h2 id="包管理工具概述"><a href="#包管理工具概述" class="headerlink" title="包管理工具概述"></a>包管理工具概述</h2><blockquote>
+<p>本门课程的前置知识：JavaScript、ES6、模块化、git<br>本门课程的所有代码均书写在 nodejs 环境中，不涉及浏览器环境</p>
+</blockquote>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><strong>模块（module）</strong></p>
+<p>通常以单个文件形式存在的功能片段，入口文件通常称之为<strong>入口模块</strong>或<strong>主模块</strong></p>
+<p><strong>库（library，简称lib）</strong></p>
+<p>以一个或多个模块组成的完整功能块，为开发中某一方面的问题提供完整的解决方案</p>
+<p><strong>包（package）</strong></p>
+<p>包含元数据的库，这些元数据包括：名称、描述、git主页、许可证协议、作者、依赖等等</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/%E6%A6%82%E8%BF%B0.png"></p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><code>CommonJS</code> 的出现，使 <code>node</code> 环境下的 <code>JS</code> 代码可以用模块更加细粒度的划分。一个类、一个函数、一个对象、一个配置等等均可以作为模块，这种细粒度的划分，是开发大型应用的基石。</p>
+<p>为了解决在开发过程中遇到的常见问题，比如加密、提供常见的工具方法、模拟数据等等，一时间，在前端社区涌现了大量的第三方库。这些库使用 <code>CommonJS</code> 标准书写而成，非常容易使用。</p>
+<p>然而，在下载使用这些第三方库的时候，遇到难以处理的问题：</p>
+<ul>
+<li><strong>下载过程繁琐</strong><ul>
+<li>进入官网或 <code>github</code> 主页</li>
+<li>找到并下载相应的版本</li>
+<li>拷贝到工程的目录中</li>
+<li>如果遇到有同名的库，需要更改名称</li>
+</ul>
+</li>
+<li><strong>如果该库需要依赖其他库，还需要按照要求先下载其他库</strong></li>
+<li><strong>开发环境中安装的大量的库如何在生产环境中还原，又如何区分</strong></li>
+<li><strong>更新一个库极度麻烦</strong></li>
+<li><strong>自己开发的库，如何在下一次开发使用</strong></li>
+</ul>
+<p><strong>以上问题，就是包管理工具要解决的问题</strong></p>
+<span id="more"></span>
+
+<h3 id="前端包管理器"><a href="#前端包管理器" class="headerlink" title="前端包管理器"></a>前端包管理器</h3><blockquote>
+<p>本门课程讲解的包管理器<br>npm：重点<br>yarn：次重点<br>其他：了解</p>
+</blockquote>
+<p>几乎可以这样认为，前端所有的包管理器都是基于 <code>npm</code> 的，目前，<code>npm</code> 即是一个包管理器，也是其他包管理的基石</p>
+<p><code>npm</code> 全称为 <code>node package manager</code>，即 <code>node</code> 包管理器，它运行在 <code>node</code> 环境中，让开发者可以用简单的方式完成包的查找、安装、更新、卸载、上传等操作</p>
+<blockquote>
+<p>npm 之所以要运行在 node 环境，而不是浏览器环境，根本原因是因为浏览器环境无法提供下载、删除、读取本地文件的功能。而 node 属于服务器环境，没有浏览器的种种限制，理论上可以完全掌控运行 node 的计算机。</p>
+</blockquote>
+<p><code>npm</code> 的出现，弥补了 <code>node</code> 没有包管理器的缺陷，于是很快，<code>node</code> 在安装文件中内置了 <code>npm</code>，当开发者安装好 <code>node</code> 之后，就自动安装了 <code>npm</code>，不仅如此，<code>node</code> 环境还专门为 <code>npm</code> 提供了良好的支持，使用 <code>npm</code> 下载的包更加方便了。</p>
+<p><code>npm</code> 由三部分组成：</p>
+<ul>
+<li><strong>registry</strong>：入口<ul>
+<li>可以把它想象成一个庞大的数据库</li>
+<li>第三方库的开发者，将自己的库按照 npm 的规范，打包上传到数据库中</li>
+<li>使用者通过统一的地址下载第三方包</li>
+</ul>
+</li>
+<li>官网：<a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a><ul>
+<li>查询包</li>
+<li>注册、登录、管理个人信息</li>
+</ul>
+</li>
+<li><strong>CLI</strong>：<code>command-line interface</code> 命令行接口<ul>
+<li>这一部分是本门课讲解的重点</li>
+<li>安装好 <code>npm</code> 后，通过 CLI 来使用 <code>npm</code> 的各种功能</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>node 和 npm 是互相成就的，node 的出现让 npm 火了，npm 的火爆带动了大量的第三方库的发展，很多优秀的第三方库打包上传到了 npm，这些第三方库又为 node 带来了大量的用户</p>
+</blockquote>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><h3 id="包的安装"><a href="#包的安装" class="headerlink" title="包的安装"></a>包的安装</h3><blockquote>
+<p>安装（install）即下载包<br>由于 npm 的官方 registry 服务器位于国外，可能受网速影响导致下载缓慢或失败。因此，安装好 npm 之后，需要重新设置 registry 的地址为国内地址。目前，淘宝 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> 提供了国内的 registry 地址，先设置到该地址。设置方式为<code>npm config set registry https://registry.npm.taobao.org</code>。设置好后，通过命令<code>npm config get registry</code>进行检查<br><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm1.png"></p>
+</blockquote>
+<p><code>npm</code> 安装一个包，分为两种安装方式：</p>
+<ol>
+<li>本地安装</li>
+<li>全局安装</li>
+</ol>
+<h4 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h4><p>使用命令<code>npm install 包名</code>或<code>npm i 包名</code>即可完成本地安装</p>
+<p>本地安装的包出现在当前目录下的<code>node_modules</code>目录中</p>
+<blockquote>
+<p>随着开发的进展，<code>node_modules</code>目录会变得异常庞大，目录下的内容不适合直接传输到生产环境，因此通常使用<code>.gitignore</code>文件忽略该目录中的内容<br>本地安装适用于绝大部分的包，它会在当前目录及其子目录中发挥作用<br>通常在项目的根目录中使用本地安装<br>安装一个包的时候，<code>npm</code> 会自动管理依赖，它会下载该包的依赖包到<code>node_modules</code>目录中<br>如果本地安装的包带有 <code>CLI</code>，<code>npm</code> 会将它的 <code>CLI</code> 脚本文件放置到<code>node_modules/.bin</code>下，使用命令<code>npx 命令名</code>即可调用</p>
+</blockquote>
+<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><p>全局安装的包放置在一个特殊的全局目录，该目录可以通过命令<code>npm config get prefix</code>查看</p>
+<p>使用命令<code>npm install --global 包名</code> 或 <code>npm i -g 包名</code></p>
+<p>重要：<strong>全局安装的包并非所有工程可用，它仅提供全局的 CLI 工具</strong></p>
+<p>大部分情况下，都不需要全局安装包，除非：</p>
+<ol>
+<li>包的版本非常稳定，很少有大的更新</li>
+<li>提供的 <code>CLI</code> 工具在各个工程中使用的非常频繁</li>
+<li><code>CLI</code> 工具仅为开发环境提供支持，而非部署环境</li>
+</ol>
+<h3 id="包配置"><a href="#包配置" class="headerlink" title="包配置"></a>包配置</h3><p>目前遇到的问题：</p>
+<ol>
+<li>拷贝工程后如何还原？</li>
+<li>如何区分开发依赖和生产依赖？</li>
+<li>如果自身的项目也是一个包，如何描述包的信息</li>
+</ol>
+<p>以上这些问题都需要通过包的<strong>配置文件</strong>解决</p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p><code>npm</code> 将每个使用 <code>npm</code> 的工程本身都看作是一个包，包的信息需要通过一个名称固定的配置文件来描述</p>
+<p><strong>配置文件的名称固定为：package.json</strong></p>
+<p>可以手动创建该文件，而更多的时候，是通过命令<code>npm init</code>创建的</p>
+<p>配置文件中可以描述大量的信息，包括：</p>
+<ul>
+<li><strong>name</strong>：包的名称，该名称必须是<strong>英文单词字符</strong>，支持连接符</li>
+<li><strong>version</strong>：版本<ul>
+<li>版本规范：主版本号.次版本号.补丁版本号</li>
+<li>主版本号：仅当程序发生了重大变化时才会增长，如新增了重要功能、新增了大量的<code>API</code>、技术架构发生了重大变化</li>
+<li>次版本号：仅当程序发生了一些小变化时才会增长，如新增了一些小功能、新增了一些辅助型的<code>API</code></li>
+<li>补丁版本号：仅当解决了一些 <code>bug</code> 或 进行了一些局部优化时更新，如修复了某个函数的 <code>bug</code>、提升了某个函数的运行效率</li>
+</ul>
+</li>
+<li><strong>description</strong>：包的描述</li>
+<li><strong>homepage</strong>：官网地址</li>
+<li><strong>author</strong>：包的作者，必须是有效的 <code>npm</code> 账户名，书写规范是 <code>account &lt;mail&gt;</code>，例如：<code>zhangsan &lt;zhangsan@gmail.com&gt;</code>，不正确的账号和邮箱可能导致发布包时失败</li>
+<li>repository：包的仓储地址，通常指 <code>git</code> 或 <code>svn</code> 的地址，它是一个对象<ul>
+<li><strong>type</strong>：仓储类型，<code>git</code> 或 <code>svn</code></li>
+<li><strong>url</strong>：地址</li>
+</ul>
+</li>
+<li><strong>main</strong>：包的入口文件，使用包的人默认从该入口文件导入包的内容</li>
+<li><strong>keywords</strong>: 搜索关键字，发布包后，可以通过该数组中的关键字搜索到包</li>
+</ul>
+<p>使用<code>npm init --yes</code>或<code>npm init -y</code>可以在生成配置文件时自动填充默认配置</p>
+<h4 id="保存依赖关系"><a href="#保存依赖关系" class="headerlink" title="保存依赖关系"></a>保存依赖关系</h4><p>大部分时候，我们仅仅是开发项目，并不会把它打包发布出去，尽管如此，我们仍然需要<code>package.json</code>文件</p>
+<p><strong>package.json文件最重要的作用，是记录当前工程的依赖</strong></p>
+<ul>
+<li><strong>dependencies</strong>：生产环境的依赖包</li>
+<li><strong>devDependencies</strong>：仅开发环境的依赖包</li>
+</ul>
+<p>配置好依赖后，使用下面的命令即可安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 本地安装所有依赖 dependencies + devDependencies</span></span></span><br><span class="line">npm install</span><br><span class="line">npm i</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 仅安装生产环境的依赖 dependencies</span></span></span><br><span class="line">npm install --production</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，代码移植就不是问题了，只需要移植源代码和<code>package.json</code>文件，不用移植<code>node_modules</code>目录，然后在移植之后通过命令即可重新恢复安装</p>
+<p>为了更加方便的添加依赖，<code>npm</code>支持在使用<code>install</code>命令时，加入一些额外的参数，用于将安装的依赖包保存到<code>package.json</code>文件中</p>
+<p>涉及的命令如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装依赖到生产环境</span></span></span><br><span class="line">npm i 包名</span><br><span class="line">npm i --save 包名</span><br><span class="line">npm i -S 包名</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装依赖到开发环境</span></span></span><br><span class="line">npm i --save-dev 包名</span><br><span class="line">npm i -D 包名</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>自动保存的依赖版本，例如<code>^15.1.3</code>，这种书写方式叫做语义版本号（semver version），具体规则后续讲解</p>
+</blockquote>
+<h3 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h3><p><code>nodejs</code> 对 <code>npm</code> 支持非常良好</p>
+<p>当使用 <code>nodejs</code> 导入模块时，如果模块路径不是以 <code>./</code> 或 <code>../</code> 开头，则 <code>node</code> 会认为导入的模块来自于 <code>node_modules</code> 目录，例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">&quot;lodash&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>它首先会从当前目录的以下位置寻找文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node_modules/lodash.js</span><br><span class="line">node_modules/lodash/入口文件</span><br></pre></td></tr></table></figure>
+
+<p>若当前目录没有这样的文件，则会回溯到上级目录按照同样的方式查找</p>
+<p>如果到顶级目录都无法找到文件，则抛出错误</p>
+<p>上面提到的入口文件按照以下规则确定</p>
+<ol>
+<li>查看导入包的<code>package.json</code>文件，读取<code>main</code>字段作为入口文件</li>
+<li>若不包含<code>main</code>字段，则使用<code>index.js</code>作为入口文件</li>
+</ol>
+<blockquote>
+<p>入口文件的规则同样适用于自己工程中的模块<br>在 node 中，还可以手动指定路径来导入相应的文件，这种情况比较少见</p>
+</blockquote>
+<h3 id="练习-简易数据爬虫"><a href="#练习-简易数据爬虫" class="headerlink" title="[练习] 简易数据爬虫"></a>[练习] 简易数据爬虫</h3><ul>
+<li>结构</li>
+</ul>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">getMovies.js</span><br><span class="line">index.js</span><br><span class="line">movie.json //没有数据</span><br><span class="line">package-lock.json</span><br><span class="line">package.json</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>需要用到的包：</p>
+<ol>
+<li><code>axios</code>：专门用于在各种环境中发送网络请求，并获取到服务器响应结果</li>
+<li><code>cheerio</code>：<code>jquery</code>的核心逻辑包，支持所有环境，可用于讲一个<code>html</code>字符串转换成为<code>jquery</code>对象，并通过<code>jquery</code>对象完成后续操作</li>
+<li><code>fs</code>：<code>node</code>核心模块，专门用于文件处理<ul>
+<li><code>fs.writeFile</code>(文件名, 数据)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>内容</p>
+<ul>
+<li><p><strong>index.js</strong></p>
+<ul>
+<li>```js<br>var getMovies = require(“./getMovies”)<br>var fs = require(“fs”);getMovies().then(movies =&gt; {<pre><code>var json = JSON.stringify(movies);
+fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
+    console.log(&quot;成功！&quot;)
+&#125;);
+</code></pre>
+})<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **getMovie.js**</span><br><span class="line"></span><br><span class="line">  - ```js</span><br><span class="line">    const axios = require(&quot;axios&quot;);</span><br><span class="line">    const cheerio = require(&quot;cheerio&quot;);</span><br><span class="line">    /**</span><br><span class="line">     * 得到所有电影的html字符串</span><br><span class="line">     */</span><br><span class="line">    async function getMoviesHtml() &#123;</span><br><span class="line">        const resp = await axios.get(&quot;https://movie.douban.com/chart&quot;)</span><br><span class="line">        return resp.data;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 获取所有电影数据</span><br><span class="line">     */</span><br><span class="line">    async function getMoviesData() &#123;</span><br><span class="line">        const html = await getMoviesHtml();</span><br><span class="line">        const $ = cheerio.load(html);</span><br><span class="line">        var trs = $(&quot;tr.item&quot;)</span><br><span class="line">        var movies = [];</span><br><span class="line">        for (let i = 0; i &lt; trs.length; i++) &#123;</span><br><span class="line">            var tr = trs[i];</span><br><span class="line">            //分析每个tr的数据，得到一部电影对象</span><br><span class="line">            var m = getMovie($(tr));</span><br><span class="line">            movies.push(m);</span><br><span class="line">        &#125;</span><br><span class="line">        return movies;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 分析tr，得到一部电影对象</span><br><span class="line">     * @param &#123;*&#125; tr </span><br><span class="line">     */</span><br><span class="line">    function getMovie(tr) &#123;</span><br><span class="line">        var name = tr.find(&quot;div.pl2 a&quot;).text();</span><br><span class="line">        name = name.replace(/\s/g, &quot;&quot;);//去掉空白字符</span><br><span class="line">        name = name.split(&quot;/&quot;)[0];</span><br><span class="line">    </span><br><span class="line">        var imgSrc = tr.find(&quot;a.nbg img&quot;).attr(&quot;src&quot;);</span><br><span class="line">        var detail = tr.find(&quot;div.pl2 p.pl&quot;).text();</span><br><span class="line">        return &#123;</span><br><span class="line">            name,</span><br><span class="line">            imgSrc,</span><br><span class="line">            detail</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    module.exports = getMoviesData;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="语义版本"><a href="#语义版本" class="headerlink" title="语义版本"></a>语义版本</h3><p>思考：如果你编写了一个包<code>A</code>，依赖另外一个包<code>B</code>，你在编写代码时，包<code>B</code>的版本是<code>2.4.1</code>，你是希望使用你包的人一定要安装包<code>B</code>，并且是<code>2.4.1</code>版本，还是希望他可以安装更高的版本，如果你希望它安装更高的版本，高的什么程度呢？</p>
+<p>回顾：版本号规则</p>
+<p>版本规范：主版本号.次版本号.补丁版本号</p>
+<ul>
+<li>主版本号：仅当程序发生了重大变化时才会增长，如新增了重要功能、新增了大量的<code>API</code>、技术架构发生了重大变化</li>
+<li>次版本号：仅当程序发生了一些小变化时才会增长，如新增了一些小功能、新增了一些辅助型的<code>API</code></li>
+<li>补丁版本号：仅当解决了一些 <code>bug</code> 或 进行了一些局部优化时更新，如修复了某个函数的 <code>bug</code>、提升了某个函数的运行效率</li>
+</ul>
+<p>有的时候，我们希望：安装我的依赖包的时候，次版本号和补丁版本号是可以有提升的，但是主版本号不能变化</p>
+<p>有的时候，我们又希望：安装我的依赖包的时候，只有补丁版本号可以提升，其他都不能提升</p>
+<p>甚至我们希望依赖包保持固定的版本，尽管这比较少见</p>
+<p>这样一来，就需要在配置文件中描述清楚具体的依赖规则，而不是直接写上版本号那么简单。</p>
+<p>这种规则的描述，即<strong>语义版本</strong></p>
+<p>语义版本的书写规则非常丰富，下面列出了一些常见的书写方式</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">描述</th>
+<th align="center">示例</th>
+<th align="center">示例描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&gt;</td>
+<td align="center">大于某个版本</td>
+<td align="center">&gt;1.2.1</td>
+<td align="center">大于1.2.1版本</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于某个版本</td>
+<td align="center">&gt;=1.2.1</td>
+<td align="center">大于等于1.2.1版本</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于某个版本</td>
+<td align="center">&lt;1.2.1</td>
+<td align="center">小于1.2.1版本</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于某个版本</td>
+<td align="center">&lt;=1.2.1</td>
+<td align="center">小于等于1.2.1版本</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">介于两个版本之间</td>
+<td align="center">1.2.1 - 1.4.5</td>
+<td align="center">介于1.2.1和1.4.5之间</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center">不固定的版本号</td>
+<td align="center">1.3.x</td>
+<td align="center">只要保证主版本号是1，次版本号是3即可</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">补丁版本号可增</td>
+<td align="center">~1.3.4</td>
+<td align="center">保证主版本号是1，次版本号是3，补丁版本号大于等于4</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">此版本和补丁版本可增</td>
+<td align="center">^1.3.4</td>
+<td align="center">保证主版本号是1，次版本号可以大于等于3，补丁版本号可以大于等于4</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">最新版本</td>
+<td align="center">*</td>
+<td align="center">始终安装最新版本</td>
+</tr>
+</tbody></table>
+<h4 id="避免还原的差异"><a href="#避免还原的差异" class="headerlink" title="避免还原的差异"></a>避免还原的差异</h4><p>版本依赖控制始终是一个两难的问题</p>
+<p>如果允许版本增加，可以让依赖包的<code>bug</code>得以修复（补丁版本号），可以带来一些意外的惊喜（次版本号），但同样可能带来不确定的风险（新的<code>bug</code>）</p>
+<p>如果不允许版本增加，可以获得最好的稳定性，但失去了依赖包自我优化的能力</p>
+<p>而有的时候情况更加复杂，如果依赖包升级后，依赖也发生了变化，会有更多不确定的情况出现</p>
+<p>基于此，<code>npm</code> 在安装包的时候，会自动生成一个 <code>package-lock.json</code> 文件，该文件记录了安装包时的确切依赖关系</p>
+<p>当移植工程时，如果移植了 <code>package-lock.json</code> 文件，恢复安装时，会按照 <code>package-lock.json</code> 文件中的确切依赖进行安装，最大限度的避免了差异</p>
+<h4 id="扩展-npm的差异版本处理"><a href="#扩展-npm的差异版本处理" class="headerlink" title="[扩展]npm的差异版本处理"></a>[扩展]npm的差异版本处理</h4><p>如果两个包依赖同一个包的不同版本，如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm2.png"></p>
+<p>面对这种情况，在 <code>node_modules</code> 目录中，不会使用扁平的目录结构，而会形成嵌套的目录，如下图：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── a </span><br><span class="line">│   │   ├── node_modules</span><br><span class="line">│   │   │   ├── c</span><br><span class="line">│   │   │   |   |—— c包的文件</span><br><span class="line">│   │   │── a包的文件     </span><br><span class="line">│   ├── b </span><br><span class="line">│   │   ├── node_modules</span><br><span class="line">│   │   │   ├── c</span><br><span class="line">│   │   │   |   |—— c包的文件</span><br><span class="line">│   │   │── b包的文件           </span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-脚本-（npm-scripts）"><a href="#npm-脚本-（npm-scripts）" class="headerlink" title="npm 脚本 （npm scripts）"></a>npm 脚本 （npm scripts）</h3><p>在开发的过程中，我们可能会反复使用很多的 <code>CLI</code> 命令，例如：</p>
+<ul>
+<li>启动工程命令（<code>node</code> 或 一些第三方包提供的CLI<code>命令</code>）</li>
+<li>部署工程命令（一些第三方包提供的<code>CLI</code>命令）</li>
+<li>测试工程命令（一些第三方包提供的<code>CLI</code>命令）</li>
+</ul>
+<p>这些命令纷繁复杂，根据第三方包的不同命令也会不一样，非常难以记忆</p>
+<p>于是，<code>npm</code> 非常贴心的支持了脚本，只需要在 <code>package.json</code> 中配置 <code>scripts</code> 字段，即可配置各种脚本名称</p>
+<p>之后，我们就可以运行简单的指令来完成各种操作了</p>
+<p>运行方式是 <code>npm run 脚本名称</code></p>
+<p>不仅如此，npm 还对某些常用的脚本名称进行了简化，下面的脚本名称是不需要使用<code>run</code>的：</p>
+<ul>
+<li><code>start</code></li>
+<li><code>stop</code></li>
+<li><code>test</code></li>
+</ul>
+<p>一些细节：</p>
+<ul>
+<li>脚本中可以省略<code>npx</code></li>
+<li><code>start</code>脚本有默认值：<code>node server.js</code></li>
+</ul>
+<h3 id="运行环境配置"><a href="#运行环境配置" class="headerlink" title="运行环境配置"></a>运行环境配置</h3><p>我们书写的代码一般有三种运行环境：</p>
+<ol>
+<li>开发环境</li>
+<li>生产环境</li>
+<li>测试环境</li>
+</ol>
+<p>有的时候，我们可能需要在 <code>node</code> 代码中根据不同的环境做出不同的处理</p>
+<p>如何优雅的让 <code>node</code> 知道处于什么环境，是极其重要的</p>
+<p>通常我们使用如下的处理方式：</p>
+<p><code>node</code>中有一个全局变量 <code>global</code> (可以类比浏览器环境的<code>window</code>)，该变量是一个对象，对象中的所有属性均可以直接使用</p>
+<p><code>global</code>有一个属性是<code>process</code>，该属性是一个对象，包含了当前运行<code>node</code>程序的计算机的很多信息，其中有一个信息是<code>env</code>，是一个对象，包含了计算机中所有的系统变量</p>
+<p>通常，我们通过系统变量 <code>NODE_ENV</code> 的值，来判定node程序处于何种环境</p>
+<p>有两种方式设置 <code>NODE_ENV</code> 的值</p>
+<ol>
+<li>永久设置</li>
+<li>临时设置</li>
+</ol>
+<p>我们一般使用临时设置</p>
+<p>因此，我们可以配置 <code>scripts</code> 脚本，在设置好了 <code>NODE_ENV</code> 后启动程序</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;没有环境变量&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(process.env.NODE_ENV)</span><br><span class="line"><span class="keyword">if</span>(process.env.NODE_ENV === <span class="string">&quot;development&quot;</span>)&#123;</span><br><span class="line">    a = <span class="string">&quot;开发环境&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(process.env.NODE_ENV === <span class="string">&quot;production&quot;</span>)&#123;</span><br><span class="line">    a = <span class="string">&quot;生产环境&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(process.env.NODE_ENV === <span class="string">&quot;test&quot;</span>)&#123;</span><br><span class="line">    a = <span class="string">&quot;测试环境&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了避免不同系统的设置方式的差异，可以使用第三方库 <code>cross-env</code> 对环境变量进行设置</p>
+</blockquote>
+<h4 id="在node中读取package-json"><a href="#在node中读取package-json" class="headerlink" title="在node中读取package.json"></a>在node中读取package.json</h4><p>有的时候，我们可能在 <code>package.json</code> 中配置一些自定义的字段，这些字段需要在<code>node</code>中读取</p>
+<p>在<code>node</code> 中，可以直接导入一个<code>json</code>格式的文件，它会自动将其转换为<code>js</code>对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;cross-env NODE_ENV=development node index.js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;cross-env NODE_ENV=production node index.js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;cross-env NODE_ENV=test node index.js&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他npm命令-ignore"><a href="#其他npm命令-ignore" class="headerlink" title="其他npm命令 {ignore}"></a>其他npm命令 {ignore}</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>精确安装最新版本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --save-exact 包名 </span><br><span class="line">npm install -E 包名</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装指定版本</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install 包名@版本号</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><ol>
+<li>查询包安装路径</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm root [-g]</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>查看包信息</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm view 包名 [子信息]</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># view aliases：v info show</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查询安装包</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm list [-g] [--depth=依赖深度]</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># list aliases: ls  la  ll</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><ol>
+<li>检查有哪些包需要更新</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm outdated</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>更新包</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm update [-g] [包名]</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># update 别名（aliases）：up、upgrade</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="卸载包"><a href="#卸载包" class="headerlink" title="卸载包"></a>卸载包</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall [-g] 包名</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># uninstall aliases: remove, rm, r, un, unlink</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="npm-配置"><a href="#npm-配置" class="headerlink" title="npm 配置"></a>npm 配置</h4><p><code>npm</code>的配置会对其他命令产生或多或少的影响</p>
+<p>安装好<code>npm</code>之后，最终会产生两个配置文件，一个是用户配置，一个是系统配置，当两个文件的配置项有冲突的时候，用户配置会覆盖系统配置</p>
+<p>通常，我们不关心具体的配置文件，而只关心最终生效的配置</p>
+<p>通过下面的命令可以查询目前生效的各种配置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config ls [-l] [--json]</span><br></pre></td></tr></table></figure>
+
+<p>另外，可以通过下面的命令操作配置</p>
+<ol>
+<li>获取某个配置项</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config get 配置项</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>设置某个配置项</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set 配置项=值</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>移除某个配置项</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config delete 配置项</span><br></pre></td></tr></table></figure>
+
+<h3 id="发布包"><a href="#发布包" class="headerlink" title="发布包"></a>发布包</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>移除淘宝镜像源</li>
+<li>到npm官网注册一个账号，并完成邮箱认证</li>
+<li>本地使用 npm cli 进行登录<ol>
+<li>使用命令<code>npm login</code>登录</li>
+<li>使用命令<code>npm whoami</code>查看当前登录的账号</li>
+<li>使用命令<code>npm logout</code>注销</li>
+</ol>
+</li>
+<li>创建工程根目录</li>
+<li>使用npm init进行初始化</li>
+</ol>
+<h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><ol>
+<li>开发</li>
+<li>确定版本</li>
+<li>使用命令<code>npm publish</code>完成发布</li>
+</ol>
+<h4 id="开源协议"><a href="#开源协议" class="headerlink" title="开源协议"></a>开源协议</h4><p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/npm3.png"></p>
+<ul>
+<li>可以通过网站 <a target="_blank" rel="noopener" href="http://choosealicense.online/appendix/">http://choosealicense.online/appendix/</a> 选择协议，并复制协议内容</li>
+</ul>
+<h2 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h2><h3 id="yarn-简介"><a href="#yarn-简介" class="headerlink" title="yarn 简介"></a>yarn 简介</h3><blockquote>
+<p>yarn 官网：<a target="_blank" rel="noopener" href="https://www.yarnpkg.com/zh-Hans/">https://www.yarnpkg.com/zh-Hans/</a></p>
+</blockquote>
+<p><code>yarn</code> 是由<code>Facebook</code>、<code>Google</code>、<code>Exponent</code> 和 <code>Tilde</code> 联合推出了一个新的 <code>JS</code> 包管理工具，<strong>它仍然使用 npm 的registry</strong>，不过提供了全新 <code>CLI</code> 来对包进行管理</p>
+<p>过去，<code>yarn</code> 的出现极大的抢夺了 <code>npm</code> 的市场，甚至有人戏言，<code>npm</code> 只剩下一个 <code>registry</code> 了。</p>
+<p>之所以会出现这种情况，是因为在过去，<code>npm</code> 存在下面的问题：</p>
+<ul>
+<li>依赖目录嵌套层次深：过去，<code>npm</code> 的依赖是嵌套的，这在 <code>windows</code> 系统上是一个极大的问题，由于众所周知的原因，<code>windows</code> 系统无法支持太深的目录</li>
+<li>下载速度慢<ul>
+<li>由于嵌套层次的问题，所以<code>npm</code>对包的下载只能是串行的，即前一个包下载完后才会下载下一个包，导致带宽资源没有完全利用</li>
+<li>多个相同版本的包被重复的下载</li>
+</ul>
+</li>
+<li>控制台输出繁杂：过去，<code>npm</code> 安装包的时候，每安装一个依赖，就会输出依赖的详细信息，导致一次安装有大量的信息输出到控制台，遇到错误极难查看</li>
+<li>工程移植问题：由于 <code>npm</code> 的版本依赖可以是模糊的，可能会导致工程移植后，依赖的确切版本不一致。</li>
+</ul>
+<p>针对上述问题，<code>yarn</code> 从诞生那天就已经解决，它用到了以下的手段：</p>
+<ul>
+<li>使用扁平的目录结构</li>
+<li>并行下载</li>
+<li>使用本地缓存</li>
+<li>控制台仅输出关键信息</li>
+<li>使用<code>yanr-lock</code>文件记录确切依赖</li>
+</ul>
+<p>不仅如此，<code>yarn</code>还优化了以下内容：</p>
+<ul>
+<li>增加了某些功能强大的命令</li>
+<li>让既有的命令更加语义化</li>
+<li>本地安装的<code>CLI</code>工具可以使用 <code>yarn</code> 直接启动</li>
+<li>将全局安装的目录当作一个普通的工程，生成<code>package.json</code>文件，便于全局安装移植</li>
+</ul>
+<p><code>yarn</code> 的出现给 <code>npm</code> 带来了巨大的压力，很快，<code>npm</code> 学习了 <code>yarn</code> 先进的理念，不断的对自身进行优化，到了目前的<code>npm6</code>版本，几乎完全解决了上面的问题：</p>
+<ul>
+<li>目录扁平化</li>
+<li>并行下载</li>
+<li>本地缓存</li>
+<li>使用<code>package-lock</code>记录确切依赖</li>
+<li>增加了大量的命令别名</li>
+<li>内置了<code>npx</code>，可以启动本地的<code>CLI</code>工具</li>
+<li>极大的简化了控制台输出</li>
+</ul>
+<p><strong>总结</strong></p>
+<p><code>npm6</code> 之后，可以说<code>npm</code>已经和<code>yarn</code>非常接近，甚至没有差距了。很多新的项目，又重新从<code>yarn</code>转回到<code>npm</code>。</p>
+<p>这两个包管理器是目前的主流，都必须要学习。</p>
+<h3 id="yarn-的核心命令"><a href="#yarn-的核心命令" class="headerlink" title="yarn 的核心命令"></a>yarn 的核心命令</h3><ol>
+<li><strong>初始化</strong></li>
+</ol>
+<p>初始化：<code>yarn init [--yes/-y]</code></p>
+<ol start="2">
+<li><strong>安装</strong></li>
+</ol>
+<p>添加指定包：<code>yarn [global] add package-name [--dev/-D] [--exact/-E]</code></p>
+<p>安装<code>package.json</code>中的所有依赖：<code>yarn install [--production/--prod]</code></p>
+<ol start="3">
+<li><strong>脚本和本地CLI</strong></li>
+</ol>
+<p>运行脚本：<code>yarn run 脚本名</code> </p>
+<blockquote>
+<p>start、stop、test可以省略run</p>
+</blockquote>
+<p>运行本地安装的<code>CLI</code>：<code>yarn run CLI名</code></p>
+<ol start="4">
+<li><strong>查询</strong></li>
+</ol>
+<p>查看bin目录：<code>yarn [global] bin</code></p>
+<p>查询包信息：<code>yarn info 包名 [子字段]</code></p>
+<p>列举已安装的依赖：<code>yarn [global] list [--depth=依赖深度]</code></p>
+<blockquote>
+<p>yarn的list命令和npm的list不同，yarn输出的信息更加丰富，包括顶级目录结构、每个包的依赖版本号</p>
+</blockquote>
+<ol start="5">
+<li><strong>更新</strong></li>
+</ol>
+<p>列举需要更新的包：<code>yarn outdated</code></p>
+<p>更新包：<code>yarn [global] upgrade [包名]</code></p>
+<ol start="6">
+<li><strong>卸载</strong></li>
+</ol>
+<p>卸载包：<code>yarn remove 包名</code></p>
+<h3 id="yarn-的特别礼物"><a href="#yarn-的特别礼物" class="headerlink" title="yarn 的特别礼物"></a>yarn 的特别礼物</h3><p>在终端命令上，<code>yarn</code>不仅仅是对<code>npm</code>的命令做了一个改名，还增加了一些原本没有的命令，这些命令在某些时候使用起来非常方便</p>
+<ol>
+<li><strong>yarn check</strong></li>
+</ol>
+<p>使用<code>yarn check</code>命令，可以验证<code>package.json</code>文件的依赖记录和<code>lock</code>文件是否一致</p>
+<p>这对于防止篡改非常有用</p>
+<ol start="2">
+<li><strong>yarn audit</strong></li>
+</ol>
+<p>使用<code>yarn audit</code>命令，可以检查本地安装的包有哪些已知漏洞，以表格的形式列出，漏洞级别分为以下几种：</p>
+<ul>
+<li><strong>INFO</strong>：信息级别</li>
+<li><strong>LOW</strong>: 低级别</li>
+<li><strong>MODERATE</strong>：中级别</li>
+<li><strong>HIGH</strong>：高级别</li>
+<li><strong>CRITICAL</strong>：关键级别</li>
+</ul>
+<ol start="3">
+<li><strong>yarn why</strong></li>
+</ol>
+<p>使用<code>yarn why 包名</code>命令，可以在控制台打印出为什么安装了这个包，哪些包会用到它</p>
+<ol start="4">
+<li><strong>yarn create</strong></li>
+</ol>
+<p>非常有趣的命令</p>
+<p>今后，我们会学习一些脚手架，所谓脚手架，就是使用一个命令来搭建一个工程结构</p>
+<p>过去，我们都是使用如下的做法：</p>
+<ol>
+<li>全局安装脚手架工具</li>
+<li>使用全局命令搭建脚手架</li>
+</ol>
+<p>由于大部分脚手架工具都是以<code>create-xxx</code>的方式命名的，比如react的官方脚手架名称为<code>create-react-app</code></p>
+<p>因此，可以使用<code>yarn create</code>命令来一步完成安装和搭建</p>
+<p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yarn create react-app my-app</span><br><span class="line"><span class="meta">#</span><span class="bash"> 等同于下面的两条命令</span></span><br><span class="line">yarn global add create-react-app</span><br><span class="line">create-react-app my-app</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他包管理器"><a href="#其他包管理器" class="headerlink" title="其他包管理器"></a>其他包管理器</h2><h3 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h3><blockquote>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://npm.taobao.org/">https://npm.taobao.org/</a></p>
+</blockquote>
+<p>为解决国内用户连接<code>npm registry</code>缓慢的问题，淘宝搭建了自己的<code>registry</code>，即淘宝npm镜像源</p>
+<p>过去，<code>npm</code>没有提供修改registry的功能，因此，淘宝提供了一个<code>CLI</code>工具即<code>cnpm</code>，它支持除了<code>npm publish</code>以外的所有命令，只不过连接的是淘宝镜像源</p>
+<p>如今，<code>npm</code>已经支持修改<code>registry</code>了，可能<code>cnpm</code>唯一的作用就是和<code>npm</code>共存，即如果要使用官方源，则使用<code>npm</code>，如果使用淘宝源，则使用<code>cnpm</code></p>
+<h3 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h3><p><code>nvm</code>并非包管理器，它是用于管理多个<code>node</code>版本的工具</p>
+<p>在实际的开发中，可能会出现多个项目分别使用的是不同的<code>node</code>版本，在这种场景下，管理不同的<code>node</code>版本就显得尤为重要</p>
+<p><code>nvm</code>就是用于切换版本的一个工具</p>
+<h4 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h4><p>最新版下载地址：<a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
+<p>下载<code>nvm-setup.zip</code>后，直接安装</p>
+<h4 id="使用nvm"><a href="#使用nvm" class="headerlink" title="使用nvm"></a>使用nvm</h4><p><code>nvm</code>提供了<code>CLI</code>工具，用于管理<code>node</code>版本</p>
+<p>在终端中输入<code>nvm</code>，以查看各种可用命令</p>
+<blockquote>
+<p>为了加快下载速度，建议设置淘宝镜像<br>node淘宝镜像：<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/">https://npm.taobao.org/mirrors/node/</a><br>npm淘宝镜像：<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/npm/">https://npm.taobao.org/mirrors/npm/</a></p>
+</blockquote>
+<h3 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h3><p><code>pnpm</code>是一种新起的包管理器，从<code>npm</code>的下载量看，目前还没有超过<code>yarn</code>，但它的实现方式值得主流包管理器学习，某些开发者极力推荐使用<code>pnpm</code></p>
+<p>从结果上来看，它具有以下优势：</p>
+<ol>
+<li>目前，安装效率高于<code>npm</code>和<code>yarn</code>的最新版</li>
+<li>极其简洁的<code>node_modules</code>目录</li>
+<li>避免了开发时使用间接依赖的问题</li>
+<li>能极大的降低磁盘空间的占用</li>
+</ol>
+<h4 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h4><p>全局安装<code>pnpm</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g pnpm</span><br></pre></td></tr></table></figure>
+
+<p>之后在使用时，只需要把<code>npm</code>替换为<code>pnpm</code>即可</p>
+<p>如果要执行安装在本地的<code>CLI</code>，可以使用<code>pnpx</code>，它和 <code>npx</code> 的功能完全一样，唯一不同的是，在使用<code>pnpx</code>执行一个需要安装的命令时，会使用<code>pnpm</code>进行安装</p>
+<blockquote>
+<p>比如<code>npx mocha</code>执行本地的<code>mocha</code>命令时，如果<code>mocha</code>没有安装，则npx会自动的、临时的安装mocha，安装好后，自动运行mocha命令</p>
+</blockquote>
+<h4 id="pnpm原理"><a href="#pnpm原理" class="headerlink" title="pnpm原理"></a>pnpm原理</h4><ol>
+<li><p>同 <code>yarn</code> 和 <code>npm</code> 一样，<code>pnpm</code> 仍然使用缓存来保存已经安装过的包，以及使用 <code>pnpm-lock.yaml</code> 来记录详细的依赖版本</p>
+</li>
+<li><p>不同于 <code>yarn</code> 和 <code>npm</code>， <code>pnpm</code> 使用<strong>符号链接和硬链接</strong>（可将它们想象成快捷方式）的做法来放置依赖，从而规避了从缓存中拷贝文件的时间，使得安装和卸载的速度更快</p>
+</li>
+<li><p>由于使用了<strong>符号链接和硬链接</strong>，<code>pnpm</code>可以规避<code>windows</code>操作系统路径过长的问题，因此，它选择使用树形的依赖结果，有着几乎完美的依赖管理。也因为如此，项目中只能使用直接依赖，而不能使用间接依赖</p>
+</li>
+</ol>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>由于 <code>pnpm</code> 会改动 <code>node_modules</code> 目录结构，使得每个包只能使用直接依赖，而不能使用间接依赖，因此，如果使用 <code>pnpm</code> 安装的包中包含间接依赖，则会出现问题(<strong>现在不会了，除非使用了绝对路径</strong>)</p>
+<p>由于 <code>pnpm</code> 超高的安装卸载效率，越来越多的包开始修正之前的间接依赖代码</p>
+<h4 id="pnpm-原理"><a href="#pnpm-原理" class="headerlink" title="pnpm 原理"></a>pnpm 原理</h4><h5 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h5><blockquote>
+<p>要彻底理解pnpm是怎么做的，需要有一些操作系统知识</p>
+</blockquote>
+<ol>
+<li><strong>文件的本质</strong></li>
+</ol>
+<p>在操作系统中，文件实际上是一个指针，只不过它指向的不是内存地址，而是一个外部存储地址（这里的外部存储可以是硬盘、<code>U</code>盘、甚至是网络）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm1.png"></p>
+<p>当我们删除文件时，删除的实际上是指针，因此，无论删除多么大的文件，速度都非常快。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm2.png"></p>
+<ol start="2">
+<li><strong>文件的拷贝</strong></li>
+</ol>
+<p>如果你复制一个文件，是将该文件指针指向的内容进行复制，然后产生一个新文件指向新的内容</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm3.png"></p>
+<ol start="3">
+<li><strong>硬链接 hard link</strong></li>
+</ol>
+<p>硬链接的概念来自于 <code>Unix</code> 操作系统，它是指将一个文件<code>A</code>指针复制到另一个文件B指针中，文件<code>B</code>就是文件<code>A</code>的硬链接</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm4.png"></p>
+<p>通过硬链接，不会产生额外的磁盘占用，并且，两个文件都能找到相同的磁盘内容</p>
+<p>硬链接的数量没有限制，可以为同一个文件产生多个硬链接</p>
+<p><code>windows Vista</code>操作系统开始，支持了创建硬链接的操作，在<code>cmd</code>中使用下面的命令可以创建硬链接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mklink /h 链接名称 目标文件</span><br></pre></td></tr></table></figure>
+
+<p>由于文件夹（目录）不存在文件内容，所以文件夹（目录）不能创建硬链接</p>
+<blockquote>
+<p>由于种种原因，在windows操作系统中，通常不要跨越盘符创建硬链接</p>
+</blockquote>
+<ol start="4">
+<li><strong>符号链接 symbol link</strong></li>
+</ol>
+<p>符号链接又称为软连接，如果为某个文件或文件夹<code>A</code>创建符号连接<code>B</code>，则B指向<code>A</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm5.png"></p>
+<p><code>windows Vista</code>操作系统开始，支持了创建符号链接的操作，在<code>cmd</code>中使用下面的命令可以创建符号链接：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mklink /d 链接名称 目标文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> /d表示创建的是目录的符号链接，不写则是文件的符号链接</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>早期的windows系统不支持符号链接，但它提供了一个工具junction来达到类似的功能</p>
+</blockquote>
+<p><strong>符号链接和硬链接的区别</strong></p>
+<ol>
+<li>硬链接仅能链接文件，而符号链接可以链接目录</li>
+<li>硬链接在链接完成后仅和文件内容关联，和之前链接的文件没有任何关系。而符号链接始终和之前链接的文件关联，和文件内容不直接相关</li>
+</ol>
+<ol start="5">
+<li><strong>快捷方式</strong></li>
+</ol>
+<p>快捷方式类似于符号链接，是<code>windows</code>系统早期就支持的链接方式。</p>
+<p>它不仅仅是一个指向其他文件或目录的指针，其中还包含了各种信息：如权限、兼容性启动方式等其他各种属性</p>
+<p>由于快捷方式是<code>windows</code>系统独有的，在跨平台的应用中一般不会使用</p>
+<ol start="6">
+<li><strong>node环境对硬链接和符号链接的处理</strong></li>
+</ol>
+<p><strong>硬链接</strong>：硬链接是一个实实在在的文件，<code>node</code>不对其做任何特殊处理，也无法区别对待，实际上，<code>node</code>根本无从知晓该文件是不是一个硬链接</p>
+<p><strong>符号链接</strong>：由于符号链接指向的是另一个文件或目录，当<code>node</code>执行符号链接下的<code>JS</code>文件时，会使用原始路径。</p>
+<h5 id="pnpm原理-1"><a href="#pnpm原理-1" class="headerlink" title="pnpm原理"></a>pnpm原理</h5><p><code>pnpm</code>使用符号链接和硬链接来构建<code>node_modules</code>目录</p>
+<p>下面用一个例子来说明它的构建方式</p>
+<p>假设两个包<code>a</code>和b，<code>a</code>依赖<code>b</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm6.png"></p>
+<p>假设我们的工程为<code>proj</code>，直接依赖<code>a</code>，则安装时，<code>pnpm</code>会做下面的处理</p>
+<ol>
+<li>查询依赖关系，得到最终要安装的包：<code>a</code>和<code>b</code></li>
+<li>查看<code>a</code>和<code>b</code>是否已经有缓存，如果没有，下载到缓存中，如果有，则进入下一步</li>
+<li>创建 <code>node_modules</code> 目录，并对目录进行结构初始化</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm7.png"></p>
+<ol start="4">
+<li>从缓存的对应包中使用硬链接放置文件到相应包代码目录中</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm8.png"></p>
+<ol start="5">
+<li>使用符号链接，将每个包的<strong>直接依赖</strong>放置到自己的目录中</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm9.png"></p>
+<p>这样做的目的，是为了保证<code>a</code>的代码在执行过程中，可以读取到它们的直接依赖</p>
+<ol start="6">
+<li>新版本的<code>pnpm</code>为了解决一些书写不规范的包（读取间接依赖）的问题，又将所有的工程非直接依赖，使用符号链接加入到了 <code>.pnpm/node_modules</code> 中</li>
+</ol>
+<p>在本例中好像没有必要，但是如果<code>b</code>依赖<code>c</code>，<code>a</code>又要直接用<code>c</code>，这种不规范的用法现在<code>pnpm</code>通过这种方式支持了。</p>
+<blockquote>
+<p>但对于那些使用绝对路径的奇葩写法，可能永远也无法支持</p>
+</blockquote>
+<ol start="7">
+<li>在工程的<code>node_modules</code>目录中使用符号链接，放置直接依赖</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/PackageManager/pnpm10.png"></p>
+<ol start="8">
+<li>完成</li>
+</ol>
+
+      </div>
+    
+  </div>
+
+</article>
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+  <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+  <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+
+
+<!-- 微信公众号引流 openwrite.cn -->
+<!-- 
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+  const btw = new BTWPlugin();
+  btw.init({
+    id: "container",
+    blogId: "",
+    name: "前端之旅",
+    qrcode: "https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg",
+    keyword: "3a3b3c",
+  });
+</script> -->
+
+<script type="text/javascript">
+
+// white theme
+var body = {color: "#555", background: "#000"};
+var a_tag = {color: "#222"};
+var header = { background: "#222"};
+var logo_line_i = {background: "#222"};
+// var post_code = {background: "#eee", color: "#222"};
+
+function switch_theme() {
+ $("body").css(body);
+ $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+ $(".header, .footer").css(header);
+ $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+ //$(".post code").css(post_code);
+ $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+ $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+ 
+ // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+ //$("#assist_btn1").hide(1500);
+}
+
+$(function () {
+$("#assist_btn2").css("display","none");
+ $("#assist_btn1").click(function() {
+     switch_theme();
+$("div#toc.toc-article").css({
+ "background":"#eaeaea",
+ "opacity":1
+});
+$(".toc-article ol").show();
+$("#toc.toc-article .toc-title").css("color","#a98602");
+$("#assist_btn1").css("display","none");
+$("#assist_btn2").css("display","block");
+ });
+$("#assist_btn2").click(function() {
+$("#assist_btn2").css("display","none");
+$("#assist_btn1").css("display","block");
+$("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+     $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+$(".toc-article ol").toggle(1000);
+ });
+});
+
+
+//背景随机
+
+var Y, O, E, L, B, C, T, z, N, S, A, I;
+!function() {
+var e = function() {
+for (O.clearRect(0, 0, L, B), T = [{
+x: 0,
+y: .7 * B + C
+}, {
+x: 0,
+y: .7 * B - C
+}]; T[1].x < L + C;) t(T[0], T[1])
+}, t = function(e, t) {
+O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+var n = t.x + (2 * I() - .25) * C,
+ r = a(t.y);
+O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+ x: n,
+ y: r
+}
+}, a = function n(e) {
+var t = e + (2 * I() - 1.1) * C;
+return t > B || t < 0 ? n(e) : t
+};
+Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+}()
+
+   
+$("#toc-eye").click(function(){
+$("#toc.toc-article").toggle(1000);
+});
+
+</script>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Haodex</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/11/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "nkvLdnK5xBRTBnMkXqpCq3Ie-gzGzoHsz",
+            appKey: "r2K6NaTBu6ebcvjzHlNUFKWR",
+            avatar:'mm',
+            placeholder: "有什么问题，欢迎留言指正与交流...",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+ 
+  
+</body>
+</html>
