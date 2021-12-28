@@ -15,15 +15,15 @@
     <meta name="keywords" content="设计模式," />
   
 
-  <meta name="description" content="设计模式 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人只晓得、经过分类的、代码设计经验的总结  模式是什么？  模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论   设计模式的目的  使用设计模式的目的：为了代码的可重用性、让代码">
+  <meta name="description" content="设计模式简单概括 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人只晓得、经过分类的、代码设计经验的总结  模式是什么？  模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论   设计模式的目的  使用设计模式的目的：为了代码的可重用性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
-<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC/index.html">
 <meta property="og:site_name" content="Haodex Blog">
-<meta property="og:description" content="设计模式 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人只晓得、经过分类的、代码设计经验的总结  模式是什么？  模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论   设计模式的目的  使用设计模式的目的：为了代码的可重用性、让代码">
+<meta property="og:description" content="设计模式简单概括 什么是设计模式，原则 设计模式详解 UML，贪吃蛇  什么是设计模式？ 设计模式（Design Pattern）是一套被反复使用、多数人只晓得、经过分类的、代码设计经验的总结  模式是什么？  模式-模式是指从生产经验和生活经验中经过抽象和升华提炼出来的核心知识体系。模式（Pattern）其实就是解决某一类问题的方法论   设计模式的目的  使用设计模式的目的：为了代码的可重用性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-25T06:04:10.000Z">
-<meta property="article:modified_time" content="2021-12-26T10:56:50.464Z">
+<meta property="article:modified_time" content="2021-12-28T09:33:21.099Z">
 <meta property="article:author" content="Haodex">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">什么是设计模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F"><span class="toc-text">模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-%E7%A0%94%E7%A9%B6%E6%90%9E%E9%AB%98%E6%95%88%E7%9A%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建型-研究搞高效的创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E5%85%B3%E7%B3%BB"><span class="toc-text">结构型模式-设计对象的结构和关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="toc-text">行为型模式-设计对象的行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">设计模式的六大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99"><span class="toc-text">单一职责原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99-OCP"><span class="toc-text">开闭原则 OCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99-L-substitution-Principle"><span class="toc-text">里氏代换原则 L substitution Principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99%EF%BC%88%E6%9C%80%E5%B0%8F%E7%9F%A5%E9%81%93%E5%8E%9F%E5%88%99%EF%BC%89-LD"><span class="toc-text">迪米特法则（最小知道原则） LD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99-DIP"><span class="toc-text">依赖倒置原则 DIP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99-ISP"><span class="toc-text">接口分离原则 ISP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97"><span class="toc-text">心得</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC"><span class="toc-text">设计模式简单概括</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">什么是设计模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F"><span class="toc-text">模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-%E7%A0%94%E7%A9%B6%E6%90%9E%E9%AB%98%E6%95%88%E7%9A%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建型-研究搞高效的创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E5%85%B3%E7%B3%BB"><span class="toc-text">结构型模式-设计对象的结构和关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="toc-text">行为型模式-设计对象的行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">设计模式的六大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99"><span class="toc-text">单一职责原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99-OCP"><span class="toc-text">开闭原则 OCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99-L-substitution-Principle"><span class="toc-text">里氏代换原则 L substitution Principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99%EF%BC%88%E6%9C%80%E5%B0%8F%E7%9F%A5%E9%81%93%E5%8E%9F%E5%88%99%EF%BC%89-LD"><span class="toc-text">迪米特法则（最小知道原则） LD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99-DIP"><span class="toc-text">依赖倒置原则 DIP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99-ISP"><span class="toc-text">接口分离原则 ISP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97"><span class="toc-text">心得</span></a></li></ol></li></ol>
   </div>
   
 
@@ -198,7 +198,7 @@
   </div> 
 </div> -->
 
-<article id="post-设计模式" class="article article-type-post" itemprop="blogPost">
+<article id="post-设计模式简单概括" class="article article-type-post" itemprop="blogPost">
   <header class="article-header" style="position:relative;">
     <h1 class="post-title">设计模式</h1>
 
@@ -255,7 +255,7 @@
   <div class="article-content">
     
       <div id="container">
-        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><ul>
+        <h1 id="设计模式简单概括"><a href="#设计模式简单概括" class="headerlink" title="设计模式简单概括"></a>设计模式简单概括</h1><ul>
 <li>什么是设计模式，原则</li>
 <li>设计模式详解</li>
 <li><code>UML</code>，贪吃蛇</li>
@@ -516,7 +516,7 @@ $("#toc.toc-article").toggle(1000);
     <a class="show pull-left" href="/2021/11/11/HTML%20&%20CSS/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="hide pull-right" href="/">
+    <a class="show pull-right" href="/2021/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
