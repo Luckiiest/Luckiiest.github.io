@@ -15,15 +15,15 @@
     <meta name="keywords" content="设计模式-单例模式," />
   
 
-  <meta name="description" content="设计模式-单例模式 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点 创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一个访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。  范例： 声明一个函数，想要这个函数只实现一次实例 &#x2F;&#x2F; 1.0function Test(name) &amp;#123">
+  <meta name="description" content="设计模式-单例模式 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点 创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一个访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。 在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例，既一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式-单例模式">
 <meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/12/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Haodex Blog">
-<meta property="og:description" content="设计模式-单例模式 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点 创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一个访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。  范例： 声明一个函数，想要这个函数只实现一次实例 &#x2F;&#x2F; 1.0function Test(name) &amp;#123">
+<meta property="og:description" content="设计模式-单例模式 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点 创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一个访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。 在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例，既一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-28T11:55:47.000Z">
-<meta property="article:modified_time" content="2021-12-28T11:59:40.160Z">
+<meta property="article:modified_time" content="2021-12-29T09:01:54.623Z">
 <meta property="article:author" content="Haodex">
 <meta property="article:tag" content="设计模式-单例模式">
 <meta name="twitter:card" content="summary">
@@ -236,12 +236,12 @@
        
           <span class="post-count">
             <i class="fa fa-file-word-o"></i>&nbsp
-            <span>字数统计 877字</span>
+            <span>字数统计 951字</span>
           </span>
 
           <span class="post-count">
             <i class="fa fa-columns"></i>&nbsp
-            <span>阅读时长 3分</span>
+            <span>阅读时长 4分</span>
           </span>
       
       
@@ -259,9 +259,10 @@
 <li>定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点</li>
 <li>创建型模式，它提供了一种创建对象的最佳方式。</li>
 <li>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一个访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</li>
+<li>在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例，既一个类只有一个对象实例</li>
 </ul>
 <p>范例：</p>
-<p>声明一个函数，想要这个函数只实现一次实例</p>
+<p>声明一个函数，想要这个函数无论怎么声明，最后实现的实例还是第一个</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.0</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// var this = Object.create(Test.prototype);</span></span><br><span class="line">    <span class="comment">// 判断Test的instance是否等于object，如果等于object说明已经被实例化了一次，那么就直接返回实例化过的对象，不用再实例化一次</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> Test.instance === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> Test.instance; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    Test.instance = <span class="built_in">this</span>;</span><br><span class="line">    <span class="comment">// return this;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Test(<span class="string">&#x27;one&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Test();</span><br><span class="line"><span class="built_in">console</span>.log(a === b); <span class="comment">//true</span></span><br><span class="line"><span class="comment">// 虽然可以实现单例模式，但是违反了开闭原则，外部可以直接更改Test之中的内容</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> instance = <span class="built_in">this</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="comment">// 让Test直接等于instance，永远都是第一回声明的实例</span></span><br><span class="line">    Test = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// return this</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Test();</span><br><span class="line">Test.prototype.lastName = <span class="string">&#x27;D&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Test();</span><br><span class="line"><span class="comment">// 可以实现单例模式，也可以实现开闭原则，但是如果给Test的protottype中赋值，则访问不到，因为给Test原型赋值则是给里面的那个Test原型赋值，外面Test获取不到</span></span><br></pre></td></tr></table></figure>
@@ -426,7 +427,7 @@ $("#toc.toc-article").toggle(1000);
     <a class="show pull-left" href="/2021/12/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E5%8D%95%E6%A6%82%E6%8B%AC/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="hide pull-right" href="/">
+    <a class="show pull-right" href="/2021/12/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
