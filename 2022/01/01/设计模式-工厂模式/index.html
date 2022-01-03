@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式-工厂模式 | Haodex Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="设计模式-工厂模式," />
+  
+
+  <meta name="description" content="工厂模式 定义 工厂模式定义创建对象的接口，但是让子类去真正的实例化。也就是工厂方法将类的实例化延迟到子类        简单工厂模式 工厂类集中了所有对象的创建，便于对象创建的统一管理 对象的使用者仅仅是使用产品，实现了单一职责 便于拓展，如果新增了一种业务，只需要增加相关的业务对象类和工厂类中的生产业务对象的方法，不需要修改其他的地方 确实违反了开闭原则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式-工厂模式">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2022/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Haodex Blog">
+<meta property="og:description" content="工厂模式 定义 工厂模式定义创建对象的接口，但是让子类去真正的实例化。也就是工厂方法将类的实例化延迟到子类        简单工厂模式 工厂类集中了所有对象的创建，便于对象创建的统一管理 对象的使用者仅仅是使用产品，实现了单一职责 便于拓展，如果新增了一种业务，只需要增加相关的业务对象类和工厂类中的生产业务对象的方法，不需要修改其他的地方 确实违反了开闭原则">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-01T07:49:12.000Z">
+<meta property="article:modified_time" content="2022-01-01T11:34:18.711Z">
+<meta property="article:author" content="Haodex">
+<meta property="article:tag" content="设计模式-工厂模式">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+<link href="/css/other.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  <!-- 聊天系统 -->
+  
+    
+   <link type="text/css" rel="stylesheet" href="/renxi/default.css">
+   <style>
+      #modal {
+        position: static !important;
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fe5757;
+        animation: colorChange 30s ease-in-out infinite;
+        animation-fill-mode: both;
+        mix-blend-mode: overlay;
+      }
+  
+      @keyframes colorChange {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .9;
+        }
+      }
+   </style>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Haodex Blog" type="application/atom+xml">
+</head>
+
+<body>
+  
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-text">工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-text">简单工厂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="toc-text">工厂方法模式</span></a></li></ol></li></ol>
+  </div>
+  
+
+
+
+
+<div class="content content-post CENTER">
+   <!-- canvas 彩带 -->
+<canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+
+<!-- <div class="qrcode_container">
+  <div class="tencent_code">
+    <h4>关注作者公众号</h4> 
+    <p>和万千小伙伴一起学习</p> 
+    <img src="https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg" alt="">
+  </div> 
+</div> -->
+
+<article id="post-设计模式-工厂模式" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header" style="position:relative;">
+    <h1 class="post-title">设计模式-工厂模式</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2022.01.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Haodex</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+       
+          <span class="post-count">
+            <i class="fa fa-file-word-o"></i>&nbsp
+            <span>字数统计 1.1k字</span>
+          </span>
+
+          <span class="post-count">
+            <i class="fa fa-columns"></i>&nbsp
+            <span>阅读时长 4分</span>
+          </span>
+      
+      
+    </div>
+
+    <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:0;right:0;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+
+  </header>
+
+  <div class="article-content">
+    
+      <div id="container">
+        <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><ul>
+<li>定义<ul>
+<li>工厂模式定义创建对象的接口，但是让子类去真正的实例化。也就是工厂方法将类的实例化延迟到子类    </li>
+</ul>
+</li>
+</ul>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><ul>
+<li>工厂类集中了所有对象的创建，便于对象创建的统一管理</li>
+<li>对象的使用者仅仅是使用产品，实现了单一职责</li>
+<li>便于拓展，如果新增了一种业务，只需要增加相关的业务对象类和工厂类中的生产业务对象的方法，不需要修改其他的地方</li>
+<li>确实违反了开闭原则</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原始模式</span></span><br><span class="line"><span class="comment">// 如果想要各种类型的飞机的话，只能一个一个的复制，这样会很笨拙</span></span><br><span class="line"><span class="keyword">var</span> plane = &#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">height</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">blood</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">touch</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.blood -= <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.blood == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;die&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="comment">// 使用构造函数也是可以进行声明飞机，但是也要一个一个复制声明不同类型飞机</span></span><br><span class="line"><span class="comment">// 也可以创造一个父类Plane，子类继承父类，然后子类往父类身上加属性，使用继承来完善</span></span><br><span class="line"><span class="comment">// function BigPlane() &#123;&#125; </span></span><br><span class="line"><span class="comment">// function SmallPlane() &#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SmallPlane</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;smallPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.touch = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.blood -= <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.blood == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;die&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BigPlane</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;BigPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.touch = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.blood -= <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.blood == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;die&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AttackPlane</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;BigPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.touch = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.blood -= <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.blood == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;die&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.attack = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;attack&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 工厂类模式 </span></span><br><span class="line"><span class="comment">// 工厂类仅仅是集中了对象的创建，该对象的功能还是要该对象自己实现，同时也违反了开闭原则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PlaneFactory</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newPlane = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;SmallPlane&quot;</span>:</span><br><span class="line">            newPlane = <span class="keyword">new</span> SmallPlane();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;BigPlane&quot;</span>:</span><br><span class="line">            newPlane = <span class="keyword">new</span> BigPlane();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    newPlane.die = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;boomb&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newPlane;</span><br><span class="line">&#125;</span><br><span class="line">PlaneFactory(<span class="string">&quot;SmallPlane&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><ul>
+<li><p>不再有一个唯一的工厂类就创建产品，而是将不同的产品交给对应的工厂子类去实现。每个产品由负责生产的子工厂来创造。如果添加新的产品，需要做的是添加新的子工厂和产品，而不需要修改其他的工厂代码</p>
+</li>
+<li><p>工厂方法模式组成：</p>
+<ul>
+<li>抽象工厂类：负责定义创建产品的公共接口</li>
+<li>产品子工厂：继承抽象工厂类，实现抽象工厂类提供的接口</li>
+<li>每一种产品都用每一种产品的类</li>
+</ul>
+</li>
+<li><p>代码比简单工厂模式复杂了，引入了抽象层，还有子工厂，这回增加代码的复杂度和理解难度。但是相比于简单工厂模式，代码的维护性和拓展性提高了，新增产品时，只需要增加对应的产品类和产品工厂类，不需要修改到抽象工厂类和其他子工厂。更加符合面向对象的开放封闭原则</p>
+</li>
+<li><p>具体场景具体分析，复杂性和拓展性相比如何舍去，在使用时要结合实际场景去分析</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 工厂方法模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PlaneFactory</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类工厂都可以使用的公共方法</span></span><br><span class="line">PlaneFactory.prototype.touch = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.blood -= <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.blood == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.die()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">PlaneFactory.prototype.die = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;boomb&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建对象的接口</span></span><br><span class="line">PlaneFactory.create = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判定是否存在该类型的子类工厂</span></span><br><span class="line">    <span class="keyword">if</span>(PlaneFactory.prototype[type] == <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">&#x27;no this constructor&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 继承</span></span><br><span class="line">    <span class="comment">// 判定PlaneFactory中该类型的子类工厂是否已经继承</span></span><br><span class="line">    <span class="keyword">if</span>(PlaneFactory.prototype[type].prototype.__proto__ != PlaneFactory.prototype) &#123;</span><br><span class="line">        PlaneFactory.prototype[type].prototype = <span class="keyword">new</span> PlaneFactory();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 坐标参数</span></span><br><span class="line">    <span class="keyword">var</span> args = [].splice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// args =&gt; [10,20]，...args =&gt; 10,20</span></span><br><span class="line">    <span class="keyword">var</span> newPlane = <span class="keyword">new</span> PlaneFactory.prototype[type](...args);</span><br><span class="line">    <span class="keyword">return</span> newPlane;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 真正定义子类工厂</span></span><br><span class="line">PlaneFactory.prototype.SmallPlane = <span class="function"><span class="keyword">function</span> (<span class="params">x,y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.x = x;</span><br><span class="line">    <span class="built_in">this</span>.y = y;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;smallPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line">PlaneFactory.prototype.BigPlane = <span class="function"><span class="keyword">function</span> (<span class="params">x,y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.x = x;</span><br><span class="line">    <span class="built_in">this</span>.y = y;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">200</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;BigPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">200</span>;</span><br><span class="line">&#125;</span><br><span class="line">PlaneFactory.prototype.AttackPlane = <span class="function"><span class="keyword">function</span> (<span class="params">x,y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.x = x;</span><br><span class="line">    <span class="built_in">this</span>.y = y;</span><br><span class="line">    <span class="built_in">this</span>.width = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = <span class="number">125</span>;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;AttackPlane&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.blood = <span class="number">150</span>;</span><br><span class="line">    <span class="built_in">this</span>.attack = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;biu~ biu~ biu~&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> oAp = PlaneFactory.create(<span class="string">&quot;AttackPlane&quot;</span>,<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> oSp = PlaneFactory.create(<span class="string">&quot;SmallPlane&quot;</span>,<span class="number">20</span>,<span class="number">30</span>);</span><br><span class="line"><span class="keyword">var</span> oBp = PlaneFactory.create(<span class="string">&quot;BigPlane&quot;</span>,<span class="number">30</span>,<span class="number">40</span>);</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+    
+  </div>
+
+</article>
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+  <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+  <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+
+
+<!-- 微信公众号引流 openwrite.cn -->
+<!-- 
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+  const btw = new BTWPlugin();
+  btw.init({
+    id: "container",
+    blogId: "",
+    name: "前端之旅",
+    qrcode: "https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg",
+    keyword: "3a3b3c",
+  });
+</script> -->
+
+<script type="text/javascript">
+
+// white theme
+var body = {color: "#555", background: "#000"};
+var a_tag = {color: "#222"};
+var header = { background: "#222"};
+var logo_line_i = {background: "#222"};
+// var post_code = {background: "#eee", color: "#222"};
+
+function switch_theme() {
+ $("body").css(body);
+ $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+ $(".header, .footer").css(header);
+ $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+ //$(".post code").css(post_code);
+ $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+ $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+ 
+ // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+ //$("#assist_btn1").hide(1500);
+}
+
+$(function () {
+$("#assist_btn2").css("display","none");
+ $("#assist_btn1").click(function() {
+     switch_theme();
+$("div#toc.toc-article").css({
+ "background":"#eaeaea",
+ "opacity":1
+});
+$(".toc-article ol").show();
+$("#toc.toc-article .toc-title").css("color","#a98602");
+$("#assist_btn1").css("display","none");
+$("#assist_btn2").css("display","block");
+ });
+$("#assist_btn2").click(function() {
+$("#assist_btn2").css("display","none");
+$("#assist_btn1").css("display","block");
+$("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+     $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+$(".toc-article ol").toggle(1000);
+ });
+});
+
+
+//背景随机
+
+var Y, O, E, L, B, C, T, z, N, S, A, I;
+!function() {
+var e = function() {
+for (O.clearRect(0, 0, L, B), T = [{
+x: 0,
+y: .7 * B + C
+}, {
+x: 0,
+y: .7 * B - C
+}]; T[1].x < L + C;) t(T[0], T[1])
+}, t = function(e, t) {
+O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+var n = t.x + (2 * I() - .25) * C,
+ r = a(t.y);
+O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+ x: n,
+ y: r
+}
+}, a = function n(e) {
+var t = e + (2 * I() - 1.1) * C;
+return t > B || t < 0 ? n(e) : t
+};
+Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+}()
+
+   
+$("#toc-eye").click(function(){
+$("#toc.toc-article").toggle(1000);
+});
+
+</script>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Haodex</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/12/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2022/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "nkvLdnK5xBRTBnMkXqpCq3Ie-gzGzoHsz",
+            appKey: "r2K6NaTBu6ebcvjzHlNUFKWR",
+            avatar:'mm',
+            placeholder: "有什么问题，欢迎留言指正与交流...",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+
+  <!-- 爆炸红心效果 -->
+  <!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+  <script type="text/javascript" src="/js/firework.js"></script> -->
+ 
+  
+</body>
+</html>
