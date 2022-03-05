@@ -321,6 +321,30 @@
   </entry>
   
   <entry>
+    <title>Touch</title>
+    <link href="https://github.com/haodex/haodex.github.io.git/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/"/>
+    <id>https://github.com/haodex/haodex.github.io.git/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/</id>
+    <published>2021-11-08T07:35:53.000Z</published>
+    <updated>2021-11-08T07:52:05.685Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="移动端-js-touch事件"><a href="#移动端-js-touch事件" class="headerlink" title="移动端 js touch事件"></a><a href="https://www.cnblogs.com/fengfan/p/4506555.html">移动端 js touch事件</a></h1><p>随着智能手机和平板电脑的普及, 越来越多的人用移动设备浏览网页，我们平时在<code>pc</code>浏览器上用的鼠标事件，比如：<code>click</code>, <code>mouseover</code>等， 已经无法满足移动设备触摸屏的特点，触摸时代的到来，离不开那些触摸事件。</p><h3 id="触摸事件包含4个接口。"><a href="#触摸事件包含4个接口。" class="headerlink" title="触摸事件包含4个接口。"></a>触摸事件包含4个接口。</h3><p><strong>TouchEvent</strong></p><ul><li>代表当触摸行为在平面上变化的时候发生的事件.</li></ul><p><strong>Touch</strong></p><ul><li>代表用户手指与触摸平面间的一个接触点.</li></ul><p><strong>TouchList</strong></p><ul><li>代表一系列的<code>Touch</code>; 一般在用户多个手指同时接触触控平面时使用这个接口.</li></ul><p><strong>DocumentTouch</strong></p><ul><li><p>包含了一些创建 <code>Touch</code>对象与<code>TouchList</code>对象的便捷方法.</p></li><li><p>（参考于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events">https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events</a> ）</p></li><li><p><code>TouchEvent</code>接口可以响应基本触摸事件（如单个手指点击），它包含了一些具体的事件， </p></li></ul><h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><ul><li><p><code>touchstart</code> : 触摸开始（手指放在触摸屏上）</p></li><li><p><code>touchmove</code> : 拖动（手指在触摸屏上移动）</p></li><li><p><code>touchend</code>: 触摸结束（手指从触摸屏上移开）</p></li><li><p><code>touchenter</code> ：移动的手指进入一个<code>dom</code>元素。</p></li><li><p><code>touchleave</code> ：移动的手指离开一个<code>dom</code>元素。</p></li><li><p>还有一个<code>touchcancel</code>，是在拖动中断时候触发。</p></li></ul><h3 id="事件属性"><a href="#事件属性" class="headerlink" title="事件属性"></a>事件属性</h3><ul><li><code>altKey </code> : 该属性返回一个布尔值，表示在指定的事件发生时，<code>Alt</code> 键是否处于按下状态， <code>event.altKey=true|false|1|0</code></li><li><code>type</code> : 触摸时触发的事件类型，比如<code>touchstart</code></li><li><strong>每个触摸事件都包括了三个触摸属性列表：</strong></li><li><code>touches</code>：当前位于屏幕上的所有手指触摸点的一个列表。</li><li><code>targetTouches</code>：当前元素对象上所有触摸点的列表。</li><li><code>changedTouches</code>：涉及当前事件的触摸点的列表。</li><li>它们都是一个数组，每个元素代表一个触摸点。</li><li>每个触摸点对应的Touch都有三对重要的属性，<code>clientX/clientY</code>、<code>pageX/pageY</code>、<code>screenX/screenY</code>。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;移动端-js-touch事件&quot;&gt;&lt;a href=&quot;#移动端-js-touch事件&quot; class=&quot;headerlink&quot; title=&quot;移动端 js touch事件&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.cnblogs.com/fengfan/p/4</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://github.com/haodex/haodex.github.io.git/categories/JavaScript/"/>
+    
+    
+    <category term="Touch" scheme="https://github.com/haodex/haodex.github.io.git/tags/Touch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HTML5 &amp; CSS3</title>
     <link href="https://github.com/haodex/haodex.github.io.git/2021/11/08/HTML5%20&amp;%20CSS3/"/>
     <id>https://github.com/haodex/haodex.github.io.git/2021/11/08/HTML5%20&amp;%20CSS3/</id>
@@ -428,30 +452,6 @@
     
     
     <category term="JavaScript" scheme="https://github.com/haodex/haodex.github.io.git/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Touch</title>
-    <link href="https://github.com/haodex/haodex.github.io.git/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/"/>
-    <id>https://github.com/haodex/haodex.github.io.git/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/</id>
-    <published>2021-11-08T07:35:53.000Z</published>
-    <updated>2021-11-08T07:52:05.685Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="移动端-js-touch事件"><a href="#移动端-js-touch事件" class="headerlink" title="移动端 js touch事件"></a><a href="https://www.cnblogs.com/fengfan/p/4506555.html">移动端 js touch事件</a></h1><p>随着智能手机和平板电脑的普及, 越来越多的人用移动设备浏览网页，我们平时在<code>pc</code>浏览器上用的鼠标事件，比如：<code>click</code>, <code>mouseover</code>等， 已经无法满足移动设备触摸屏的特点，触摸时代的到来，离不开那些触摸事件。</p><h3 id="触摸事件包含4个接口。"><a href="#触摸事件包含4个接口。" class="headerlink" title="触摸事件包含4个接口。"></a>触摸事件包含4个接口。</h3><p><strong>TouchEvent</strong></p><ul><li>代表当触摸行为在平面上变化的时候发生的事件.</li></ul><p><strong>Touch</strong></p><ul><li>代表用户手指与触摸平面间的一个接触点.</li></ul><p><strong>TouchList</strong></p><ul><li>代表一系列的<code>Touch</code>; 一般在用户多个手指同时接触触控平面时使用这个接口.</li></ul><p><strong>DocumentTouch</strong></p><ul><li><p>包含了一些创建 <code>Touch</code>对象与<code>TouchList</code>对象的便捷方法.</p></li><li><p>（参考于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events">https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events</a> ）</p></li><li><p><code>TouchEvent</code>接口可以响应基本触摸事件（如单个手指点击），它包含了一些具体的事件， </p></li></ul><h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><ul><li><p><code>touchstart</code> : 触摸开始（手指放在触摸屏上）</p></li><li><p><code>touchmove</code> : 拖动（手指在触摸屏上移动）</p></li><li><p><code>touchend</code>: 触摸结束（手指从触摸屏上移开）</p></li><li><p><code>touchenter</code> ：移动的手指进入一个<code>dom</code>元素。</p></li><li><p><code>touchleave</code> ：移动的手指离开一个<code>dom</code>元素。</p></li><li><p>还有一个<code>touchcancel</code>，是在拖动中断时候触发。</p></li></ul><h3 id="事件属性"><a href="#事件属性" class="headerlink" title="事件属性"></a>事件属性</h3><ul><li><code>altKey </code> : 该属性返回一个布尔值，表示在指定的事件发生时，<code>Alt</code> 键是否处于按下状态， <code>event.altKey=true|false|1|0</code></li><li><code>type</code> : 触摸时触发的事件类型，比如<code>touchstart</code></li><li><strong>每个触摸事件都包括了三个触摸属性列表：</strong></li><li><code>touches</code>：当前位于屏幕上的所有手指触摸点的一个列表。</li><li><code>targetTouches</code>：当前元素对象上所有触摸点的列表。</li><li><code>changedTouches</code>：涉及当前事件的触摸点的列表。</li><li>它们都是一个数组，每个元素代表一个触摸点。</li><li>每个触摸点对应的Touch都有三对重要的属性，<code>clientX/clientY</code>、<code>pageX/pageY</code>、<code>screenX/screenY</code>。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;移动端-js-touch事件&quot;&gt;&lt;a href=&quot;#移动端-js-touch事件&quot; class=&quot;headerlink&quot; title=&quot;移动端 js touch事件&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.cnblogs.com/fengfan/p/4</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://github.com/haodex/haodex.github.io.git/categories/JavaScript/"/>
-    
-    
-    <category term="Touch" scheme="https://github.com/haodex/haodex.github.io.git/tags/Touch/"/>
     
   </entry>
   
