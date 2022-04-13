@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Webpack | Luckiiest Blog</title>
+  <title>Webpack | Haodex Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -18,72 +18,72 @@
   <meta name="description" content="webpack核心功能模块化模块化简介 具有相同属性和行为的事物的集合。在前端中，将一些属性比较类似和行为比较类似的内容放在同一个js文件里面，把这个js文件称为模块，为了每个js文件只关注与自身有关的事情，让每个js文件各行其职。 模块要有几个特点： 独立、完整、依赖关系 在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，也就是你们现在的野生代码，得不到有效妥善的管理。后来前端圈开始制定规">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack">
-<meta property="og:url" content="https://github.com/Luckiiest/Luckiiest.github.io.git/2021/11/08/webpack/index.html">
-<meta property="og:site_name" content="Luckiiest Blog">
+<meta property="og:url" content="https://github.com/haodex/haodex.github.io.git/2021/11/08/webpack/index.html">
+<meta property="og:site_name" content="Haodex Blog">
 <meta property="og:description" content="webpack核心功能模块化模块化简介 具有相同属性和行为的事物的集合。在前端中，将一些属性比较类似和行为比较类似的内容放在同一个js文件里面，把这个js文件称为模块，为了每个js文件只关注与自身有关的事情，让每个js文件各行其职。 模块要有几个特点： 独立、完整、依赖关系 在最开始的阶段，Js并没有这些模块机制，各种Js到处飞，也就是你们现在的野生代码，得不到有效妥善的管理。后来前端圈开始制定规">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111729006.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730270.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730026.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730812.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730242.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731192.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731009.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731465.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731489.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733508.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733185.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733729.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734811.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734083.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734800.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741933.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741536.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741429.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742646.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742987.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742982.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742793.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742718.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742520.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742334.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742598.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742157.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743591.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744410.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744946.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744402.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111750919.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744074.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744020.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744072.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744659.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744691.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744904.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745786.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745688.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745727.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745671.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745841.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745225.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745908.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746481.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746351.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746331.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746058.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746389.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746339.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747451.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747630.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747606.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111749067.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111749071.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111729006.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730270.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730026.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730812.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730242.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731192.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731009.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731465.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731489.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733508.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733185.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734811.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734083.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734800.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741933.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741536.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741429.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742646.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742987.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742982.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742793.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742718.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742520.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742334.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742598.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742157.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743591.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744410.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744946.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744402.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111750919.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744074.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744020.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744072.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744659.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744691.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744904.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745786.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745688.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745727.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745671.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745841.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745225.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746481.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746351.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746331.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746058.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746389.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746339.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747451.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747606.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111749067.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111749071.png">
 <meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
-<meta property="article:modified_time" content="2022-04-13T07:03:10.195Z">
-<meta property="article:author" content="Luckiiest">
+<meta property="article:modified_time" content="2022-04-13T08:41:31.902Z">
+<meta property="article:author" content="Haodex">
 <meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111729006.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111729006.png">
 
   
 
@@ -142,7 +142,7 @@
         }
       }
    </style>
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Luckiiest Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Haodex Blog" type="application/atom+xml">
 </head>
 
 <body>
@@ -268,7 +268,7 @@
       
         <span class="article-author">
           <i class="icon-user"></i>
-          <span>Luckiiest</span>
+          <span>Haodex</span>
         </span>
       
 
@@ -352,7 +352,7 @@ return &#123;
 </li>
 <li><p><code>CommonJS</code>的核心思想就是通过 require 方法来同步加载所要依赖的其他模块，然后通过 exports 或者 <code>module.exports</code> 来导出需要暴露的接口</p>
 </li>
-<li><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111729006.png"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111729006.png"></p>
 </li>
 <li><p>浏览器不兼容<code>CommonJs</code>，原因是浏览器缺少<code>module</code>、<code>exports</code>、<code>require</code>、<code>global</code>四个环境变量。如要使用需要工具转换</p>
 </li>
@@ -366,23 +366,23 @@ return &#123;
 </li>
 <li><p>AMD的核心思想就是通过<code>define</code>来定义一个模块，然后使用require来加载一个模块。</p>
 </li>
-<li><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730270.png"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730270.png"></p>
 </li>
 <li><p>使用<code>require.js</code>，提前加载所有依赖，方可使用</p>
 </li>
-<li><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730026.png"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730026.png"></p>
 </li>
 </ul>
 <h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><ul>
 <li><code>CMD</code>异步加载，跟<code>AMD</code>的主要区别在于，<code>AMD</code>依赖前置，提前加载依赖。而<code>CMD</code>就近加载，按需加载。</li>
 <li>产物<code>seaJs</code>，跟<code>requireJs</code>使用有些相似。</li>
 <li><code>CMD</code>的核心思想就是通过<code>define</code>来定义一个模块，然后使用<code>require</code>来加载一个模块。</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730812.png"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730812.png"></li>
 </ul>
 <h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><ul>
 <li><code>ES6</code>自带模块化，可以使用 <code>import</code> 关键字引入模块，通过 <code>export</code> 关键字导出模块，功能较之于前几个方案更为强大，也是我们所推崇的，但是由于<code>ES6</code>目前无法在浏览器中执行，所以，我们只能通过<code>babel</code>将不被支持的<code>import</code>编译为当前受到广泛支持的 <code>require</code>。</li>
 <li>使用 <code>import</code> 关键字引入模块，通过 <code>export</code> 关键字导出模块</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111730242.png"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111730242.png"></li>
 </ul>
 <h4 id="模块化详细介绍"><a href="#模块化详细介绍" class="headerlink" title="模块化详细介绍"></a>模块化详细介绍</h4><p>本门课需要的前置知识：<code>ES6</code>、模块化、包管理器、<code>git</code></p>
 <p>本门课的讲解特点：</p>
@@ -423,7 +423,7 @@ return &#123;
 <p><code>requireJS</code>是一伟大的模块加载器，他的出现让<code>javascript</code>制作多人维护的大型项目变成了事实；<code>grunt</code>是一款<code>javascript</code>构建工具，主要完成编译、压缩、合并等一系列工作，后续又出了<code>yeoman</code>、<code>Gulp</code>、<code>webpack</code>等构建工具。</p>
 <p><code>Webpack</code>具有<code>Grunt</code>、<code>Gulp</code>对于静态资源自动化构建的能力，但更重要的是，<code>Webpack</code>弥补了<code>requireJS</code>在模块化方面的缺陷，同时兼容<code>AMD</code>与<code>CMD</code>的模块加载规范，具有更强大的JS模块化的功能。</p>
 <p>这样的工具，叫做<strong>构建工具</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731192.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731192.png"></p>
 <p>这样一来，开发者就可以专注于开发时态的代码结构，而不用担心运行时态遇到的问题了。</p>
 <h6 id="自动化构建工具的两种模式"><a href="#自动化构建工具的两种模式" class="headerlink" title="自动化构建工具的两种模式"></a>自动化构建工具的两种模式</h6><ul>
 <li><p>开发模式</p>
@@ -450,7 +450,7 @@ return &#123;
 <li><code>CDN</code>是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。<code>CDN</code>的关键技术主要有内容存储和分发技术。</li>
 <li><code>CDN</code>的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求。</li>
 <li><code>CDN</code>网络是在用户和服务器之间增加<code>Cache</code>层，如何将用户的请求引导到<code>Cache</code>上获得源服务器的数据，主要是通过接管<code>DNS</code>实现，这就是<code>CDN</code>的最基本的原理</li>
-<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731009.png"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731009.png"></li>
 <li>1.用户向浏览器输入<code>www.web.com</code>这个域名，浏览器第一次发现本地没有<code>dns</code>缓存，则向网站的<code>DNS</code>服务器请求；</li>
 <li>2.网站的<code>DNS</code>域名解析器设置了<code>CNAME</code>，指向了<code>www.web.51cdn.com</code>,请求指向了<code>CDN</code>网络中的智能<code>DNS</code>负载均衡系统；</li>
 <li>3.智能<code>DNS</code>负载均衡系统解析域名，把对用户响应速度最快的IP节点返回给用户；</li>
@@ -460,14 +460,14 @@ return &#123;
 </ul>
 <h4 id="模块化兼容性"><a href="#模块化兼容性" class="headerlink" title="模块化兼容性"></a>模块化兼容性</h4><p>由于<code>webpack</code>同时支持<code>CommonJS</code>和<code>ES6 module</code>，因此需要理解它们互操作时<code>webpack</code>是如何处理的</p>
 <h5 id="同模块化标准"><a href="#同模块化标准" class="headerlink" title="同模块化标准"></a>同模块化标准</h5><p>如果导出和导入使用的是同一种模块化标准，打包后的效果和之前学习的模块化没有任何差异</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731465.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111731489.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731465.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111731489.png"></p>
 <h5 id="不同模块化标准"><a href="#不同模块化标准" class="headerlink" title="不同模块化标准"></a>不同模块化标准</h5><p>不同的模块化标准，<code>webpack</code>按照如下的方式处理</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733508.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733185.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733508.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733185.png"></p>
 <h5 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h5><p>代码编写最忌讳的是精神分裂，选择一个合适的模块化标准，然后贯彻整个开发阶段。</p>
 <h3 id="为什么要用webpack"><a href="#为什么要用webpack" class="headerlink" title="为什么要用webpack"></a>为什么要用webpack</h3><ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111733729.png"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111733729.png"></li>
 </ul>
 <p>前端需要模块化：<code>JS</code>模块化不仅仅为了提高代码复用性，多人协作开发项目，更是为了让资源文件更合理地进行缓存.</p>
 <p>大家可以回头看下<code>Webpack</code>官方实例图，有一点不知道大家是否注意到：<code>Webpack</code>处理后，输出的静态文件只剩下<code>js</code>与<code>png</code>，而<code>css</code>、<code>less</code>、<code>jade</code>其他的文件都合并到了<code>js</code>中。</p>
@@ -528,14 +528,14 @@ return &#123;
 <li></li>
 </ul>
 <h3 id="webpack-编译过程"><a href="#webpack-编译过程" class="headerlink" title="webpack 编译过程"></a>webpack 编译过程</h3><p><code>webpack</code> 的作用是将源代码编译（构建、打包）成最终代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734811.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734811.png"></p>
 <p>整个过程大致分为三个步骤</p>
 <ol>
 <li>初始化</li>
 <li>编译</li>
 <li>输出</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734083.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734083.png"></p>
 <h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>此阶段，<code>webpack</code>会将<strong>CLI参数</strong>、<strong>配置文件</strong>、<strong>默认配置</strong>进行融合，形成一个最终的配置对象。</p>
 <p>对配置的处理过程是依托一个第三方库<code>yargs</code>完成的</p>
 <p>此阶段相对比较简单，主要是为接下来的编译阶段做必要的准备</p>
@@ -545,7 +545,7 @@ return &#123;
 </ol>
 <p><code>chunk</code>是<code>webpack</code>在内部构建过程中的一个概念，译为块，它表示通过某个入口找到的所有依赖的统称。</p>
 <p>根据入口模块（默认为<code>https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/src/index.js</code>）创建一个chunk</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111734800.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111734800.png"></p>
 <p>每个<code>chunk</code>都有至少两个属性：</p>
 <ul>
 <li><code>name</code>：默认为<code>main</code></li>
@@ -554,32 +554,32 @@ return &#123;
 <ol start="2">
 <li><strong>构建所有依赖模块</strong></li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741933.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741933.png"></p>
 <blockquote>
 <p>AST在线测试工具：<a target="_blank" rel="noopener" href="https://astexplorer.net/">https://astexplorer.net/</a></p>
 </blockquote>
 <p>简图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741536.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741536.png"></p>
 <ol start="3">
 <li><strong>产生chunk assets</strong></li>
 </ol>
 <p>在第二步完成后，<code>chunk</code>中会产生一个模块列表，列表中包含了<strong>模块id</strong>和<strong>模块转换后的代码</strong></p>
 <p>接下来，<code>webpack</code>会根据配置为<code>chunk</code>生成一个资源列表，即<code>chunk assets</code>，资源列表可以理解为是生成到最终文件的文件名和文件内容</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111741429.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111741429.png"></p>
 <blockquote>
 <p>chunk hash是根据所有chunk assets的内容生成的一个hash字符串<br>hash：一种算法，具体有很多分类，特点是将一个任意长度的字符串转换为一个固定长度的字符串，而且可以保证原始内容不变，产生的hash字符串就不变</p>
 </blockquote>
 <p>简图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742646.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742646.png"></p>
 <ol start="4">
 <li><strong>合并chunk assets</strong></li>
 </ol>
 <p>将多个<code>chunk</code>的<code>assets</code>合并到一起，并产生一个总的<code>hash</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742987.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742987.png"></p>
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>此步骤非常简单，<code>webpack</code>将利用<code>node</code>中的<code>fs</code>模块（文件处理模块），根据编译产生的总的<code>assets</code>，生成相应的文件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742982.png"></p>
-<h4 id="总过程"><a href="#总过程" class="headerlink" title="总过程"></a>总过程</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742793.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742718.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742982.png"></p>
+<h4 id="总过程"><a href="#总过程" class="headerlink" title="总过程"></a>总过程</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742793.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742718.png"></p>
 <p><strong>涉及术语</strong></p>
 <ol>
 <li><code>module</code>：模块，分割的代码单元，<code>webpack</code>中的模块可以是任何内容的文件，不仅限于<code>JS</code></li>
@@ -590,7 +590,7 @@ return &#123;
 <li><code>chunkname</code>：<code>chunk</code>的名称，如果没有配置则使用<code>main</code></li>
 <li><code>id</code>：通常指<code>chunk</code>的唯一编号，如果在开发环境下构建，和<code>chunkname</code>相同；如果是生产环境下构建，则使用一个从<code>0</code>开始的数字进行编号</li>
 </ol>
-<h3 id="入口和出口"><a href="#入口和出口" class="headerlink" title="入口和出口"></a>入口和出口</h3><h4 id="入口和出口是什么"><a href="#入口和出口是什么" class="headerlink" title="入口和出口是什么"></a>入口和出口是什么</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742520.png"></p>
+<h3 id="入口和出口"><a href="#入口和出口" class="headerlink" title="入口和出口"></a>入口和出口</h3><h4 id="入口和出口是什么"><a href="#入口和出口是什么" class="headerlink" title="入口和出口是什么"></a>入口和出口是什么</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742520.png"></p>
 <blockquote>
 <p>node内置模块 - path: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v12.x/docs/api/path.html">https://nodejs.org/dist/latest-v12.x/docs/api/path.html</a></p>
 </blockquote>
@@ -611,7 +611,7 @@ return &#123;
 
 <h4 id="入口和出口的最佳实践"><a href="#入口和出口的最佳实践" class="headerlink" title="入口和出口的最佳实践"></a>入口和出口的最佳实践</h4><p>具体情况具体分析</p>
 <p>下面是一些经典场景</p>
-<h5 id="一个页面一个JS"><a href="#一个页面一个JS" class="headerlink" title="一个页面一个JS"></a>一个页面一个JS</h5><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742334.png"></p>
+<h5 id="一个页面一个JS"><a href="#一个页面一个JS" class="headerlink" title="一个页面一个JS"></a>一个页面一个JS</h5><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742334.png"></p>
 <p>源码结构</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|—— src</span><br><span class="line">    |—— pageA   页面A的代码目录</span><br><span class="line">        |—— index.js 页面A的启动模块</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— pageB   页面B的代码目录</span><br><span class="line">        |—— index.js 页面B的启动模块</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— pageC   页面C的代码目录</span><br><span class="line">        |—— main1.js 页面C的启动模块1 例如：主功能</span><br><span class="line">        |—— main2.js 页面C的启动模块2 例如：实现访问统计的额外功能</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— common  公共代码目录</span><br><span class="line">        |—— ...</span><br></pre></td></tr></table></figure>
 
@@ -619,7 +619,7 @@ return &#123;
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">entry</span>:&#123;</span><br><span class="line">        <span class="attr">pageA</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/src/pageA/index.js&quot;</span>,</span><br><span class="line">        <span class="attr">pageB</span>: <span class="string">&quot;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/src/pageB/index.js&quot;</span>,</span><br><span class="line">        <span class="attr">pageC</span>: [<span class="string">&quot;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/src/pageC/main1.js&quot;</span>, <span class="string">&quot;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/src/pageC/main2.js&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&quot;[name].[chunkhash:5].js&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这种方式适用于页面之间的功能差异巨大、公共代码较少的情况，这种情况下打包出来的最终代码不会有太多重复</p>
-<h5 id="一个页面多个JS"><a href="#一个页面多个JS" class="headerlink" title="一个页面多个JS"></a>一个页面多个JS</h5><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742598.png"></p>
+<h5 id="一个页面多个JS"><a href="#一个页面多个JS" class="headerlink" title="一个页面多个JS"></a>一个页面多个JS</h5><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742598.png"></p>
 <p>源码结构</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|—— src</span><br><span class="line">    |—— pageA   页面A的代码目录</span><br><span class="line">        |—— index.js 页面A的启动模块</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— pageB   页面B的代码目录</span><br><span class="line">        |—— index.js 页面B的启动模块</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— statistics   用于统计访问人数功能目录</span><br><span class="line">        |—— index.js 启动模块</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— common  公共代码目录</span><br><span class="line">        |—— ...</span><br></pre></td></tr></table></figure>
 
@@ -631,7 +631,7 @@ return &#123;
 <p>思考：为什么不使用多启动模块的方式？</p>
 </blockquote>
 <h5 id="单页应用"><a href="#单页应用" class="headerlink" title="单页应用"></a>单页应用</h5><p>所谓单页应用，是指整个网站（或网站的某一个功能块）只有一个页面，页面中的内容全部靠JS创建和控制。 <code>vue</code>和<code>react</code>都是实现单页应用的利器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742157.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742157.png"></p>
 <p>源码结构</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|—— src</span><br><span class="line">    |—— subFunc   子功能目录</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— subFunc   子功能目录</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— common  公共代码目录</span><br><span class="line">        |—— ...</span><br><span class="line">    |—— index.js</span><br></pre></td></tr></table></figure>
 
@@ -693,7 +693,7 @@ output: &#123;
 &#125;,
 devtool: &quot;source-map&quot;
 </code></pre>
-}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. 配置完成后打包项目，在`cmd`文件夹路径上进行打包</span><br><span class="line"></span><br><span class="line">   1. 全局</span><br><span class="line">      1. 如：`D:\Desktop\webpack1 webpack`</span><br><span class="line">      2. 使用`webpack`命令进行打包，打包完成后，在`html`文件中引入打包好的文件名称</span><br><span class="line">   2. 本地</span><br><span class="line">      1. 如：`D:\Desktop\webpack1 npx webpack --config webpack.config.js`</span><br><span class="line">      2. 使用`webpack`命令进行打包，打包完成后，在`html`文件中引入打包好的文件名称</span><br><span class="line"></span><br><span class="line">### loader</span><br><span class="line"></span><br><span class="line">&gt; webpack做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。</span><br><span class="line">&gt; 更多的功能需要借助webpack loaders和webpack plugins完成。</span><br><span class="line"></span><br><span class="line">- `loader`意义：</span><br><span class="line">  - 这些加载器主要做一些预处理的工作：比如`less`，`sass`等</span><br><span class="line"></span><br><span class="line">#### loader是什么</span><br><span class="line"></span><br><span class="line">`webpack loader`： `loader`本质上是一个函数，它的作用是将某个源码字符串转换成另一个源码字符串返回。</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111742693.png)</span><br><span class="line"></span><br><span class="line">`loader`函数的将在模块解析的过程中被调用，以得到最终的源码。</span><br><span class="line"></span><br><span class="line">**全流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743998.png)</span><br><span class="line"></span><br><span class="line">**chunk中解析模块的流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743185.png)</span><br><span class="line"></span><br><span class="line">**chunk中解析模块的更详细流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743967.png)</span><br><span class="line"></span><br><span class="line">**处理loaders流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743796.png)</span><br><span class="line"></span><br><span class="line">#### 安装`loader`</span><br><span class="line"></span><br><span class="line">- 我们第一步就是先要安装好各个必须的`loader`，我们直接看看需要通过`npm`安装什么。</span><br><span class="line">- 安装常用loader的包</span><br><span class="line">  - `npm install babel-loader babel/runtime @babel/core css-loader style-loader url-loader file-loader less-loader less --save -dev` </span><br><span class="line"></span><br><span class="line">#### 配置</span><br><span class="line"></span><br><span class="line">- 我们主要看看`module`的`rules`。`rules`是一个数组，里面的每一个对象都用正则表达式，对应着一种配对方案。比如匹配到`js`后缀名就用`babel-loader`，匹配到`less`后缀名的就先用`less`，再用`css`，最后用`style`处理；不同的处理器`user`处理，`use: [&#x27;style-loader&#x27;,&#x27;css-loader&#x27;]`。</span><br><span class="line"></span><br><span class="line">- **完整配置**</span><br><span class="line">  </span><br><span class="line">  ```js</span><br><span class="line">  module.exports = &#123;</span><br><span class="line">      module: &#123; //针对模块的配置，目前版本只有两个配置，rules、noParse</span><br><span class="line">          rules: [ //模块匹配规则，可以存在多个规则</span><br><span class="line">              &#123; //每个规则是一个对象</span><br><span class="line">                  test: /\.js$/, //匹配的模块正则</span><br><span class="line">                  use: [ //匹配到后应用的规则模块</span><br><span class="line">                      &#123;  //其中一个规则</span><br><span class="line">                          //loader模块的路径，该字符串会被放置到require中</span><br><span class="line">                          loader: &quot;模块路径&quot;,  //如css-loader,url-loader...</span><br><span class="line">                          //向对应loader传递的额外参数</span><br><span class="line">                          options: &#123; </span><br><span class="line">                              </span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;</span><br><span class="line">                  ]</span><br><span class="line">              &#125;</span><br><span class="line">          ]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. 配置完成后打包项目，在`cmd`文件夹路径上进行打包</span><br><span class="line"></span><br><span class="line">   1. 全局</span><br><span class="line">      1. 如：`D:\Desktop\webpack1 webpack`</span><br><span class="line">      2. 使用`webpack`命令进行打包，打包完成后，在`html`文件中引入打包好的文件名称</span><br><span class="line">   2. 本地</span><br><span class="line">      1. 如：`D:\Desktop\webpack1 npx webpack --config webpack.config.js`</span><br><span class="line">      2. 使用`webpack`命令进行打包，打包完成后，在`html`文件中引入打包好的文件名称</span><br><span class="line"></span><br><span class="line">### loader</span><br><span class="line"></span><br><span class="line">&gt; webpack做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。</span><br><span class="line">&gt; 更多的功能需要借助webpack loaders和webpack plugins完成。</span><br><span class="line"></span><br><span class="line">- `loader`意义：</span><br><span class="line">  - 这些加载器主要做一些预处理的工作：比如`less`，`sass`等</span><br><span class="line"></span><br><span class="line">#### loader是什么</span><br><span class="line"></span><br><span class="line">`webpack loader`： `loader`本质上是一个函数，它的作用是将某个源码字符串转换成另一个源码字符串返回。</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111742693.png)</span><br><span class="line"></span><br><span class="line">`loader`函数的将在模块解析的过程中被调用，以得到最终的源码。</span><br><span class="line"></span><br><span class="line">**全流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743998.png)</span><br><span class="line"></span><br><span class="line">**chunk中解析模块的流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743185.png)</span><br><span class="line"></span><br><span class="line">**chunk中解析模块的更详细流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743967.png)</span><br><span class="line"></span><br><span class="line">**处理loaders流程：**</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743796.png)</span><br><span class="line"></span><br><span class="line">#### 安装`loader`</span><br><span class="line"></span><br><span class="line">- 我们第一步就是先要安装好各个必须的`loader`，我们直接看看需要通过`npm`安装什么。</span><br><span class="line">- 安装常用loader的包</span><br><span class="line">  - `npm install babel-loader babel/runtime @babel/core css-loader style-loader url-loader file-loader less-loader less --save -dev` </span><br><span class="line"></span><br><span class="line">#### 配置</span><br><span class="line"></span><br><span class="line">- 我们主要看看`module`的`rules`。`rules`是一个数组，里面的每一个对象都用正则表达式，对应着一种配对方案。比如匹配到`js`后缀名就用`babel-loader`，匹配到`less`后缀名的就先用`less`，再用`css`，最后用`style`处理；不同的处理器`user`处理，`use: [&#x27;style-loader&#x27;,&#x27;css-loader&#x27;]`。</span><br><span class="line"></span><br><span class="line">- **完整配置**</span><br><span class="line">  </span><br><span class="line">  ```js</span><br><span class="line">  module.exports = &#123;</span><br><span class="line">      module: &#123; //针对模块的配置，目前版本只有两个配置，rules、noParse</span><br><span class="line">          rules: [ //模块匹配规则，可以存在多个规则</span><br><span class="line">              &#123; //每个规则是一个对象</span><br><span class="line">                  test: /\.js$/, //匹配的模块正则</span><br><span class="line">                  use: [ //匹配到后应用的规则模块</span><br><span class="line">                      &#123;  //其中一个规则</span><br><span class="line">                          //loader模块的路径，该字符串会被放置到require中</span><br><span class="line">                          loader: &quot;模块路径&quot;,  //如css-loader,url-loader...</span><br><span class="line">                          //向对应loader传递的额外参数</span><br><span class="line">                          options: &#123; </span><br><span class="line">                              </span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;</span><br><span class="line">                  ]</span><br><span class="line">              &#125;</span><br><span class="line">          ]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 </ol>
@@ -729,7 +729,7 @@ path: __dirname + &#39;/out/&#39;,//当前文件夹的绝对路径
 publicPath: &#39;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/out&#39; //公共资源地址
 </code></pre>
 <p>},// 输出文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### plugin</span><br><span class="line"></span><br><span class="line">`loader`的功能定位是转换代码，而一些其他的操作难以使用`loader`完成，比如：</span><br><span class="line"></span><br><span class="line">- 当`webpack`生成文件时，顺便多生成一个说明描述文件</span><br><span class="line">- 当`webpack`编译启动时，控制台输出一句话表示`webpack`启动了</span><br><span class="line">- 当`xxxx`时，`xxxx`</span><br><span class="line"></span><br><span class="line">这种类似的功能需要把功能嵌入到`webpack`的编译流程中，而这种事情的实现是依托于`plugin`的</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743188.png)</span><br><span class="line"></span><br><span class="line">plugin`的**本质**是一个带有`apply`方法的对象</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var plugin = &#123;</span><br><span class="line">    apply: function(compiler)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### plugin</span><br><span class="line"></span><br><span class="line">`loader`的功能定位是转换代码，而一些其他的操作难以使用`loader`完成，比如：</span><br><span class="line"></span><br><span class="line">- 当`webpack`生成文件时，顺便多生成一个说明描述文件</span><br><span class="line">- 当`webpack`编译启动时，控制台输出一句话表示`webpack`启动了</span><br><span class="line">- 当`xxxx`时，`xxxx`</span><br><span class="line"></span><br><span class="line">这种类似的功能需要把功能嵌入到`webpack`的编译流程中，而这种事情的实现是依托于`plugin`的</span><br><span class="line"></span><br><span class="line">![](https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743188.png)</span><br><span class="line"></span><br><span class="line">plugin`的**本质**是一个带有`apply`方法的对象</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var plugin = &#123;</span><br><span class="line">    apply: function(compiler)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -742,7 +742,7 @@ publicPath: &#39;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/o
 <p><code>apply</code>函数会在初始化阶段，创建好<code>Compiler</code>对象后运行。</p>
 <p><code>compiler</code>对象是在初始化阶段构建的，整个<code>webpack</code>打包期间只有一个<code>compiler</code>对象，后续完成打包工作的是compiler对象内部创建的<code>compilation</code></p>
 <p><code>apply</code>方法会在<strong>创建好compiler对象后调用</strong>，并向方法传入一个<code>compiler</code>对象</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111743591.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111743591.png"></p>
 <p><code>compiler</code>对象提供了大量的钩子函数（<code>hooks</code>，可以理解为事件），<code>plugin</code>的开发者可以注册这些钩子函数，参与<code>webpack</code>编译和生成。</p>
 <p>你可以在<code>apply</code>方法中使用下面的代码注册钩子函数:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPlugin</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">apply</span>(<span class="params">compiler</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//在这里注册事件，类似于window.onload  $(function()&#123;&#125;)</span></span><br><span class="line">        compiler.hooks.事件名称.事件类型(name, <span class="function"><span class="keyword">function</span>(<span class="params">compilation</span>)</span>&#123;</span><br><span class="line">            <span class="comment">//事件处理函数</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -838,7 +838,7 @@ publicPath: &#39;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/o
 <p>本小节的知识与 webpack 无关</p>
 </blockquote>
 <p>前端发展到现阶段，很多时候都不会直接运行源代码，可能需要对源代码进行合并、压缩、转换等操作，真正运行的是转换后的代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744410.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744410.png"></p>
 <p>这就给调试带来了困难，因为当运行发生错误的时候，我们更加希望能看到源代码中的错误，而不是转换后代码的错误</p>
 <blockquote>
 <p>jquery压缩后的代码：<a target="_blank" rel="noopener" href="https://code.jquery.com/jquery-3.4.1.min.js">https://code.jquery.com/jquery-3.4.1.min.js</a></p>
@@ -846,8 +846,8 @@ publicPath: &#39;https://cdn.jsdelivr.net/gh/HAODEabcd/Note@master/Web/webpack/o
 <p>为了解决这一问题，chrome浏览器率先支持了source map，其他浏览器纷纷效仿，目前，几乎所有新版浏览器都支持了<code>source map</code></p>
 <p><code>source map</code>实际上是一个配置，配置中不仅记录了所有源码内容，还记录了和转换后的代码的对应关系</p>
 <p>下面是浏览器处理<code>source map</code>的原理</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744946.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744402.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744946.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744402.png"></p>
 <p><strong>最佳实践</strong>：</p>
 <ol>
 <li><code>source map</code> 应在开发环境中使用，作为一种调试手段</li>
@@ -1058,7 +1058,7 @@ plugins: [
 </blockquote>
 <p><code>BEM</code>全称是：<strong>B</strong>lock <strong>E</strong>lement <strong>M</strong>odifier</p>
 <p>一个完整的<code>BEM</code>类名：<code>block__element_modifier</code>，例如：<code>banner__dot_selected</code>，可以表示：轮播图中，处于选中状态的小圆点</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111750919.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111750919.png"></p>
 <p>三个部分的具体含义为：</p>
 <ul>
 <li><strong>Block</strong>：页面中的大区域，表示最顶级的划分，例如：轮播图(<code>banner</code>)、布局(<code>layout</code>)、文章(<code>article</code>)等等</li>
@@ -1100,16 +1100,16 @@ plugins: [
 <li>同<code>JS</code>的变量一样，每个<code>css</code>模块文件中难以出现冲突的类名，冲突的类名往往发生在不同的<code>css</code>模块文件中</li>
 <li>只需要保证构建工具在合并样式代码后不会出现类名冲突即可</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744074.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744074.png"></p>
 <h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>在<code>webpack</code>中，作为处理<code>css</code>的<code>css-loader</code>，它实现了<code>css module</code>的思想，要启用<code>css module</code>，需要将<code>css-loader</code>的配置<code>modules</code>设置为<code>true</code>。</p>
 <p><code>css-loader</code>的实现方式如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744020.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744020.png"></p>
 <p>原理极其简单，开启了<code>css module</code>后，<code>css-loader</code>会将样式中的类名进行转换，转换为一个唯一的<code>hash</code>值。</p>
 <p>由于<code>hash</code>值是根据模块路径和类名生成的，因此，不同的<code>css</code>模块，哪怕具有相同的类名，转换后的<code>hash</code>值也不一样。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744072.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744072.png"></p>
 <h4 id="如何应用样式"><a href="#如何应用样式" class="headerlink" title="如何应用样式"></a>如何应用样式</h4><p><code>css module</code>带来了一个新的问题：源代码的类名和最终生成的类名是不一样的，而开发者只知道自己写的源代码中的类名，并不知道最终的类名是什么，那如何应用类名到元素上呢？</p>
 <p>为了解决这个问题，<code>css-loader</code>会导出原类名和最终类名的对应关系，该关系是通过一个对象描述的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744659.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744659.png"></p>
 <p>这样一来，我们就可以在<code>js</code>代码中获取到<code>css</code>模块导出的结果，从而应用类名了</p>
 <p><code>style-loader</code>为了我们更加方便的应用类名，会去除掉其他信息，仅暴露对应关系</p>
 <h4 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h4><h5 id="全局类名"><a href="#全局类名" class="headerlink" title="全局类名"></a>全局类名</h5><p>某些类名是全局的、静态的，不需要进行转换，仅需要在类名位置使用一个特殊的语法即可：</p>
@@ -1139,9 +1139,9 @@ plugins: [
 <p>由于官方迟迟不对<code>css</code>语言本身做出改进，一些第三方机构开始想办法来解决这些问题</p>
 <p>其中一种方案，便是预编译器</p>
 <p>预编译器的原理很简单，即使用一种更加优雅的方式来书写样式代码，通过一个编译器，将其转换为可被浏览器识别的传统<code>css</code>代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744691.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744691.png"></p>
 <p>目前，最流行的预编译器有<strong>LESS</strong>和<strong>SASS</strong>，由于它们两者特别相似，因此仅学习一种即可（本课程学习<code>LESS</code>）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111744904.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111744904.png"></p>
 <blockquote>
 <p>less官网：<a target="_blank" rel="noopener" href="http://lesscss.org/">http://lesscss.org/</a><br>less中文文档1（非官方）：<a target="_blank" rel="noopener" href="http://lesscss.cn/">http://lesscss.cn/</a><br>less中文文档2（非官方）：<a target="_blank" rel="noopener" href="https://less.bootcss.com/">https://less.bootcss.com/</a><br>sass官网：<a target="_blank" rel="noopener" href="https://sass-lang.com/">https://sass-lang.com/</a><br>sass中文文档1（非官方）：<a target="_blank" rel="noopener" href="https://www.sass.hk/">https://www.sass.hk/</a><br>sass中文文档2（非官方）：<a target="_blank" rel="noopener" href="https://sass.bootcss.com/">https://sass.bootcss.com/</a></p>
 </blockquote>
@@ -1228,12 +1228,12 @@ border: 50px solid transparent;
 <p>既然有这么多事情要处理，何不把这些事情集中到一起统一处理呢？</p>
 <p><code>PostCss</code>就是基于这样的理念出现的。</p>
 <p><code>PostCss</code>类似于一个编译器，可以将样式源码编译成最终的<code>CSS</code>代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745786.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745786.png"></p>
 <p>看上去是不是和<code>LESS</code>、<code>SASS</code>一样呢？</p>
 <p>但<code>PostCss</code>和<code>LESS</code>、<code>SASS</code>的思路不同，它其实只做一些代码分析之类的事情，将分析的结果交给插件，具体的代码转换操作是插件去完成的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745688.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745688.png"></p>
 <p>官方的一张图更能说明<code>postcss</code>的处理流程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745727.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745727.png"></p>
 <blockquote>
 <p>这一点有点像webpack，webpack本身仅做依赖分析、抽象语法树分析，其他的操作是靠插件和加载器完成的。</p>
 </blockquote>
@@ -1396,7 +1396,7 @@ background: var(--darkColor);
 <p>此时，如果你的代码出现不规范的地方，编译时将会报出错误</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: #f4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745671.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745671.png"></p>
 <p>发生了两处错误：</p>
 <ol>
 <li>缩进应该只有两个空格</li>
@@ -1480,13 +1480,13 @@ plugins: [
 <p>官网：<a target="_blank" rel="noopener" href="https://babeljs.io/">https://babeljs.io/</a><br>民间中文网：<a target="_blank" rel="noopener" href="https://www.babeljs.cn/">https://www.babeljs.cn/</a></p>
 </blockquote>
 <h4 id="babel简介"><a href="#babel简介" class="headerlink" title="babel简介"></a>babel简介</h4><p><code>babel</code>一词来自于希伯来语，直译为巴别塔</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745841.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745841.png"></p>
 <p>巴别塔象征的统一的国度、统一的语言</p>
 <p>而今天的<code>JS</code>世界缺少一座巴别塔，不同版本的浏览器能识别的<code>ES</code>标准并不相同，就导致了开发者面对不同版本的浏览器要使用不同的语言，和古巴比伦一样，前端开发也面临着这样的困境。</p>
 <p><code>babel</code>的出现，就是用于解决这样的问题，它是一个编译器，可以把不同标准书写的语言，编译为统一的、能被各种浏览器识别的语言</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745225.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745225.png"></p>
 <p>由于语言的转换工作灵活多样，<code>babel</code>的做法和<code>postcss</code>、<code>webpack</code>差不多，它本身仅提供一些分析功能，真正的转换需要依托于插件完成</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111745908.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111745908.png"></p>
 <h4 id="babel的安装"><a href="#babel的安装" class="headerlink" title="babel的安装"></a>babel的安装</h4><p><code>babel</code>可以和构建工具联合使用，也可以独立使用</p>
 <p>如果要独立的使用<code>babel</code>，需要安装下面两个库：</p>
 <ul>
@@ -1586,7 +1586,7 @@ plugins: [
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncGeneratorStep</span>(<span class="params">gen, resolve, reject, _next, arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> info = gen.next(arg);</span><br><span class="line">        <span class="keyword">var</span> value = info.value;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        reject(error);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (info.done) &#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Promise</span>.resolve(value).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            _next(data);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            resolve(<span class="number">3</span>);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> b = <span class="keyword">yield</span> A();</span><br><span class="line">        <span class="keyword">const</span> c = <span class="keyword">yield</span> A();</span><br><span class="line">        <span class="keyword">return</span> b + c;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> gen = fn();</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">_next</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">            asyncGeneratorStep(gen, resolve, reject, _next, value);</span><br><span class="line">        &#125;</span><br><span class="line">        _next(<span class="literal">undefined</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B().then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="性能优化概述"><a href="#性能优化概述" class="headerlink" title="性能优化概述"></a>性能优化概述</h3><p>本章所讲的性能优化主要体现在三个方面：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746481.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746481.png"></p>
 <p><strong>构建性能</strong></p>
 <p>这里所说的构建性能，是指在<strong>开发阶段的构建性能</strong>，而不是生产环境的构建性能</p>
 <p>优化的目标，<strong>是降低从打包开始，到代码效果呈现所经过的时间</strong></p>
@@ -1606,9 +1606,9 @@ plugins: [
 <hr>
 <p>性能优化主要从上面三个维度入手</p>
 <p><strong>性能优化没有完美的解决方案，需要具体情况具体分析</strong></p>
-<h3 id="减少模块解析"><a href="#减少模块解析" class="headerlink" title="减少模块解析"></a>减少模块解析</h3><h4 id="什么叫做模块解析？"><a href="#什么叫做模块解析？" class="headerlink" title="什么叫做模块解析？"></a>什么叫做模块解析？</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746351.png"></p>
+<h3 id="减少模块解析"><a href="#减少模块解析" class="headerlink" title="减少模块解析"></a>减少模块解析</h3><h4 id="什么叫做模块解析？"><a href="#什么叫做模块解析？" class="headerlink" title="什么叫做模块解析？"></a>什么叫做模块解析？</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746351.png"></p>
 <p>模块解析包括：抽象语法树分析、依赖分析、模块语法替换</p>
-<h4 id="不做模块解析会怎样？"><a href="#不做模块解析会怎样？" class="headerlink" title="不做模块解析会怎样？"></a>不做模块解析会怎样？</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746331.png"></p>
+<h4 id="不做模块解析会怎样？"><a href="#不做模块解析会怎样？" class="headerlink" title="不做模块解析会怎样？"></a>不做模块解析会怎样？</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746331.png"></p>
 <p>如果某个模块不做解析，该模块经过<code>loader</code>处理后的代码就是最终代码。</p>
 <p>如果没有<code>loader</code>对该模块进行处理，该模块的源码就是最终打包结果的代码。</p>
 <p>如果不对某个模块进行解析，可以缩短构建时间</p>
@@ -1638,7 +1638,7 @@ plugins: [
 
 <p>有趣的是，<code>cache-loader</code>放到最前面，却能够决定后续的<code>loader</code>是否运行</p>
 <p>实际上，<code>loader</code>的运行过程中，还包含一个过程，即<code>pitch</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746058.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746058.png"></p>
 <p><code>cache-loader</code>还可以实现各自自定义的配置，具体方式见文档</p>
 <h4 id="为loader的运行开启多线程"><a href="#为loader的运行开启多线程" class="headerlink" title="为loader的运行开启多线程"></a>为loader的运行开启多线程</h4><p><code>thread-loader</code>会开启一个线程池，线程池中包含适量的线程</p>
 <p>它会把后续的<code>loader</code>放到线程池的线程中运行，以提高构建效率</p>
@@ -1658,9 +1658,9 @@ plugins: [
 <p>热替换并不能降低构建时间（可能还会稍微增加），但可以降低代码改动到效果呈现的时间</p>
 </blockquote>
 <p>当使用<code>webpack-dev-server</code>时，考虑代码改动到效果呈现的过程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746389.png" alt="|400"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746389.png" alt="|400"></p>
 <p>而使用了热替换后，流程发生了变化</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111746339.png" alt="|400"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111746339.png" alt="|400"></p>
 <h4 id="使用和原理"><a href="#使用和原理" class="headerlink" title="使用和原理"></a>使用和原理</h4><ol>
 <li>更改配置</li>
 </ol>
@@ -1676,7 +1676,7 @@ plugins: [
 <p>默认情况下，<code>webpack-dev-server</code>不管是否开启了热更新，当重新打包后，都会调用<code>location.reload</code>刷新页面</p>
 <p>但如果运行了<code>module.hot.accept()</code>，将改变这一行为</p>
 <p><code>module.hot.accept()</code>的作用是让<code>webpack-dev-server</code>通过<code>socket</code>管道，把服务器更新的内容发送到浏览器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747451.png" alt="|300"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747451.png" alt="|300"></p>
 <p>然后，将结果交给插件<code>HotModuleReplacementPlugin</code>注入的代码执行</p>
 <p>插件<code>HotModuleReplacementPlugin</code>会根据覆盖原始代码，然后让代码重新执行</p>
 <p><strong>所以，热替换发生在代码运行期</strong></p>
@@ -1688,7 +1688,7 @@ plugins: [
 <ol>
 <li>先单独的打包公共模块</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747630.png" alt="单独打包公共模块"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747630.png" alt="单独打包公共模块"></p>
 <p>公共模块会被打包成为动态链接库(<code>dll Dynamic Link Library</code>)，并生成资源清单</p>
 <ol start="2">
 <li>根据入口模块进行正常打包</li>
@@ -1760,7 +1760,7 @@ plugins: [
 <blockquote>
 <p>实际上，webpack在内部是使用<code>SplitChunksPlugin</code>进行分包的<br>过去有一个库<code>CommonsChunkPlugin</code>也可以实现分包，不过由于该库某些地方并不完善，到了<code>webpack4</code>之后，已被<code>SplitChunksPlugin</code>取代</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111747606.png" alt="分包简单流程"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111747606.png" alt="分包简单流程"></p>
 <p>从分包流程中至少可以看出以下几点：</p>
 <ul>
 <li>分包策略至关重要，它决定了如何分包</li>
@@ -2005,11 +2005,11 @@ plugins: [
 <p><a target="_blank" rel="noopener" href="https://eslint.bootcss.com/docs/rules/">https://eslint.bootcss.com/docs/rules/</a></p>
 </blockquote>
 <h3 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h3><p><code>gzip</code>是一种压缩文件的算法</p>
-<h4 id="B-S结构中的压缩传输"><a href="#B-S结构中的压缩传输" class="headerlink" title="B/S结构中的压缩传输"></a>B/S结构中的压缩传输</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111749067.png"></p>
+<h4 id="B-S结构中的压缩传输"><a href="#B-S结构中的压缩传输" class="headerlink" title="B/S结构中的压缩传输"></a>B/S结构中的压缩传输</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111749067.png"></p>
 <p>优点：传输效率可能得到大幅提升</p>
 <p>缺点：服务器的压缩需要时间，客户端的解压需要时间</p>
 <h4 id="使用webpack进行预压缩"><a href="#使用webpack进行预压缩" class="headerlink" title="使用webpack进行预压缩"></a>使用webpack进行预压缩</h4><p>使用<code>compression-webpack-plugin</code>插件对打包结果进行预压缩，可以移除服务器的压缩时间</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111749071.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111749071.png"></p>
 <h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">&quot;clean-webpack-plugin&quot;</span>);</span><br><span class="line"><span class="comment">//压缩</span></span><br><span class="line"><span class="keyword">const</span> CmpressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">&quot;compression-webpack-plugin&quot;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&quot;production&quot;</span>,</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&quot;all&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">    <span class="keyword">new</span> CmpressionWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">test</span>: <span class="regexp">/\.js/</span>,</span><br><span class="line">      minRatio: <span class="number">0.5</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="补充和案例"><a href="#补充和案例" class="headerlink" title="补充和案例"></a>补充和案例</h2><ul>
@@ -2206,10 +2206,10 @@ $("#toc.toc-article").toggle(1000);
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/">
+    <a class="show pull-left" href="/2021/11/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2021/11/08/jQuery/">
+    <a class="show pull-right" href="/2021/11/08/JavaScript/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
