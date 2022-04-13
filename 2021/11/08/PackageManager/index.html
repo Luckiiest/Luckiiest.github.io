@@ -22,26 +22,26 @@
 <meta property="og:site_name" content="Haodex Blog">
 <meta property="og:description" content="包管理器包管理工具概述 本门课程的前置知识：JavaScript、ES6、模块化、git本门课程的所有代码均书写在 nodejs 环境中，不涉及浏览器环境  概念模块（module） 通常以单个文件形式存在的功能片段，入口文件通常称之为入口模块或主模块 库（library，简称lib） 以一个或多个模块组成的完整功能块，为开发中某一方面的问题提供完整的解决方案 包（package） 包含元数据的库">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111717653.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111719794.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111720309.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111722994.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111722420.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111723627.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111723231.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111724005.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111725700.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726366.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726216.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726722.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111727002.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111727794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111717653.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111719794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111720309.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111722994.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111722420.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111723627.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111723231.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111724005.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111725700.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726366.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726216.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726722.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111727002.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111727794.png">
 <meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
-<meta property="article:modified_time" content="2021-11-11T10:38:33.116Z">
+<meta property="article:modified_time" content="2022-04-13T07:06:44.706Z">
 <meta property="article:author" content="Haodex">
 <meta property="article:tag" content="包管理器">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111717653.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111717653.png">
 
   
 
@@ -279,7 +279,7 @@
 <p>以一个或多个模块组成的完整功能块，为开发中某一方面的问题提供完整的解决方案</p>
 <p><strong>包（package）</strong></p>
 <p>包含元数据的库，这些元数据包括：名称、描述、git主页、许可证协议、作者、依赖等等</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111717653.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111717653.png"></p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><code>CommonJS</code> 的出现，使 <code>node</code> 环境下的 <code>JS</code> 代码可以用模块更加细粒度的划分。一个类、一个函数、一个对象、一个配置等等均可以作为模块，这种细粒度的划分，是开发大型应用的基石。</p>
 <p>为了解决在开发过程中遇到的常见问题，比如加密、提供常见的工具方法、模拟数据等等，一时间，在前端社区涌现了大量的第三方库。这些库使用 <code>CommonJS</code> 标准书写而成，非常容易使用。</p>
 <p>然而，在下载使用这些第三方库的时候，遇到难以处理的问题：</p>
@@ -331,7 +331,7 @@
 <p>node 和 npm 是互相成就的，node 的出现让 npm 火了，npm 的火爆带动了大量的第三方库的发展，很多优秀的第三方库打包上传到了 npm，这些第三方库又为 node 带来了大量的用户</p>
 </blockquote>
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><h3 id="包的安装"><a href="#包的安装" class="headerlink" title="包的安装"></a>包的安装</h3><blockquote>
-<p>安装（install）即下载包<br>由于 npm 的官方 registry 服务器位于国外，可能受网速影响导致下载缓慢或失败。因此，安装好 npm 之后，需要重新设置 registry 的地址为国内地址。目前，淘宝 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> 提供了国内的 registry 地址，先设置到该地址。设置方式为<code>npm config set registry https://registry.npm.taobao.org</code>。设置好后，通过命令<code>npm config get registry</code>进行检查<br><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111719794.png"></p>
+<p>安装（install）即下载包<br>由于 npm 的官方 registry 服务器位于国外，可能受网速影响导致下载缓慢或失败。因此，安装好 npm 之后，需要重新设置 registry 的地址为国内地址。目前，淘宝 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> 提供了国内的 registry 地址，先设置到该地址。设置方式为<code>npm config set registry https://registry.npm.taobao.org</code>。设置好后，通过命令<code>npm config get registry</code>进行检查<br><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111719794.png"></p>
 </blockquote>
 <p><code>npm</code> 安装一个包，分为两种安装方式：</p>
 <ol>
@@ -534,7 +534,7 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <p>基于此，<code>npm</code> 在安装包的时候，会自动生成一个 <code>package-lock.json</code> 文件，该文件记录了安装包时的确切依赖关系</p>
 <p>当移植工程时，如果移植了 <code>package-lock.json</code> 文件，恢复安装时，会按照 <code>package-lock.json</code> 文件中的确切依赖进行安装，最大限度的避免了差异</p>
 <h4 id="扩展-npm的差异版本处理"><a href="#扩展-npm的差异版本处理" class="headerlink" title="[扩展]npm的差异版本处理"></a>[扩展]npm的差异版本处理</h4><p>如果两个包依赖同一个包的不同版本，如下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111720309.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111720309.png"></p>
 <p>面对这种情况，在 <code>node_modules</code> 目录中，不会使用扁平的目录结构，而会形成嵌套的目录，如下图：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── a </span><br><span class="line">│   │   ├── node_modules</span><br><span class="line">│   │   │   ├── c</span><br><span class="line">│   │   │   |   |—— c包的文件</span><br><span class="line">│   │   │── a包的文件     </span><br><span class="line">│   ├── b </span><br><span class="line">│   │   ├── node_modules</span><br><span class="line">│   │   │   ├── c</span><br><span class="line">│   │   │   |   |—— c包的文件</span><br><span class="line">│   │   │── b包的文件           </span><br></pre></td></tr></table></figure>
 
@@ -663,7 +663,7 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <li>确定版本</li>
 <li>使用命令<code>npm publish</code>完成发布</li>
 </ol>
-<h4 id="开源协议"><a href="#开源协议" class="headerlink" title="开源协议"></a>开源协议</h4><p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111722994.png"></p>
+<h4 id="开源协议"><a href="#开源协议" class="headerlink" title="开源协议"></a>开源协议</h4><p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111722994.png"></p>
 <ul>
 <li>可以通过网站 <a target="_blank" rel="noopener" href="http://choosealicense.online/appendix/">http://choosealicense.online/appendix/</a> 选择协议，并复制协议内容</li>
 </ul>
@@ -831,19 +831,19 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <li><strong>文件的本质</strong></li>
 </ol>
 <p>在操作系统中，文件实际上是一个指针，只不过它指向的不是内存地址，而是一个外部存储地址（这里的外部存储可以是硬盘、<code>U</code>盘、甚至是网络）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111722420.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111722420.png"></p>
 <p>当我们删除文件时，删除的实际上是指针，因此，无论删除多么大的文件，速度都非常快。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111723627.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111723627.png"></p>
 <ol start="2">
 <li><strong>文件的拷贝</strong></li>
 </ol>
 <p>如果你复制一个文件，是将该文件指针指向的内容进行复制，然后产生一个新文件指向新的内容</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111723231.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111723231.png"></p>
 <ol start="3">
 <li><strong>硬链接 hard link</strong></li>
 </ol>
 <p>硬链接的概念来自于 <code>Unix</code> 操作系统，它是指将一个文件<code>A</code>指针复制到另一个文件B指针中，文件<code>B</code>就是文件<code>A</code>的硬链接</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111724005.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111724005.png"></p>
 <p>通过硬链接，不会产生额外的磁盘占用，并且，两个文件都能找到相同的磁盘内容</p>
 <p>硬链接的数量没有限制，可以为同一个文件产生多个硬链接</p>
 <p><code>windows Vista</code>操作系统开始，支持了创建硬链接的操作，在<code>cmd</code>中使用下面的命令可以创建硬链接</p>
@@ -857,7 +857,7 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <li><strong>符号链接 symbol link</strong></li>
 </ol>
 <p>符号链接又称为软连接，如果为某个文件或文件夹<code>A</code>创建符号连接<code>B</code>，则B指向<code>A</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111725700.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111725700.png"></p>
 <p><code>windows Vista</code>操作系统开始，支持了创建符号链接的操作，在<code>cmd</code>中使用下面的命令可以创建符号链接：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mklink /d 链接名称 目标文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> /d表示创建的是目录的符号链接，不写则是文件的符号链接</span></span><br></pre></td></tr></table></figure>
 
@@ -883,22 +883,22 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <h5 id="pnpm原理-1"><a href="#pnpm原理-1" class="headerlink" title="pnpm原理"></a>pnpm原理</h5><p><code>pnpm</code>使用符号链接和硬链接来构建<code>node_modules</code>目录</p>
 <p>下面用一个例子来说明它的构建方式</p>
 <p>假设两个包<code>a</code>和b，<code>a</code>依赖<code>b</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726366.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726366.png"></p>
 <p>假设我们的工程为<code>proj</code>，直接依赖<code>a</code>，则安装时，<code>pnpm</code>会做下面的处理</p>
 <ol>
 <li>查询依赖关系，得到最终要安装的包：<code>a</code>和<code>b</code></li>
 <li>查看<code>a</code>和<code>b</code>是否已经有缓存，如果没有，下载到缓存中，如果有，则进入下一步</li>
 <li>创建 <code>node_modules</code> 目录，并对目录进行结构初始化</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726216.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726216.png"></p>
 <ol start="4">
 <li>从缓存的对应包中使用硬链接放置文件到相应包代码目录中</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111726722.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111726722.png"></p>
 <ol start="5">
 <li>使用符号链接，将每个包的<strong>直接依赖</strong>放置到自己的目录中</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111727002.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111727002.png"></p>
 <p>这样做的目的，是为了保证<code>a</code>的代码在执行过程中，可以读取到它们的直接依赖</p>
 <ol start="6">
 <li>新版本的<code>pnpm</code>为了解决一些书写不规范的包（读取间接依赖）的问题，又将所有的工程非直接依赖，使用符号链接加入到了 <code>.pnpm/node_modules</code> 中</li>
@@ -910,7 +910,7 @@ fs.writeFile(&quot;movie.json&quot;, json, function () &#123;
 <ol start="7">
 <li>在工程的<code>node_modules</code>目录中使用符号链接，放置直接依赖</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/haodex/noteImage@master/202111111727794.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111727794.png"></p>
 <ol start="8">
 <li>完成</li>
 </ol>
@@ -1056,10 +1056,10 @@ $("#toc.toc-article").toggle(1000);
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2021/11/08/JavaScript/">
+    <a class="show pull-left" href="/2021/11/08/Touch%20%E4%BA%8B%E4%BB%B6/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2021/11/08/HTML5%20&%20CSS3/">
+    <a class="show pull-right" href="/2021/11/08/ES6/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
