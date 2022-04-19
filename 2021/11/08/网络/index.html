@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111657089.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202111111657129.png">
 <meta property="article:published_time" content="2021-11-08T07:35:53.000Z">
-<meta property="article:modified_time" content="2022-04-16T03:03:39.265Z">
+<meta property="article:modified_time" content="2022-04-19T00:26:59.893Z">
 <meta property="article:author" content="Luckiiest">
 <meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
@@ -336,8 +336,10 @@
 <li><p>，然后这个<code>DNS</code>服务器，会把解析出来的<code>IP</code>地址发送给<code>DNS</code>客户端，也就是发送到我们本机上面，发送到本机上之后，一旦浏览器收取到了<code>DNS</code>解析出来的这个<code>IP</code>地址之后，就可以向该<code>IP</code>地址定位，给服务器发送<code>http</code>请求了。</p>
 </li>
 <li><p><code>DNS</code>域名服务器解析域名时，是倒着解析的，是一个树状图的一个形状，例如<code>www.baidu.com</code>，先解析<code>.com</code>，解析出来<code>.com</code>的<code>IP</code>地址，.com下面有很多的域名，找到baidu，然后解析<code>baidu</code>的<code>IP</code>地址，然后找<code>baidu</code>下面的<code>www</code>，然后解析<code>www</code>的域名，这三段<code>IP</code>地址构成了百度的绝对的<code>IP</code>地址，然后就可以根据这个<code>IP</code>地址给服务器发送请求了</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		__________________________.com________________________________</span><br><span class="line">  		|			   		|					|				|</span><br><span class="line">  ____baidu____			 tencent		 	 alibaba		……</span><br><span class="line"> |		  |     |</span><br><span class="line">zhidao  www   	……</span><br></pre></td></tr></table></figure></li>
+</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		__________________________.com________________________________</span><br><span class="line">  		|			   		|					|				|</span><br><span class="line">  ____baidu____			 tencent		 	 alibaba		……</span><br><span class="line"> |		  |     |</span><br><span class="line">zhidao  www   	……</span><br></pre></td></tr></table></figure>
+
 <h2 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a>form表单</h2><blockquote>
 <p><code>form</code>表单获取数据一次就会刷新一次，不会局部获取数据，所以就要通过ajax来弥补</p>
 </blockquote>
@@ -642,12 +644,12 @@
 <li><p><code>localStorage</code>和<code>cookie</code>的区别</p>
 </li>
 <li><p><code>localStorage</code>在发送请求时不会把数据发送出去，<code>cookie</code>会把所有数据带出去；</p>
-<pre><code>   - `cookie`存储的数据比较少`4k`，`localStorage`可以存放较多的内容，`5M`左右。
-</code></pre>
 </li>
 </ul>
 </li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`cookie`存储的数据比较少`4k`，`localStorage`可以存放较多的内容，`5M`左右。</span><br></pre></td></tr></table></figure>
+
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><ul>
 <li><code>.com</code> —— 顶级域名，顶级域名分为两类，一类按照国家分类，一类是按照国际分类，<code>DNS</code>先根据顶级域名判断网络范围在根据域名查找主机<code>ip</code>地址<ul>
 <li>国家域名分类：<ul>
@@ -1078,14 +1080,29 @@
 </ul>
 </li>
 <li><p>IE下使用<code>onreadystatechange</code>事件</p>
-<ul>
-<li>```js<br>dom.onreadystatechange = function() {<pre><code>if(iframe.readyState == &#39;complete&#39; || iframe.readyState == &#39;loaded&#39;) &#123;
-    alert(&quot;Local iframe is now loaded&quot;);
-&#125;
-</code></pre>
-}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- `**iframe**跨域</span><br><span class="line"></span><br><span class="line">  - 可以使用哈希值跨域</span><br><span class="line"></span><br><span class="line">      - 解决子页面访问父页面数据问题</span><br><span class="line"></span><br><span class="line">      - **window.location.hash**</span><br><span class="line">  </span><br><span class="line">      - ```html</span><br><span class="line">          &lt;iframe src=&amp;quot;https:.../.../.../B.html#1&gt; // #1就是哈希值</span><br><span class="line">          </span><br><span class="line">          // 主页面</span><br><span class="line">          &lt;script&gt;</span><br><span class="line">          	var oIframe = document.getElementsByTagName(&amp;#39;iframe&amp;#39;)[0];</span><br><span class="line">          	var oldAge = 55;</span><br><span class="line">          </span><br><span class="line">          	var oSrc = oIframe.src; // 单独获取出来方便更改哈希值</span><br><span class="line">          	document.onclick = function() &#123;</span><br><span class="line">                  oIframe.src = oSrc + &amp;#39;#&amp;#39; + oldAge;</span><br><span class="line">                  oldAge++;</span><br><span class="line">              &#125;</span><br><span class="line">          &lt;/script&gt;</span><br><span class="line">          </span><br><span class="line">          // iframe子页面 B.html</span><br><span class="line">          &lt;script&gt;</span><br><span class="line">              var age = 20;</span><br><span class="line">          	var lastHash = window.location.hash; // location.hash 可以取window下面的hash值</span><br><span class="line">          	setInterval(function() &#123;</span><br><span class="line">                  if(lastHash != window.location.hash) &#123;</span><br><span class="line">                      console.log(location.hash.splice(1)) // 打印出来的值会有#号，用splice截取掉</span><br><span class="line">                      lastHash = window.location.hash;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;,10)</span><br><span class="line">          	// 使用计时器来10毫秒捕获一次页面的哈希值，非常的耗费性能，所以现在基本上不用了</span><br><span class="line">        &lt;/script&gt;;</span><br></pre></td></tr></table></figure></li>
+</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">dom.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(iframe.readyState == <span class="string">&#x27;complete&#x27;</span> || iframe.readyState == <span class="string">&#x27;loaded&#x27;</span>) &#123;</span><br><span class="line">        alert(<span class="string">&quot;Local iframe is now loaded&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>`<strong>iframe</strong>跨域</p>
+<ul>
+<li><p>可以使用哈希值跨域</p>
+<ul>
+<li><p>解决子页面访问父页面数据问题</p>
+</li>
+<li><p><strong>window.location.hash</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&amp;quot;https:.../.../.../B.html#1</span>&gt;</span> // #1就是哈希值</span><br><span class="line"></span><br><span class="line">// 主页面</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	var oIframe = document.getElementsByTagName(<span class="symbol">&amp;#39;</span>iframe<span class="symbol">&amp;#39;</span>)[0];</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	var oldAge = 55;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars"></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	var oSrc = oIframe.src; // 单独获取出来方便更改哈希值</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	document.onclick = function() &#123;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">        oIframe.src = oSrc + <span class="symbol">&amp;#39;</span>#<span class="symbol">&amp;#39;</span> + oldAge;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">        oldAge++;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">    &#125;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// iframe子页面 B.html</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> age = <span class="number">20</span>;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> lastHash = <span class="built_in">window</span>.location.hash; <span class="comment">// location.hash 可以取window下面的hash值</span></span></span><br><span class="line"><span class="javascript">	<span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(lastHash != <span class="built_in">window</span>.location.hash) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(location.hash.splice(<span class="number">1</span>)) <span class="comment">// 打印出来的值会有#号，用splice截取掉</span></span></span><br><span class="line"><span class="javascript">            lastHash = <span class="built_in">window</span>.location.hash;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;,<span class="number">10</span>)</span></span><br><span class="line"><span class="javascript">	<span class="comment">// 使用计时器来10毫秒捕获一次页面的哈希值，非常的耗费性能，所以现在基本上不用了</span></span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p><strong>window.name</strong></p>
 <ul>
 <li><p>可以解决父页面访问子页面数据的问题</p>
@@ -1093,12 +1110,12 @@
 <li><p>页面重载、刷新在本窗口<code>window.name</code>值不变，即使换了一个页面</p>
 </li>
 <li><p>用一个代理文件，和应用页面在同一个域中</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> &lt;iframe src=<span class="string">&quot;https:.../.../.../B.html#1&quot;</span>&gt; <span class="comment">// #1就是哈希值</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 主页面</span></span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="keyword">var</span> oIframe = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;iframe&#x27;</span>)[<span class="number">0</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="keyword">var</span> flag = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="comment">// 给一个锁，不然会死循环</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	oIframe.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="keyword">if</span>(flag)&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             <span class="comment">// 因为window.name的特性，所以iframe访问的页面完成后换成同一个域下的数据文件，这样符合同源策略，而且window.name还是不变的</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">             oIframe.src = <span class="string">&#x27;./C.html&#x27;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             flag = <span class="literal">false</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; <span class="keyword">else</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">             <span class="comment">// 等自己域下的数据文件代替了iframe的src后，获取自己数据文件的window.name属性</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">           <span class="built_in">console</span>.log(oIframe.contentWindow.name);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">   &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// iframe子页面 B.html</span></span><br><span class="line"> <span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">     <span class="keyword">var</span> age = <span class="number">20</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="built_in">window</span>.name = age;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
-</ul>
 </li>
 </ul>
 </li>
 </ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">&quot;https:.../.../.../B.html#1&quot;</span>&gt; <span class="comment">// #1就是哈希值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主页面</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="keyword">var</span> oIframe = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;iframe&#x27;</span>)[<span class="number">0</span>];</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="keyword">var</span> flag = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="comment">// 给一个锁，不然会死循环</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">	oIframe.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="keyword">if</span>(flag)&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">// 因为window.name的特性，所以iframe访问的页面完成后换成同一个域下的数据文件，这样符合同源策略，而且window.name还是不变的</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            oIframe.src = <span class="string">&#x27;./C.html&#x27;</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            flag = <span class="literal">false</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125; <span class="keyword">else</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="comment">// 等自己域下的数据文件代替了iframe的src后，获取自己数据文件的window.name属性</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">console</span>.log(oIframe.contentWindow.name);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">  &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// iframe子页面 B.html</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">var</span> age = <span class="number">20</span>;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="built_in">window</span>.name = age;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
 <h2 id="防抖-amp-节流"><a href="#防抖-amp-节流" class="headerlink" title="防抖&amp;节流"></a>防抖&amp;节流</h2><blockquote>
 <p>在前端开发中有一部分的用户行为会频繁的触发事件执行，而对于DOM操作、资源加载等耗费性能的处理，很可能导致界面卡顿，甚至浏览器的崩溃。函数节流（throttle）和函数防抖（debounce）就是为了解决类似需求应运而生的。</p>
 </blockquote>
@@ -1280,7 +1297,7 @@ $("#toc.toc-article").toggle(1000);
     <a class="show pull-left" href="/2021/11/07/Bootstrap/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2021/11/08/JavaScript/">
+    <a class="show pull-right" href="/2021/11/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
