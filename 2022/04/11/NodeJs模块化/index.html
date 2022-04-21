@@ -22,11 +22,13 @@
 <meta property="og:site_name" content="Luckiiest Blog">
 <meta property="og:description" content="NodeJs模块化 第一部分 后端的规范与思想   第二部分 基础的API   第三部分 常用的框架   第四部分（Web项目） 接收Web请求 处理业务逻辑 文件操作 数据库（MySql，MongoDB） 反向代理服务器（IP哈希，轮询）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202204211035533.png">
 <meta property="article:published_time" content="2022-04-11T10:41:15.000Z">
-<meta property="article:modified_time" content="2022-04-13T07:11:52.756Z">
+<meta property="article:modified_time" content="2022-04-21T11:24:39.058Z">
 <meta property="article:author" content="Luckiiest">
 <meta property="article:tag" content="NodeJs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202204211035533.png">
 
   
 
@@ -179,7 +181,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NodeJs%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">NodeJs模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E8%A7%84%E8%8C%83%E4%B8%8E%E6%80%9D%E6%83%B3"><span class="toc-text">后端的规范与思想</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NodeJs%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">NodeJs模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E8%A7%84%E8%8C%83%E4%B8%8E%E6%80%9D%E6%83%B3"><span class="toc-text">后端的规范与思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">node模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#node%E7%9A%84%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%AF%BC%E5%87%BA"><span class="toc-text">node的导入与导出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeAPI"><span class="toc-text">NodeAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Net"><span class="toc-text">Net</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Server"><span class="toc-text">Server</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Socket"><span class="toc-text">Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6-1"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1"><span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94%E5%A4%B4%EF%BC%8C%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE"><span class="toc-text">获取响应头，返回数据</span></a></li></ol></li></ol></li></ol></li></ol>
   </div>
   
 
@@ -236,12 +238,12 @@
        
           <span class="post-count">
             <i class="fa fa-file-word-o"></i>&nbsp
-            <span>字数统计 213字</span>
+            <span>字数统计 1.5k字</span>
           </span>
 
           <span class="post-count">
             <i class="fa fa-columns"></i>&nbsp
-            <span>阅读时长 1分</span>
+            <span>阅读时长 6分</span>
           </span>
       
       
@@ -306,6 +308,200 @@
 </ol>
 </li>
 </ol>
+<h2 id="node模块化"><a href="#node模块化" class="headerlink" title="node模块化"></a>node模块化</h2><h3 id="node的导入与导出"><a href="#node的导入与导出" class="headerlink" title="node的导入与导出"></a>node的导入与导出</h3><p>导入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;模块&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>导出</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = ...</span><br><span class="line"><span class="built_in">exports</span> = ...</span><br><span class="line"></span><br><span class="line"><span class="comment">//exports是module.exports的简写,都可以使用,但当二者遇到时,优先导出module.exports</span></span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">123</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&#x27;abcd&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span> = a</span><br><span class="line"><span class="built_in">module</span>.exports = b</span><br><span class="line"><span class="comment">// 但当exports.a = a和module.exports.b = b这样使用时则module.export不会覆盖exports</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> test = <span class="built_in">require</span>(<span class="string">&quot;./test.js&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(test) <span class="comment">// abcd</span></span><br></pre></td></tr></table></figure>
+
+<p>注意: NodeJs是运行在一个函数中的，并不是一个全局函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Nodejs的模块是运行在一个函数中的</span></span><br><span class="line"><span class="comment">// 把这些东西当作参数传入到函数中</span></span><br><span class="line"><span class="comment">// 函数名不知道是什么</span></span><br><span class="line"><span class="comment">// 同时参数顺序如下，可以通过console.log(arguments)查看</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xyz</span>(<span class="params"><span class="built_in">exports</span>, <span class="built_in">require</span>, <span class="built_in">module</span>, __filename, __dirname</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//---</span></span><br><span class="line">  <span class="comment">// 中间的内容是我们写的nodejs的代码</span></span><br><span class="line">  <span class="comment">//---</span></span><br><span class="line">  <span class="comment">// NodeJs的模块试运行在一个函数中的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// console.log(arguments)</span></span><br><span class="line">[Arguments] &#123;</span><br><span class="line">  <span class="string">&#x27;0&#x27;</span>: &#123;&#125;, <span class="comment">//exports</span></span><br><span class="line">  <span class="string">&#x27;1&#x27;</span>: [<span class="built_in">Function</span>: <span class="built_in">require</span>] &#123;...&#125;, <span class="comment">// require</span></span><br><span class="line">  <span class="string">&#x27;2&#x27;</span>: Module &#123;&#125;, <span class="comment">//module</span></span><br><span class="line">  <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;d:\\**\\filename.js&#x27;</span>, <span class="comment">//__filename</span></span><br><span class="line">  <span class="string">&#x27;4&#x27;</span>: <span class="string">&#x27;d:\\**\\**\\dirname&#x27;</span> <span class="comment">//__dirname</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="NodeAPI"><a href="#NodeAPI" class="headerlink" title="NodeAPI"></a>NodeAPI</h2><h3 id="Net"><a href="#Net" class="headerlink" title="Net"></a>Net</h3><blockquote>
+<p><code>net</code> 模块提供了异步的网络 API，用于创建基于流的 TCP 或 <a target="_blank" rel="noopener" href="http://nodejs.cn/api/net.html#ipc-support">IPC</a> 服务器 (<a target="_blank" rel="noopener" href="http://nodejs.cn/api/net.html#netcreateserveroptions-connectionlistener"><code>net.createServer()</code></a>) 和客户端 (<a target="_blank" rel="noopener" href="http://nodejs.cn/api/net.html#netcreateconnection"><code>net.createConnection()</code></a>)。</p>
+</blockquote>
+<p><code>Net</code>模块可用于创建Socket服务器或Socket客户端。NodeJS 的数据通信，最基础的两个模块是 Net 和 Http，前者是基于 Tcp 的封装，后者本质还是 Tcp 层，只不过做了比较多的数据封装，我们视为表现层</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202204211035533.png" alt="image-20220421102836497"></p>
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建Server层</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> server = net.createServer()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建Client层</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> socket = net.createConnection(port，host)</span><br><span class="line">或</span><br><span class="line"><span class="keyword">const</span> socket = net.connect(port，host)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在server端监听端口</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.listen(port，host)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><ul>
+<li><strong>listening</strong><ul>
+<li>在调用 <a target="_blank" rel="noopener" href="http://nodejs.cn/api/net.html#serverlisten"><code>server.listen()</code></a> 后绑定服务器时触发。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;listening&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务已启动&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 使用on绑定</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>connection</strong><ul>
+<li>建立新连接时触发。 <code>socket</code> 是 <code>net.Socket</code> 的实例。</li>
+<li>当有client连接socket时触发</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数socket,当连接时返回socket</span></span><br><span class="line">server.on(<span class="string">&#x27;connection&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有新的连接&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>close</strong><ul>
+<li>当server端关闭时触发</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.on(<span class="string">&#x27;close&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>error</strong><ul>
+<li>当出现错误是触发</li>
+</ul>
+</li>
+</ul>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><ul>
+<li><strong>listen</strong><ul>
+<li>在server端监听端口</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.listen(port，host)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>close</strong><ul>
+<li>关闭server端</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server.close()</span><br><span class="line"><span class="comment">// 基本上不适用close关闭</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>address</strong><ul>
+<li>返回server的地址</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(server.address())</span><br><span class="line"><span class="comment">// &#123; address: &#x27;127.0.0.1&#x27;, family: &#x27;IPv4&#x27;, port: 3366 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h4><h5 id="事件-1"><a href="#事件-1" class="headerlink" title="事件"></a>事件</h5><ul>
+<li><strong>connect</strong><ul>
+<li>当成功建立与server连接时触发。 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// socket.js</span></span><br><span class="line">socket.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;已连接到服务器&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>data</strong></p>
+<ul>
+<li><p>接收到数据时触发。 参数 <code>data</code> 将是 <code>Buffer</code> 或 <code>String</code>。 数据的编码由 <a target="_blank" rel="noopener" href="http://nodejs.cn/api/net.html#socketsetencodingencoding"><code>socket.setEncoding()</code></a> 设置。</p>
+<p>如果 <code>Socket</code> 触发 <code>&#39;data&#39;</code> 事件时没有监听器，则数据将丢失。</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// socket.js</span></span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> socket = net.connect(<span class="number">3366</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收server返回的消息</span></span><br><span class="line">socket.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给server端发送数据</span></span><br><span class="line">socket.write(<span class="string">&#x27;你好，server端&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> server = net.createServer()</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3366</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;connection&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 连接后接收消息，返回socket端消息</span></span><br><span class="line">  socket.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">    socket.write(<span class="string">&#x27;hello client&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>end</strong></p>
+<ul>
+<li>当连接传输结束时触发</li>
+</ul>
+</li>
+<li><p><strong>timeout</strong></p>
+<ul>
+<li>当socket空闲超时触发，仅是表明socket已经空闲。用户必须手动关闭连接。</li>
+</ul>
+</li>
+<li><p><strong>error</strong></p>
+<ul>
+<li>发生错误时触发。 <code>&#39;close&#39;</code> 事件将在此事件之后直接调用。</li>
+</ul>
+</li>
+<li><p><strong>close</strong></p>
+<ul>
+<li>当socket端关闭时触发</li>
+</ul>
+</li>
+</ul>
+<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
+<li><p><strong>remoteAddress</strong></p>
+<ul>
+<li>服务器地址</li>
+</ul>
+</li>
+<li><p><strong>remotePort</strong></p>
+<ul>
+<li>服务器端口</li>
+</ul>
+</li>
+<li><p><strong>localAddress</strong></p>
+<ul>
+<li>本地地址</li>
+</ul>
+</li>
+<li><p><strong>localPort</strong></p>
+<ul>
+<li>本地端口</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// socket.js</span></span><br><span class="line">socket.on(<span class="string">&#x27;connect&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;已连接到服务器&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(socket.remoteAddress)</span><br><span class="line">  <span class="built_in">console</span>.log(socket.remotePort)</span><br><span class="line">  <span class="built_in">console</span>.log(socket.localAddress)</span><br><span class="line">  <span class="built_in">console</span>.log(socket.localPort)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="comment">// 服务器地址</span></span><br><span class="line"><span class="number">3366</span>	  <span class="comment">// 服务器端口</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="comment">// 本地地址</span></span><br><span class="line"><span class="number">51672</span>	  <span class="comment">// 本地端口</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><ul>
+<li><p><strong>setTimeout</strong></p>
+<ul>
+<li>socket闲置时间超过<code>timeout</code>毫秒后 ，将socket设置为超时。</li>
+<li>触发空闲超时事件时，socket将会收到<code>&#39;timeout&#39;</code>事件，但是连接不会被断开。用户必须手动调用<code>end()</code>或<code>destroy()</code>这个socket。</li>
+<li>如果<code>timeout</code>= 0，那么现有的闲置超时会被禁用</li>
+<li>可选的callback参数将会被添加成为’timeout’事件的一次性监听器。</li>
+</ul>
+</li>
+<li><p><strong>write</strong></p>
+<ul>
+<li>向server端发送数据或向socket端返回数据</li>
+</ul>
+</li>
+<li><p><strong>setEncoding</strong></p>
+<ul>
+<li>设置socket的编码为可读流。</li>
+</ul>
+</li>
+<li><p><strong>end</strong></p>
+<ul>
+<li>关闭socket端服务方法</li>
+</ul>
+</li>
+</ul>
+<h4 id="获取响应头，返回数据"><a href="#获取响应头，返回数据" class="headerlink" title="获取响应头，返回数据"></a>获取响应头，返回数据</h4><p>可以通过Net来进行浏览器之间的数据交互，在浏览器上进行访问server地址:端口来进行访问server，通过server端的操作来进行获取响应头以及返回数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Socket &#125; = <span class="built_in">require</span>(<span class="string">&#x27;dgram&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = net.createServer()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 端口12306,地址为127.0.0.1</span></span><br><span class="line">server.listen(<span class="number">12306</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">&#x27;listening&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务已启动&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接时进行触发</span></span><br><span class="line">server.on(<span class="string">&#x27;connection&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有新的连接&#x27;</span>)</span><br><span class="line">  <span class="comment">// 当浏览器访问时返回Http报文</span></span><br><span class="line">  socket.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">   	<span class="comment">// 获取Http报文后，可以进行返回响应报文</span></span><br><span class="line">    socket.write(<span class="string">`HTTP 200OK\r\n</span></span><br><span class="line"><span class="string">    			  Content-type:text/html\r\n</span></span><br><span class="line"><span class="string">    			  ServerDWS/1.1\r\n</span></span><br><span class="line"><span class="string">    			  &lt;html&gt;&lt;body&gt;hello&lt;/body&gt;&lt;/html&gt;`</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浏览器端输入127.0.0.1:12306/abc</span></span><br><span class="line"><span class="comment">// 后面的abc是为了查看报文可以进行交互</span></span><br></pre></td></tr></table></figure>
+
 
       </div>
     
