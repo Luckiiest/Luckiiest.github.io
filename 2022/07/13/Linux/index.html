@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+
+
+  <html class="dark page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux | Luckiiest Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Linux," />
+  
+
+  <meta name="description" content="LinuxLinux介绍 介绍 Linux读法：【里纽克斯，里尼科斯，里纳克斯】 Linux是一款操作系统，免费，开源，安全，高效，稳定，处理高并发强悍 Linux创始人：linus Linux吉祥物：企鹅，Tux Linux主要的发行版： RedHat CentOS RedHat   Ubuntu Suse 红旗Linux 还有很多   目前主要的操作系统有 window，android，车载系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="https://github.com/Luckiiest/Luckiiest.github.io.git/2022/07/13/Linux/index.html">
+<meta property="og:site_name" content="Luckiiest Blog">
+<meta property="og:description" content="LinuxLinux介绍 介绍 Linux读法：【里纽克斯，里尼科斯，里纳克斯】 Linux是一款操作系统，免费，开源，安全，高效，稳定，处理高并发强悍 Linux创始人：linus Linux吉祥物：企鹅，Tux Linux主要的发行版： RedHat CentOS RedHat   Ubuntu Suse 红旗Linux 还有很多   目前主要的操作系统有 window，android，车载系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207131651585.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207131756284.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207140909188.png">
+<meta property="article:published_time" content="2022-07-13T01:56:27.000Z">
+<meta property="article:modified_time" content="2022-07-14T02:26:12.987Z">
+<meta property="article:author" content="Luckiiest">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207131651585.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+<link href="/css/other.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  <!-- 聊天系统 -->
+  
+    
+   <link type="text/css" rel="stylesheet" href="/renxi/default.css">
+   <style>
+      #modal {
+        position: static !important;
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fe5757;
+        animation: colorChange 30s ease-in-out infinite;
+        animation-fill-mode: both;
+        mix-blend-mode: overlay;
+      }
+  
+      @keyframes colorChange {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .9;
+        }
+      }
+   </style>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Luckiiest Blog" type="application/atom+xml">
+</head>
+
+<body>
+  
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">导航</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">导航</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%BB%8B%E7%BB%8D"><span class="toc-text">Linux介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%9F%BA%E7%A1%80"><span class="toc-text">Linux基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux文件目录系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86Linux%E7%B3%BB%E7%BB%9F"><span class="toc-text">远程登陆Linux系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi%E5%92%8Cvim%E4%BD%BF%E7%94%A8"><span class="toc-text">vi和vim使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4"><span class="toc-text">文件命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E6%A8%A1%E5%BC%8F"><span class="toc-text">普通模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E5%91%BD%E4%BB%A4"><span class="toc-text">插入命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87%E7%A7%BB%E5%8A%A8"><span class="toc-text">游标移动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A"><span class="toc-text">撤销和重做</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%91%BD%E4%BB%A4"><span class="toc-text">删除命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%EF%BC%8C%E5%89%AA%E8%B4%B4%E5%92%8C%E7%B2%98%E8%B4%B4"><span class="toc-text">拷贝，剪贴和粘贴</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4"><span class="toc-text">退出命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%E5%91%BD%E4%BB%A4"><span class="toc-text">注释命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4"><span class="toc-text">执行shell命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="toc-text">帮助命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%9D%9E%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="toc-text">其他非编辑命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA-amp-%E9%87%8D%E5%90%AF-amp-%E6%B3%A8%E9%94%80"><span class="toc-text">关机&amp;重启&amp;注销</span></a></li></ol></li></ol></li></ol>
+  </div>
+  
+
+
+
+
+<div class="content content-post CENTER">
+   <!-- canvas 彩带 -->
+<canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+
+<!-- <div class="qrcode_container">
+  <div class="tencent_code">
+    <h4>关注作者公众号</h4> 
+    <p>和万千小伙伴一起学习</p> 
+    <img src="https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg" alt="">
+  </div> 
+</div> -->
+
+<article id="post-Linux" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header" style="position:relative;">
+    <h1 class="post-title">Linux</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2022.07.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Luckiiest</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+       
+          <span class="post-count">
+            <i class="fa fa-file-word-o"></i>&nbsp
+            <span>字数统计 3.6k字</span>
+          </span>
+
+          <span class="post-count">
+            <i class="fa fa-columns"></i>&nbsp
+            <span>阅读时长 13分</span>
+          </span>
+      
+      
+    </div>
+
+    <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:0;right:0;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+
+  </header>
+
+  <div class="article-content">
+    
+      <div id="container">
+        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="Linux介绍"><a href="#Linux介绍" class="headerlink" title="Linux介绍"></a>Linux介绍</h2><ul>
+<li>介绍<ul>
+<li>Linux读法：【里纽克斯，里尼科斯，里纳克斯】</li>
+<li>Linux是一款操作系统，免费，开源，安全，高效，稳定，处理高并发强悍</li>
+<li>Linux创始人：linus</li>
+<li>Linux吉祥物：企鹅，Tux</li>
+<li>Linux主要的发行版：<ul>
+<li>RedHat<ul>
+<li>CentOS</li>
+<li>RedHat</li>
+</ul>
+</li>
+<li>Ubuntu</li>
+<li>Suse</li>
+<li>红旗Linux</li>
+<li>还有很多</li>
+</ul>
+</li>
+<li>目前主要的操作系统有<ul>
+<li>window，android，车载系统，linux</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux与Unix的关系<ul>
+<li>Unix是由Ken Thompson和Dennis Ritchie共同发明的<ul>
+<li>Linux的开发过程呢是因为当时Linus使用的基于Unix的操作系统Minix太难用了，于是决定自己开发一个操作系统，采用了Unix的设计理念，于是Linux诞生了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux与Window比较<ul>
+<li>Linux<ul>
+<li>免费或少许收费</li>
+<li>软件开源</li>
+<li>相对来说比window安全</li>
+<li>兼具图形界面操作和完整的命令行操作，可以只使用键盘完成一切操作</li>
+</ul>
+</li>
+<li>Window<ul>
+<li>收费</li>
+<li>软件收费</li>
+<li>容易中病毒，三天两头打补丁</li>
+<li>纯图形操作界面，容易入门</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h2><h3 id="Linux文件目录系统"><a href="#Linux文件目录系统" class="headerlink" title="Linux文件目录系统"></a>Linux文件目录系统</h3><blockquote>
+<p>在Linux世界里，一切皆文件</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Linux的目录中有且只有一个根目录</p>
+</blockquote>
+<blockquote>
+<p>linux的各个目录存放的内容是规划好，不用乱放文件</p>
+</blockquote>
+<blockquote>
+<p>linux是以文件的形式管理我们的设备，因此linux系统，一切皆文件</p>
+</blockquote>
+</blockquote>
+<p>linux的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/“，然后在此目录下再创建其他的目录。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207131651585.png" alt="image-20220713165122703"></p>
+<ul>
+<li><p><code>/bin</code></p>
+<ul>
+<li>存放着最经常使用的命令（Binary的缩写）</li>
+</ul>
+</li>
+<li><p><code>/sbin</code></p>
+<ul>
+<li>s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</li>
+</ul>
+</li>
+<li><p><code>/home</code></p>
+<ul>
+<li>存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li>
+</ul>
+</li>
+<li><p><code>/root</code></p>
+<ul>
+<li>该目录为系统管理员，也称作超级权限者的用户主目录。</li>
+</ul>
+</li>
+<li><p><code>/lib</code></p>
+<ul>
+<li>系统开机所需要最基本的动态连接共享库，其作用类似于windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</li>
+</ul>
+</li>
+<li><p><code>/lost+found</code></p>
+<ul>
+<li>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</li>
+</ul>
+</li>
+<li><p><code>/etc</code></p>
+<ul>
+<li>所有的系统管理所需要的配置文件和子目录</li>
+</ul>
+</li>
+<li><p><code>/usr</code></p>
+<ul>
+<li>这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。</li>
+</ul>
+</li>
+<li><p><code>/boot</code></p>
+<ul>
+<li>存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件</li>
+</ul>
+</li>
+<li><p><code>/proc</code></p>
+<ul>
+<li>这个目录是一个虚拟的目录，它是系统内存的映射，访间这个目录来获取系统信息.</li>
+</ul>
+</li>
+<li><p><code>/srv</code></p>
+<ul>
+<li>service缩写，该目录存放一些服务启动之后需要提取的数据。</li>
+</ul>
+</li>
+<li><p><code>/sys</code></p>
+<ul>
+<li>这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统<code>ysfs</code></li>
+</ul>
+</li>
+<li><p><code>/tmp</code></p>
+<ul>
+<li>这个目录是用来存放一些临时文件的。</li>
+</ul>
+</li>
+<li><p><code>/dev</code></p>
+<ul>
+<li>类似于windows的设备管理器，把所有的硬件用文件的形式存储。</li>
+</ul>
+</li>
+<li><p><code>/media</code></p>
+<ul>
+<li>linux系统会自动识别一些设备，例如u盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</li>
+</ul>
+</li>
+<li><p><code>/mnt</code></p>
+<ul>
+<li>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂载在<code>/mnt/</code>上，然后进入该目录就可以查看里的内容了。</li>
+</ul>
+</li>
+<li><p><code>/opt</code></p>
+<ul>
+<li>这是给主机额外安装软件所摆放的目录。如安装ORACLE数据库就可放到该目录下。默认为空。</li>
+</ul>
+</li>
+<li><p><code>/usr/local</code></p>
+<ul>
+<li>是另一个给主机额外安装软件所安装的目录，一般是通过编译源码方式安装的程序。</li>
+</ul>
+</li>
+<li><p><code>/var</code></p>
+<ul>
+<li>这个目录中存放着在不断扩充着的东西，习惯将经常被修改的日录放在这个日录下。包括各种日志文件。</li>
+</ul>
+</li>
+<li><p><code>/selinux</code></p>
+<ul>
+<li>SELinux是一和安全子系统,它能控制程序只能方间特定文件。（<em>security-hanced</em>）</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程登陆Linux系统"><a href="#远程登陆Linux系统" class="headerlink" title="远程登陆Linux系统"></a>远程登陆Linux系统</h3><p>说明:公司开发时候，具体的情况是这样</p>
+<ol>
+<li>linux服务器是开发小组共享的</li>
+<li>正式上线的项目是运行在公网的</li>
+<li>因此程序员需要远程登录到centos进行项目管理或者开发</li>
+</ol>
+<ul>
+<li>Ubuntu系统查询ssh服务</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 安装ssh服务器</span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line"></span><br><span class="line">// 打开ssh服务</span><br><span class="line">sudo service ssh start</span><br><span class="line"></span><br><span class="line">// 查询ssh服务</span><br><span class="line">sudo ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>CentOS系统开启ssh服务</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 安装ssh服务</span><br><span class="line">yum install -y openssl openssh-server</span><br><span class="line"></span><br><span class="line">// 启动ssh服务</span><br><span class="line">systemctl start sshd.service</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启了ssh服务之后，使用Xhell工具进行远程登陆Linux系统<ul>
+<li>安装好Xshell后，点击文件-&gt;新建</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207131756284.png" alt="image-20220713175606078"></li>
+<li>然后点击确定，点击会话进行连接</li>
+<li>输入你要连接linux用户名和密码</li>
+<li>如果需要连接root用户，则需要在linux系统中开启ssh的root权限（百度一下）</li>
+</ul>
+</li>
+<li>使用FileZilla进行上传和下载文件<ul>
+<li>安装好之后点击导航栏的文件——&gt;站点管理器——&gt;新建站点</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Luckiiest/noteImage@master/202207140909188.png" alt="image-20220714090951189"></li>
+<li>然后点击连接就可以点击连接了，进行连接linux必须安装ssh服务</li>
+</ul>
+</li>
+</ul>
+<h3 id="vi和vim使用"><a href="#vi和vim使用" class="headerlink" title="vi和vim使用"></a>vi和vim使用</h3><ul>
+<li><p>所有的Linux系统都会内建vi文本编辑器。</p>
+</li>
+<li><p>Vim具有程序编辑的能力，可以看做是vi的增强版本，可以主动的以字体颜色辨别语法的正确性，方便程序设计。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。</p>
+</li>
+<li><p>vi和vim的三种常见模式</p>
+<ul>
+<li>正常模式:<ul>
+<li>以vim打开一个档案就直接进入一般模式了(这是默认的模式)。在这个模式中，你可以使用『上下左右』按键来移动光标，你可以使用『删除字符』或『删除整行』来处理档案内容，也可以使用『复制、贴上』来处理你的文件数据。</li>
+</ul>
+</li>
+<li>插入模式:<ul>
+<li>在正常模式下按下i, l, o,O, a,A, r, R等任何一个字母之后才会进入编辑模式,一般来说按i即可.</li>
+</ul>
+</li>
+<li>命令行模式<ul>
+<li>在vim中按下esc键进入命令行模式，在这个模式当中，可以提供你相关指令，完成读取、存盘、替换、离开vim、显示行号等的动作则是在此模式中达成的!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vim 的常见指令案例</p>
+<ul>
+<li>yy：拷贝当前行</li>
+<li>5yy：拷贝当前5行</li>
+<li>dd：删除当前行</li>
+<li>5dd：删除当前行向下的5行</li>
+<li>在文件中查找某个单词：命令行输入 /（查找内容），按n查找下一个</li>
+<li>设置文件行号：set nu，取消文件行号：set nonu</li>
+<li>编辑文件，正常模式下使用快捷键到达文档最末行：G，最首行：gg</li>
+<li>撤销输入：在正常模式下输入u</li>
+<li>编辑文件，光标移动到某行：shift+g</li>
+</ul>
+<ul>
+<li>显示行号：set nu<ul>
+<li>输入行号这个数</li>
+<li>输入shift+g</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h4><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vim [file1 file2 file3 …]</td>
+<td>打开单个或多个文件</td>
+</tr>
+<tr>
+<td>:open file</td>
+<td>在vim窗口中打开一个新文件</td>
+</tr>
+<tr>
+<td>:split file</td>
+<td>在新窗口中打开文件（split打开的窗口都是横向的，使用vsplit可以纵向打开窗口。）</td>
+</tr>
+<tr>
+<td>Ctrl+ww</td>
+<td>移动到下一个窗口</td>
+</tr>
+<tr>
+<td>Ctrl+wj</td>
+<td>移动到下方的窗口</td>
+</tr>
+<tr>
+<td>Ctrl+wk</td>
+<td>移动到上方的窗口</td>
+</tr>
+<tr>
+<td>:close</td>
+<td>最后一个窗口不能使用此命令，可以防止意外退出vim。</td>
+</tr>
+<tr>
+<td>:only</td>
+<td>关闭所有窗口，只保留当前窗口</td>
+</tr>
+<tr>
+<td>:bn</td>
+<td>切换到下一个文件</td>
+</tr>
+<tr>
+<td>:bp</td>
+<td>切换到上一个文件</td>
+</tr>
+<tr>
+<td>:args</td>
+<td>查看当前打开的文件列表，当前正在编辑的文件会用[]括起来</td>
+</tr>
+<tr>
+<td>:e <a href="ftp://192.168.10.76/abc.txt">ftp://192.168.10.76/abc.txt</a></td>
+<td>打开远程文件，比如ftp或者share folder</td>
+</tr>
+</tbody></table>
+<h4 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h4><h5 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>在当前位置生前插入</td>
+</tr>
+<tr>
+<td>I</td>
+<td>在当前行首插入</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在当前位置后插入</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在当前行尾插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在当前行之后插入一行</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在当前行之前插入一行</td>
+</tr>
+</tbody></table>
+<h5 id="游标移动"><a href="#游标移动" class="headerlink" title="游标移动"></a>游标移动</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gg</td>
+<td>移动到文件头。 = [[</td>
+</tr>
+<tr>
+<td>G（shift + g）</td>
+<td>移动到文件尾。 = ]]</td>
+</tr>
+<tr>
+<td>行数 → Shift+G</td>
+<td>移动到第 n 行</td>
+</tr>
+<tr>
+<td>冒号+行号，回车</td>
+<td>比如跳到240行就是 :240回车</td>
+</tr>
+<tr>
+<td>h</td>
+<td>左移一个字符</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右移一个字符，这个命令很少用，一般用w代替。</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上移一个字符</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下移一个字符</td>
+</tr>
+<tr>
+<td>w</td>
+<td>向前移动一个单词（光标停在单词首部）</td>
+</tr>
+<tr>
+<td>b</td>
+<td>向后移动一个单词 2b 向后移动2个单词</td>
+</tr>
+<tr>
+<td>e</td>
+<td>同w，只不过是光标停在单词尾部</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>同b，光标停在单词尾部。</td>
+</tr>
+<tr>
+<td>^</td>
+<td>移动到本行第一个非空白字符上。</td>
+</tr>
+<tr>
+<td>0</td>
+<td>移动到本行第一个字符上</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td>移动到本行第一个字符。同0健。</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动到行尾 3$ 移动到下面3行的行尾</td>
+</tr>
+<tr>
+<td>f（find）</td>
+<td>fx将找到光标后第一个为x的字符，3fd将找到第三个为d的字符。</td>
+</tr>
+<tr>
+<td>F</td>
+<td>同f，反向查找</td>
+</tr>
+</tbody></table>
+<h5 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>撤销（Undo）</td>
+</tr>
+<tr>
+<td>U</td>
+<td>撤销对整行的操作</td>
+</tr>
+<tr>
+<td>Ctrl + r</td>
+<td>重做（Redo），即撤销的撤销。</td>
+</tr>
+</tbody></table>
+<h5 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>删除当前字符</td>
+</tr>
+<tr>
+<td>3x</td>
+<td>删除当前光标开始向后三个字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除当前字符的前一个字符。X=dh</td>
+</tr>
+<tr>
+<td>dl</td>
+<td>删除当前字符， dl=x</td>
+</tr>
+<tr>
+<td>dh</td>
+<td>删除前一个字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>dj</td>
+<td>删除上一行</td>
+</tr>
+<tr>
+<td>dk</td>
+<td>删除下一行</td>
+</tr>
+<tr>
+<td>10d</td>
+<td>删除当前行开始的10行。</td>
+</tr>
+<tr>
+<td>D</td>
+<td>删除当前字符至行尾。D=d$</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除当前字符之后的所有字符（本行）</td>
+</tr>
+<tr>
+<td>kdgg</td>
+<td>删除当前行之前所有行（不包括当前行）</td>
+</tr>
+<tr>
+<td>jdG（jd shift + g）</td>
+<td>删除当前行之后所有行（不包括当前行）</td>
+</tr>
+<tr>
+<td>:1,10d</td>
+<td>删除1-10行</td>
+</tr>
+<tr>
+<td>:11,$d</td>
+<td>删除11行及以后所有的行</td>
+</tr>
+<tr>
+<td>:1,$d</td>
+<td>删除所有行</td>
+</tr>
+<tr>
+<td>J(shift + j)</td>
+<td>删除两行之间的空行，实际上是合并两行。</td>
+</tr>
+</tbody></table>
+<h5 id="拷贝，剪贴和粘贴"><a href="#拷贝，剪贴和粘贴" class="headerlink" title="拷贝，剪贴和粘贴"></a>拷贝，剪贴和粘贴</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yy</td>
+<td>拷贝当前行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>拷贝当前后开始的n行，比如2yy拷贝当前行及其下一行。</td>
+</tr>
+<tr>
+<td>p</td>
+<td>在当前光标后粘贴,如果之前使用了yy命令来复制一行，那么就在当前行的下一行粘贴。</td>
+</tr>
+<tr>
+<td>shift+p</td>
+<td>在当前行前粘贴</td>
+</tr>
+<tr>
+<td>:1,10 co 20</td>
+<td>将1-10行插入到第20行之后。</td>
+</tr>
+<tr>
+<td>:1,$ co $</td>
+<td>将整个文件复制一份并添加到文件尾部。</td>
+</tr>
+<tr>
+<td>ddp</td>
+<td>交换当前行和其下一行</td>
+</tr>
+<tr>
+<td>xp</td>
+<td>交换当前字符和其后一个字符</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>剪切当前行之后的n行。利用p命令可以对剪切的内容进行粘贴</td>
+</tr>
+<tr>
+<td>:1,10d</td>
+<td>将1-10行剪切。利用p命令可将剪切后的内容进行粘贴。</td>
+</tr>
+<tr>
+<td>:1, 10 m 20</td>
+<td>将第1-10行移动到第20行之后。</td>
+</tr>
+</tbody></table>
+<p>正常模式下按v（逐字）或V（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按y即可复制</p>
+<h5 id="退出命令"><a href="#退出命令" class="headerlink" title="退出命令"></a>退出命令</h5><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出并忽略所有更改</td>
+</tr>
+<tr>
+<td>:e!</td>
+<td>放弃所有修改，并打开原来文件。</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>未修改直接退出</td>
+</tr>
+</tbody></table>
+<h5 id="注释命令"><a href="#注释命令" class="headerlink" title="注释命令"></a>注释命令</h5><p>perl程序中#开始的行为注释，所以要注释某些行，只需在行首加入#</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3,5 s/^/#/g</td>
+<td>注释第3-5行</td>
+</tr>
+<tr>
+<td>3,5 s/^#//g</td>
+<td>解除3-5行的注释</td>
+</tr>
+<tr>
+<td>1,$ s/^/#/g</td>
+<td>注释整个文档。</td>
+</tr>
+<tr>
+<td>:%s/^/#/g</td>
+<td>注释整个文档，此法更快。</td>
+</tr>
+</tbody></table>
+<h4 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h4><ul>
+<li>:!command</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:!ls</td>
+<td>列出当前目录下文件</td>
+</tr>
+<tr>
+<td>:!perl -c script.pl</td>
+<td>检查perl脚本语法，可以不用退出vim，非常方便。</td>
+</tr>
+<tr>
+<td>:!perl script.pl</td>
+<td>执行perl脚本，可以不用退出vim，非常方便。</td>
+</tr>
+<tr>
+<td>:suspend或Ctrl - Z</td>
+<td>挂起vim，回到shell，按fg可以返回vim。</td>
+</tr>
+</tbody></table>
+<h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:help or F1</td>
+<td>显示整个帮助</td>
+</tr>
+<tr>
+<td>:help xxx</td>
+<td>显示xxx的帮助，比如 :help i, :help CTRL-[（即Ctrl+[的帮助）。</td>
+</tr>
+<tr>
+<td>:help ‘number’</td>
+<td>Vim选项的帮助用单引号括起</td>
+</tr>
+<tr>
+<td>:help &lt;Esc&gt;</td>
+<td>特殊键的帮助用&lt;&gt;扩起</td>
+</tr>
+<tr>
+<td>:help -t</td>
+<td>Vim启动参数的帮助用-</td>
+</tr>
+<tr>
+<td>：help i_&lt;Esc&gt;</td>
+<td>插入模式下Esc的帮助，某个模式下的帮助用模式_主题的模式</td>
+</tr>
+</tbody></table>
+<p>帮助文件中位于||之间的内容是超链接，可以用Ctrl+]进入链接，Ctrl+o（Ctrl + t）返回</p>
+<h4 id="其他非编辑命令"><a href="#其他非编辑命令" class="headerlink" title="其他非编辑命令"></a>其他非编辑命令</h4><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.</td>
+<td>重复前一次命令</td>
+</tr>
+<tr>
+<td>:set ruler?</td>
+<td>查看是否设置了ruler，在.vimrc中，使用set命令设制的选项都可以通过这个命令查看</td>
+</tr>
+<tr>
+<td>:scriptnames</td>
+<td>查看vim脚本文件的位置，比如.vimrc文件，语法文件及plugin等。</td>
+</tr>
+<tr>
+<td>:set list</td>
+<td>显示非打印字符，如tab，空格，行尾等。如果tab无法显示，请确定用set lcs=tab:&gt;-命令设置了.vimrc文件，并确保你的文件中的确有tab，如果开启了 expandtab，那么tab将被扩展为空格。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Vim教程</p>
+<ul>
+<li>在Unix系统上 $ vimtutor</li>
+<li>在Windows系统上 :help tutor</li>
+</ul>
+</li>
+<li><p>录制宏:</p>
+<ul>
+<li>按q键加任意字母开始录制，再按q键结束录制（这意味着vim中的宏不可嵌套），使用的时候@加宏名，比如qa。。。q录制名为a的宏，@a使用这个宏。</li>
+</ul>
+</li>
+<li><p>:syntax 列出已经定义的语法项</p>
+</li>
+<li><p>:syntax clear 清除已定义的语法规则</p>
+</li>
+<li><p>:syntax case match 大小写敏感，int和Int将视为不同的语法元素</p>
+</li>
+<li><p>:syntax case ignore 大小写无关，int和Int将视为相同的语法元素，并使用同样的配色方案</p>
+</li>
+</ul>
+<h3 id="关机-amp-重启-amp-注销"><a href="#关机-amp-重启-amp-注销" class="headerlink" title="关机&amp;重启&amp;注销"></a>关机&amp;重启&amp;注销</h3><ul>
+<li>关机<ul>
+<li>shutdown -h now：立即关机</li>
+<li>shutdown -h 1：1分钟后关机</li>
+<li>half：直接关机</li>
+</ul>
+</li>
+<li>重启<ul>
+<li>shutdown -r now：立即重启</li>
+<li>reboot：重启系统</li>
+</ul>
+</li>
+<li>sync<ul>
+<li>把内存的内容同步到磁盘</li>
+<li>当我们关机或重启的时，都应该先执行以下sync指令，把内存的数据存入磁盘，防止数据丢失</li>
+</ul>
+</li>
+<li>登陆<ul>
+<li>登陆时尽量少用root账号登陆，因为他是系统管理员，最大的权限，避免操作失误，可以使用普通用户登陆，登陆后在使用<code>su &quot;用户名&quot;</code>命令来切换成系统管理员身份</li>
+</ul>
+</li>
+<li>注销<ul>
+<li>logout：注销</li>
+<li>logout在图形运行界面无效</li>
+<li>在运行级别3下有效</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    
+  </div>
+
+</article>
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+  <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+  <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+</button>
+
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+
+
+<!-- 微信公众号引流 openwrite.cn -->
+<!-- 
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+  const btw = new BTWPlugin();
+  btw.init({
+    id: "container",
+    blogId: "",
+    name: "前端之旅",
+    qrcode: "https://poetries1.gitee.io/img-repo/2020/06/qrcode.jpg",
+    keyword: "3a3b3c",
+  });
+</script> -->
+
+<script type="text/javascript">
+
+// white theme
+var body = {color: "#555", background: "#000"};
+var a_tag = {color: "#222"};
+var header = { background: "#222"};
+var logo_line_i = {background: "#222"};
+// var post_code = {background: "#eee", color: "#222"};
+
+function switch_theme() {
+ $("body").css(body);
+ $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+ $(".header, .footer").css(header);
+ $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+ //$(".post code").css(post_code);
+ $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+ $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+ 
+ // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+ //$("#assist_btn1").hide(1500);
+}
+
+$(function () {
+$("#assist_btn2").css("display","none");
+ $("#assist_btn1").click(function() {
+     switch_theme();
+$("div#toc.toc-article").css({
+ "background":"#eaeaea",
+ "opacity":1
+});
+$(".toc-article ol").show();
+$("#toc.toc-article .toc-title").css("color","#a98602");
+$("#assist_btn1").css("display","none");
+$("#assist_btn2").css("display","block");
+ });
+$("#assist_btn2").click(function() {
+$("#assist_btn2").css("display","none");
+$("#assist_btn1").css("display","block");
+$("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+     $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+$(".toc-article ol").toggle(1000);
+ });
+});
+
+
+//背景随机
+
+var Y, O, E, L, B, C, T, z, N, S, A, I;
+!function() {
+var e = function() {
+for (O.clearRect(0, 0, L, B), T = [{
+x: 0,
+y: .7 * B + C
+}, {
+x: 0,
+y: .7 * B - C
+}]; T[1].x < L + C;) t(T[0], T[1])
+}, t = function(e, t) {
+O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+var n = t.x + (2 * I() - .25) * C,
+ r = a(t.y);
+O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+ x: n,
+ y: r
+}
+}, a = function n(e) {
+var t = e + (2 * I() - 1.1) * C;
+return t > B || t < 0 ? n(e) : t
+};
+Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+}()
+
+   
+$("#toc-eye").click(function(){
+$("#toc.toc-article").toggle(1000);
+});
+
+</script>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持一下Luckiiest</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2022/05/17/Vue3%E7%BB%84%E5%90%88API/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "nkvLdnK5xBRTBnMkXqpCq3Ie-gzGzoHsz",
+            appKey: "r2K6NaTBu6ebcvjzHlNUFKWR",
+            avatar:'mm',
+            placeholder: "有什么问题，欢迎留言指正与交流...",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+
+  <!-- 爆炸红心效果 -->
+  <!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+  <script type="text/javascript" src="/js/firework.js"></script> -->
+ 
+  
+</body>
+</html>
