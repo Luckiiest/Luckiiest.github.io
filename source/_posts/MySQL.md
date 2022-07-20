@@ -88,17 +88,18 @@ categories:
 
   - 一个表包括行和列：
 
-    - ```mysql
-      学号（int) 	姓名(varchar)		年龄(int)
-      -----------------------------------------
-      110			  张三			   20
-      120			  李四			   21
-      ```
 
-    - 行：被称为数据 / 记录
-    - 列：被称为字段（`column`）
-      - 每一个字段都应该包括哪些属性？
-        - 字段名、数据类型、相关的类型
+```mysql
+学号（int) 	姓名(varchar)		年龄(int)
+-----------------------------------------
+110			  张三			   20
+120			  李四			   21
+```
+
+- 行：被称为数据 / 记录
+- 列：被称为字段（`column`）
+  - 每一个字段都应该包括哪些属性？
+    - 字段名、数据类型、相关的类型
 
 ### SQL 语句的分类
 
@@ -120,19 +121,20 @@ categories:
 
   - **show databases**;（这个不是`SQL`语句，是`MySQL`的命令）
 
-  - ```mysql
-    自带的数据库
-    +--------------------+
-    | Database           |
-    +--------------------+
-    | information_schema |
-    | mysql              |
-    | performance_schema |
-    | sakila             |
-    | sys                |
-    | world              |
-    +--------------------+
-    ```
+
+```mysql
+自带的数据库
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+```
 
 - 三、创建属于我们自己的数据库
 
@@ -151,37 +153,38 @@ categories:
 
   - 注意：数据初始化完成之后，有三张表
 
-    - ```mysql
-      +----------------------------+
-      | Tables_in_bjpowernode      |
-      +----------------------------+
-      | dept						 |
-      | emp               		 |
-      | salqrade			 		 |
-      +----------------------------+
-      ```
 
-  - **sql 脚本**
+```mysql
++----------------------------+
+| Tables_in_bjpowernode      |
++----------------------------+
+| dept						 |
+| emp               		 |
+| salqrade			 		 |
++----------------------------+
+```
 
-    - `bjpowernode.sql`，这个文件以`sql`结尾，这样的文件被称为"`sql`脚本"。什么是`sql`脚本？
-    - 当一个文件的扩展名是`.sql`，并且该文件中编写了大量的`sql`语句，我们成这样的文件为`sql`脚本
-    - 直接使用 source 命令可以执行`sql`脚本
-    - `sql`脚本中的数据量太大的时候，无法打开，请使用`source`命令完成初始化
-    - `sql`脚本有很多，每一个都不一样，我这个仅仅是练习使用
+- **sql 脚本**
+
+  - `bjpowernode.sql`，这个文件以`sql`结尾，这样的文件被称为"`sql`脚本"。什么是`sql`脚本？
+  - 当一个文件的扩展名是`.sql`，并且该文件中编写了大量的`sql`语句，我们成这样的文件为`sql`脚本
+  - 直接使用 source 命令可以执行`sql`脚本
+  - `sql`脚本中的数据量太大的时候，无法打开，请使用`source`命令完成初始化
+  - `sql`脚本有很多，每一个都不一样，我这个仅仅是练习使用
 
 - 六、删除数据库：**drop database 数据库名称;**
 
 ### 查看表结构
 
-- ```
-  +-----------------------+
-  | Tables_in_bjpowernode |
-  +-----------------------+
-  | dept                  |	(部门表)
-  | emp                   |	(员工表)
-  | salgrade              |	(工资等级表)
-  +-----------------------+
-  ```
+```
++-----------------------+
+| Tables_in_bjpowernode |
++-----------------------+
+| dept                  |	(部门表)
+| emp                   |	(员工表)
+| salgrade              |	(工资等级表)
++-----------------------+
+```
 
 - 查看表结构
   - **desc 数据库中表的名称;**
@@ -320,17 +323,18 @@ where
 
 - 条件排序
 
-  - ```mysql
-    				  执行顺序
-    select
-    	*(字段)			3
-    from
-    	表名				1
-    where
-    	条件				2
-    order by
-    	字段				4
-    ```
+
+```mysql
+ 执行顺序
+select
+	*(字段)			3
+from
+	表名				1
+where
+	条件				2
+order by
+	字段				4
+```
 
 ### （分组/聚合/多行、单行处理）函数
 
@@ -360,13 +364,14 @@ where
 
   - `min(字段)`
 
-- ```mysql
-  select sum(字段) from 表   ----> 求和
-  select max(字段) from 表   ----> 最大值
-  select min(字段) from 表	----> 最小值
-  select count(字段) from 表	   ----> 计数
-  select avg(字段) from 表	   ----> 计数
-  ```
+
+```mysql
+select sum(字段) from 表   ----> 求和
+select max(字段) from 表   ----> 最大值
+select min(字段) from 表	----> 最小值
+select count(字段) from 表	   ----> 计数
+select avg(字段) from 表	   ----> 计数
+```
 
 > 所有的分组函数都是对“某一组”数据进行操作的。
 >
@@ -415,24 +420,24 @@ where
 
 ### 完整的 DQL 语句
 
-- ```mysql
-  语句			执行顺序
+```mysql
+语句			执行顺序
 
-  select			5
-  	...
-  from			1
-  	...
-  where			2
-  	...
-  group by		3
-  	...
-  having			4
-  	...
-  order by		6
-  	...
+select			5
+	...
+from			1
+	...
+where			2
+	...
+group by		3
+	...
+having			4
+	...
+order by		6
+	...
 
-  书写顺序不可以颠倒，它可以缺少某个，但是不可以颠倒顺序
-  ```
+书写顺序不可以颠倒，它可以缺少某个，但是不可以颠倒顺序
+```
 
 ### 关于查询结果的去重
 
@@ -489,26 +494,28 @@ where
 
 - 示例：查询员工的名称和员工所对应的部门名称
 
-- ```mysql
-  emp是员工表，dept是部门表，e.name和d.name是emphe dept两个表的
 
-  SQL92:
-  	select
-  		e.name,d.dname
-  	from
-  		emp e,dept d
-  	where
-  		e.deptno = d.deptno
+```mysql
+emp是员工表，dept是部门表，e.name和d.name是emphe dept两个表的
 
-  SQL99:
-  	select
-  		e.ename,d.dname
-  	from
-  		emp e
-  	join
-  		dept d
-  	on
-  		e.deptno = d.deptno;
+SQL92:
+	select
+		e.name,d.dname
+	from
+		emp e,dept d
+	where
+		e.deptno = d.deptno
+
+SQL99:
+	select
+		e.ename,d.dname
+	from
+		emp e
+	join
+		dept d
+	on
+		e.deptno = d.deptno;
+```
 
 
   	select e.ename,d.dname from emp e inner join dept d on e.deptno = d.deptno;
@@ -537,24 +544,25 @@ where
 
 - 找出每个员工的工资等级，要求显示员工名，工资、工资等级
 
-- ```mysql
-  select
-  	e.ename,e.sal,s.grade
-  from
-  	emp e
-  join
-  	salgrade s
-  on
-  	e.sal
-  between
-  	s.losal
-  and
-  	s.hisal
 
-  e.ename是名字，e.sal是工资,s.grade是等级
-  emp 是员工表
-  salgrade 是薪资等级表
-  ```
+```mysql
+select
+	e.ename,e.sal,s.grade
+from
+	emp e
+join
+	salgrade s
+on
+	e.sal
+between
+	s.losal
+and
+	s.hisal
+
+e.ename是名字，e.sal是工资,s.grade是等级
+emp 是员工表
+salgrade 是薪资等级表
+```
 
 ##### 自连接
 
@@ -562,16 +570,17 @@ where
 
 - 找出每个员工的上级领导，要求显示员工名和对应的领导名
 
-- ```mysql
-  select
-  	a.ename as '员工表',b.ename as '领导表'
-  from
-  	emp a
-  inner join
-  	emp b
-  on
-  	a.mgr = b.empno;
-  ```
+
+```mysql
+select
+	a.ename as '员工表',b.ename as '领导表'
+from
+	emp a
+inner join
+	emp b
+on
+	a.mgr = b.empno;
+```
 
 #### 外连接
 
@@ -589,85 +598,92 @@ where
 
 - 语法
 
-  - ```mysql
-    join on的语法
 
-    ...
-    	A
-    left/right outer join
-    	B
-    on
-    	连接条件
-    where
-    	...
+```mysql
+join on的语法
 
-    outer可以省略，区分内外连接主要不是inner和outer这两个单词，带着两个单词可读性强，外连接使用较多
-    ```
+...
+	A
+left/right outer join
+	B
+on
+	连接条件
+where
+	...
+
+outer可以省略，区分内外连接主要不是inner和outer这两个单词，带着两个单词可读性强，外连接使用较多
+```
 
 - 例：找出所有员工的上级领导
 
-  - ```mysql
-    左外连接
-    select
-    	a.ename as '员工',b.ename as '领导'
-    from
-    	emp a
-    left join
-    	emp b
-    on
-    	a.mgr = b.empno;
+
+```mysql
+左外连接
+select
+	a.ename as '员工',b.ename as '领导'
+from
+	emp a
+left join
+	emp b
+on
+	a.mgr = b.empno;
+```
 
 
-    右外连接
-    select
-    a.ename as '员工',b.ename as '领导'
-    from
-    	emp b
-    right join
-    	emp a
-    on
-    	a.mgr = b.empno;
+~~~sql
+右外连接
+select
+a.ename as '员工',b.ename as '领导'
+from
+	emp b
+right join
+	emp a
+on
+	a.mgr = b.empno;
 
-    a是主表，b是副表，left代表左外连接，right代表右外连接
-    ```
+a是主表，b是副表，left代表左外连接，right代表右外连接
+```
+~~~
 
 - 找到那个部门没有员工
 
-- ```mysql
-  select
-  	d.*
-  from
-  	emp e
-  right join
-  	dept d
-  on
-  	e.deptno = d.deptno
-  where
-  	e.empno is null;
-  ```
+
+```mysql
+select
+	d.*
+from
+	emp e
+right join
+	dept d
+on
+	e.deptno = d.deptno
+where
+	e.empno is null;
+```
 
 - 三个表连接
 
   - 找出每一个员工的部门名称、工资等级、以及上级领导
 
-  - ```mysql
-    select
-    	e.ename as '员工',d.dname,s.grade,el.ename '领导'
-    from
-    	emp e
-    join
-    	dept d
-    on
-    	e.deptno = d.deptno
-    join
-    	salgrade s
-    on
-    	e.sal between s.losal and s.hisal
-    left join
-    	emp e1
-    on
-    	e.mgr = e1.empno;
-    ```
+
+```mysql
+select
+	e.ename as '员工',d.dname,s.grade,el.ename '领导'
+from
+	emp e
+join
+	dept d
+on
+	e.deptno = d.deptno
+join
+	salgrade s
+on
+	e.sal between s.losal and s.hisal
+left join
+	emp e1
+on
+	e.mgr = e1.empno;
+```
 
 ### 子查询
 
@@ -677,86 +693,91 @@ where
 
   - 子查询可以出现在哪里？
 
-    - ```mysql
-      select
-      	..(select).
-      from
-      	..(select).
-      where
-      	..(select).
-      ```
+
+```mysql
+select
+	..(select).
+from
+	..(select).
+where
+	..(select).
+```
 
 #### where 后面子查询
 
 - 案例：在`emp`表中找出高于平均工资的员工信息
 
-- ```mysql
-  select * from emp where sal > avg(sal); // 错误，where后面不能有分组函数
 
-  第一步:找出平均薪资，结果就是平均薪资
-  select avg(sal) from emp;
-  第二步：where过滤
-  where sal > 第一步的结果
-  合并：
-  select * from emp where sal > (select avg(sal) from emp);
-  ```
+```mysql
+select * from emp where sal > avg(sal); // 错误，where后面不能有分组函数
+
+第一步:找出平均薪资，结果就是平均薪资
+select avg(sal) from emp;
+第二步：where过滤
+where sal > 第一步的结果
+合并：
+select * from emp where sal > (select avg(sal) from emp);
+```
 
 #### from 后面子查询
 
 - 案例：找出每个部门平均薪水的薪资等级
 
-- ```mysql
-  第一步：找出每个部门平均薪水（按照部门编号分组，求sal的平均值）
-  select deptno,avg(sal) as avgsal from emp group by deptno;
-  第二步：将以上的查询结果当作临时表t，让t表和薪资等级表连接
-  select
-  	t.*,s.grade
-  from
-  	(select deptno,avg(sal) as avgsal from emp group by deptno) t
-  join
-  	salgrade s
-  on
-  	t.avgsal between s.losal and s.hisal;
-  ```
+
+```mysql
+第一步：找出每个部门平均薪水（按照部门编号分组，求sal的平均值）
+select deptno,avg(sal) as avgsal from emp group by deptno;
+第二步：将以上的查询结果当作临时表t，让t表和薪资等级表连接
+select
+	t.*,s.grade
+from
+	(select deptno,avg(sal) as avgsal from emp group by deptno) t
+join
+	salgrade s
+on
+	t.avgsal between s.losal and s.hisal;
+```
 
 - 案例：找出每个部门平均的薪水等级
 
-- ```mysql
-  先找薪水等级，把薪水等级平均
 
-  第一步：找出每个员工的薪水等级
-  select
-  	e.ename,e.sal,e.deptno,s.grade
-  from
-  	emp e
-  join
-  	salgrade s
-  on
-  	e.sal between s.losal and s.hisal;
-  第二部：基于以上结果，继续按照deptno分组，求grade平均值
-  select
-  	e.deptno,avg(s.grade)
-  from
-  	emp e
-  join
-  	salgrade s
-  on
-  	e.sal between s.losal and s.hisal
-  group by
-  	e.deptno;
-  ```
+```mysql
+先找薪水等级，把薪水等级平均
+
+第一步：找出每个员工的薪水等级
+select
+	e.ename,e.sal,e.deptno,s.grade
+from
+	emp e
+join
+	salgrade s
+on
+	e.sal between s.losal and s.hisal;
+第二部：基于以上结果，继续按照deptno分组，求grade平均值
+select
+	e.deptno,avg(s.grade)
+from
+	emp e
+join
+	salgrade s
+on
+	e.sal between s.losal and s.hisal
+group by
+	e.deptno;
+```
 
 #### select 后面嵌套子查询
 
 - 找出每个员工所在的部门名称，要求显示员工名和部门名
 
-- ```mysql
-  select
-  	e.ename,e.deptno,
-  	(select d.dname from dept d where e.deptno = d.deptno) as dname
-  from
-  	emp e;
-  ```
+
+```mysql
+select
+	e.ename,e.deptno,
+	(select d.dname from dept d where e.deptno = d.deptno) as dname
+from
+	emp e;
+```
 
 ## limit、union
 
@@ -768,18 +789,19 @@ where
 
 - 案例：找出工作岗位是 SALESMAN 和 MANAGER 的员工？
 
-  - ```mysql
-    第一种：
-    select ename,job from emp where job = 'SALESMAN' or job = 'MANAGER';
 
-    第二种：使用in
-    select ename,job from emp where job in('SALESMAN','MANAGER');
+```mysql
+第一种：
+select ename,job from emp where job = 'SALESMAN' or job = 'MANAGER';
 
-    第三种：union
-    select ename,job from emp where job = 'SALESMAN'
-    union
-    select ename,job from emp where job = 'MANAGER';
-    ```
+第二种：使用in
+select ename,job from emp where job in('SALESMAN','MANAGER');
+
+第三种：union
+select ename,job from emp where job = 'SALESMAN'
+union
+select ename,job from emp where job = 'MANAGER';
+```
 
 ### limit
 
@@ -789,59 +811,64 @@ where
 
 - 语法机制：
 
-  - ```mysq
-    limit startIndex,length
-    	startIndex 表示起始位置，默认从0开始，不写就是从0开始
-    	length 表示取几个
-    ```
+
+```mysq
+limit startIndex,length
+	startIndex 表示起始位置，默认从0开始，不写就是从0开始
+	length 表示取几个
+```
 
 - 案例：取出工资前五名的员工
 
-  - ```mysql
-    select e.ename,e.sal from emp e order by sal desc limit 0,5;
-    ```
+
+```mysql
+select e.ename,e.sal from emp e order by sal desc limit 0,5;
+```
 
 - 案例：找出工资排名在第 4 到第 9 的员工
 
-  - ```mysql
-    select e.ename,e.sal from emp e order by sal desc limit 3,6;
-    3表示，起始位置，6代表取6个
-    ```
+
+```mysql
+select e.ename,e.sal from emp e order by sal desc limit 3,6;
+3表示，起始位置，6代表取6个
+```
 
 - `limit`是`SQL`语句最后执行的一个环节
 
-  - ```mysql
-    select
-    	...
-    from
-    	...
-    where
-    	...
-    group by
-    	...
-    having
-    	...
-    order by
-    	...
-    limit
-    	...
-    ```
+
+```mysql
+select
+	...
+from
+	...
+where
+	...
+group by
+	...
+having
+	...
+order by
+	...
+limit
+	...
+```
 
 - 分页显示采用`limit`
 
   - 每页显示三条记录：
 
-    - ```mysql
-      第一页：0，3
-      第二页：3，3
-      第二页：6，3
-      第二页：9，3
-      第二页：12，3
-      ```
 
-  - 每页显示`pageSize`条记录
+```mysql
+第一页：0，3
+第二页：3，3
+第二页：6，3
+第二页：9，3
+第二页：12，3
+```
 
-    - 第`pageNo`页：`（pageNo - 1) * pageSize`，`pageSize`
+- 每页显示`pageSize`条记录
+
+  - 第`pageNo`页：`（pageNo - 1) * pageSize`，`pageSize`
 
 ## 数据类型
 
@@ -898,14 +925,15 @@ where
 
 - 语法：
 
-  - ```mysql
-    create table 表名(
-        字段名1 数据类型 约束,
-    	字段名2 数据类型 约束,
-        字段名3 数据类型 约束,
-       	......
-    );
-    ```
+
+```mysql
+create table 表名(
+    字段名1 数据类型 约束,
+	字段名2 数据类型 约束,
+    字段名3 数据类型 约束,
+   	......
+);
+```
 
 - 表名在数据库中一般建议以：`t_`或`tbl_`开始
 
@@ -920,23 +948,25 @@ where
     - 班级编号：`int`
     - 生日：`char`
 
-  - ```mysql
-    create table t_student(
-    	no bigint,
-        name varchar(255),
-        sex char(1),
-        classno varchar(255),
-        birth char(10)
-    );
-    ```
+
+```mysql
+create table t_student(
+	no bigint,
+    name varchar(255),
+    sex char(1),
+    classno varchar(255),
+    birth char(10)
+);
+```
 
 ### 删除表
 
 - 语法：
 
-- ```mysql
-  drop table if exists 表名;	// 当这个表存在的话删除
-  ```
+
+```mysql
+drop table if exists 表名;	// 当这个表存在的话删除
+```
 
 ### 修改表结构
 
@@ -1005,48 +1035,51 @@ show index from tbl_name;
 
   - **插入单行数据**
 
-    - ```mysq
-      insert into 表名
-      	(字段名1,字段名2,字段名3,....)
-      values
-      	(值1,值2,值3,......);
 
-      insert into values(值1,值2,值3,......); 	//这样就只能对应列的数量写
-      ```
+```mysq
+insert into 表名
+	(字段名1,字段名2,字段名3,....)
+values
+	(值1,值2,值3,......);
 
-  - **插入多行数据**
+insert into values(值1,值2,值3,......); 	//这样就只能对应列的数量写
+```
 
-    - ```mysql
-      insert into 表名
-      	(字段名1,字段名2,字段名3,....)
-      values
-      	(值1,值2,值3,......),
-      	(值1,值2,值3,......),
-      	(值1,值2,值3,......);
-      ```
+- **插入多行数据**
 
-  - 要求：字段的数量和值的数量相同，并且数据类型要对应相同
-  - 可以只插入指定字段，其他字段如果没有数据，则为`NULL`
-  - `into`可以省略的
+
+```mysql
+insert into 表名
+	(字段名1,字段名2,字段名3,....)
+values
+	(值1,值2,值3,......),
+	(值1,值2,值3,......),
+	(值1,值2,值3,......);
+```
+
+- 要求：字段的数量和值的数量相同，并且数据类型要对应相同
+- 可以只插入指定字段，其他字段如果没有数据，则为`NULL`
+- `into`可以省略的
 
 - 案例：
 
-  - ```mysql
-    插入单行数据
-    insert into t_student
-    	(no,name,sex,classno,birth)
-    values
-    	(1,'zhangsan','m','gaosanyiban','1999-01-22');
 
-    插入多行数据
-    insert into t_student
-    	(no,name,sex,classno,birth)
-    values
-    	(2,'lsi','m','gaosanyiban','1999-01-22'),
-    	(3,'wangwu','m','gaosanyiban','1999-01-22'),
-    	(4,'zhaoliu','m','gaosanyiban','1999-01-22'),
-    	(5,'shenqi','m','gaosanyiban','1999-01-22');
-    ```
+```mysql
+插入单行数据
+insert into t_student
+	(no,name,sex,classno,birth)
+values
+	(1,'zhangsan','m','gaosanyiban','1999-01-22');
+
+插入多行数据
+insert into t_student
+	(no,name,sex,classno,birth)
+values
+	(2,'lsi','m','gaosanyiban','1999-01-22'),
+	(3,'wangwu','m','gaosanyiban','1999-01-22'),
+	(4,'zhaoliu','m','gaosanyiban','1999-01-22'),
+	(5,'shenqi','m','gaosanyiban','1999-01-22');
+```
 
 - 注意：
   - 当一条`insert`语句执行成功之后，表格当中必然会多一行记录。
@@ -1057,43 +1090,46 @@ show index from tbl_name;
 
 - 表的复制
 
-  - ```mysql
-    create table 表名 as select语句;   // 将查询结果当作表创建出
-    ```
+
+```mysql
+create table 表名 as select语句;   // 将查询结果当作表创建出
+```
 
 - 批量插入
 
-  - ```mysql
-    insert into 表名 select语句
-    ```
 
-  - 注意：这里有表结构的影响，不同的表结构不可以随便插入
+```mysql
+insert into 表名 select语句
+```
+
+- 注意：这里有表结构的影响，不同的表结构不可以随便插入
 
 ### update 修改表的数据
 
-- ```mysql
-  update 表名 set 字段名1=值1，字段名2=值2... where 条件;
-  ```
+```mysql
+update 表名 set 字段名1=值1，字段名2=值2... where 条件;
+```
 
 - 注意：没有条件整张表将全部更新
 
 ### delete 删除数据
 
-- ```mysql
-  detele from 表名 where 条件;
-  ```
+```mysql
+detele from 表名 where 条件;
+```
 
 - 注意：没有条件全部删除
 
 - 怎么删除大表中的数据（数据量特别大的表）
 
-  - ```mysql
-    truncate table 表名
-    ```
 
-  - 表被截断，不可回滚，永久丢失
+```mysql
+truncate table 表名
+```
 
-  - 删之前，慎重！
+- 表被截断，不可回滚，永久丢失
+
+- 删之前，慎重！
 
 ## 约束（Constraint）
 
@@ -1111,13 +1147,14 @@ show index from tbl_name;
 
 - **not null**
 
-- ```mysql
-  create table t_user(
-  	id int,
-      username varchar(255) not null, -- 这样username这列就必须填写值，不可以为空（NULL）
-      password varchar(255)
-  );
-  ```
+
+```mysql
+create table t_user(
+	id int,
+    username varchar(255) not null, -- 这样username这列就必须填写值，不可以为空（NULL）
+    password varchar(255)
+);
+```
 
 ### 唯一约束
 
@@ -1125,31 +1162,32 @@ show index from tbl_name;
 
   - 唯一约束修饰的字段具有唯一性，不能重复，但可以为`NULL`
 
-- ```mysql
-  给一个字段加唯一约束
-  create table t_user(
-  	id int unique, -- id这列就是唯一了，不可以填写重复的值，可以为NULL
-      username varchar(255),
-  );
 
-  表级约束：给多个字段加唯一约束
-  create table t_user(
-  	id int,
-      username varchar(255),
-      usercode varchar(255),
-      unique(username,usercode)
-  );
+```mysql
+给一个字段加唯一约束
+create table t_user(
+	id int unique, -- id这列就是唯一了，不可以填写重复的值，可以为NULL
+    username varchar(255),
+);
 
-  列级约束：给多个字段加唯一约束（2）
-  create table t_user(
-  	id int,
-      username varchar(255) unique,
-      usercode varchar(255) unique
-  )
+表级约束：给多个字段加唯一约束
+create table t_user(
+	id int,
+    username varchar(255),
+    usercode varchar(255),
+    unique(username,usercode)
+);
 
-  表级约束中的unique(字段1，字段...)表示的是多个字段联合建立一个约束，只要多个字段连接起来重复才是重复，单独一个字段重复，是不重复
-  列级约束在字段后面加unique是给单独这一个字段加唯一约束，这个字段有重复的就不可以
-  ```
+列级约束：给多个字段加唯一约束（2）
+create table t_user(
+	id int,
+    username varchar(255) unique,
+    usercode varchar(255) unique
+)
+
+表级约束中的unique(字段1，字段...)表示的是多个字段联合建立一个约束，只要多个字段连接起来重复才是重复，单独一个字段重复，是不重复
+列级约束在字段后面加unique是给单独这一个字段加唯一约束，这个字段有重复的就不可以
+```
 
 ### 主键约束
 
@@ -1158,32 +1196,33 @@ show index from tbl_name;
   - 主键特点：不能为`NULL`，也不能重复
   - 一张表的主键约束只能有**1**个（重点）
 
-- ```mysql
-  列级主键约束
-  create table t_user(
-  	id int primary key,
-      username varchar(255),
-      email varchar(255)
-  )
-  insert into t_user(id,username,email) values(1,'zs','zs@123.com')
 
-  表级主键约束
-  create table t_user(
-  	id int,
-      username varchar(255),
-      email varchar(255),
-      primary key(id) -- 和标记unique约束一样
-  )
-  insert into t_user(id,username,email) values(1,'zs','zs@123.com')
+```mysql
+列级主键约束
+create table t_user(
+	id int primary key,
+    username varchar(255),
+    email varchar(255)
+)
+insert into t_user(id,username,email) values(1,'zs','zs@123.com')
 
-  复合主键约束
-  create table t_user(
-      id int,
-      username varchar(255),
-      password varchar(255),
-      primary key(id,username)
-  )
-  ```
+表级主键约束
+create table t_user(
+	id int,
+    username varchar(255),
+    email varchar(255),
+    primary key(id) -- 和标记unique约束一样
+)
+insert into t_user(id,username,email) values(1,'zs','zs@123.com')
+
+复合主键约束
+create table t_user(
+    id int,
+    username varchar(255),
+    password varchar(255),
+    primary key(id,username)
+)
+```
 
 - 相关术语：
   - 主键约束（`primary key`）
@@ -1206,14 +1245,15 @@ show index from tbl_name;
 
   - **auto_increment**
 
-  - ```mysql
-    create table t_user(
-    	id int primary key auto_increment, -- 在primary key后面加上auto_increment就是自增了
-        username varchar(255),
-    )
-    ```
 
-  - `Oracle`当中也提供了一个自增机制，叫做：序列（`sequence`）对象
+```mysql
+create table t_user(
+	id int primary key auto_increment, -- 在primary key后面加上auto_increment就是自增了
+    username varchar(255),
+)
+```
+
+- `Oracle`当中也提供了一个自增机制，叫做：序列（`sequence`）对象
 
 ### 外键约束
 
@@ -1227,75 +1267,79 @@ show index from tbl_name;
 
   - 第一种方案：一张表存储所有数据（冗余）
 
-    - ```mysql
-      no(pk)		name	 classno	  classname
-      ---------------------------------------------------
-      1			zs1		   101		  亦庄二中高三1班
-      2			zs2		   101		  亦庄二中高三1班
-      3			zs3		   102		  亦庄二中高三2班
-      4			zs4		   102		  亦庄二中高三2班
-      5			zs5		   102		  亦庄二中高三2班
-      ```
 
-  - 第二种方案：两张表（班级表，学生表）
+```mysql
+no(pk)		name	 classno	  classname
+---------------------------------------------------
+1			zs1		   101		  亦庄二中高三1班
+2			zs2		   101		  亦庄二中高三1班
+3			zs3		   102		  亦庄二中高三2班
+4			zs4		   102		  亦庄二中高三2班
+5			zs5		   102		  亦庄二中高三2班
+```
 
-    - ```mysql
-      -- t_class 班级表表
-      classno		classname
-      --------------------------------
-      101			亦庄二中高三1班
-      102			亦庄二中高三2班
+- 第二种方案：两张表（班级表，学生表）
 
-      -- t_student 学生表
-      sno			sname		 classno(该字段添加外键约束fk)
-      --------------------------------------------------------
-      1			zs1			 101
-      2			zs2			 101
-      3			zs3			 102
-      4			zs4			 102
-      5			zs5			 102
-      ```
 
-  - 将以上表建表语句写出来：
+```mysql
+-- t_class 班级表表
+classno		classname
+--------------------------------
+101			亦庄二中高三1班
+102			亦庄二中高三2班
 
-    - `t_student`中的`classno`字段引用`t_class`表中的`classno`字段，此时，`t_student`叫做子表，`t_class`叫做副表
+-- t_student 学生表
+sno			sname		 classno(该字段添加外键约束fk)
+--------------------------------------------------------
+1			zs1			 101
+2			zs2			 101
+3			zs3			 102
+4			zs4			 102
+5			zs5			 102
+```
 
-    - 顺序要求
+- 将以上表建表语句写出来：
 
-      - 删除数据的时候，先删除子表，在删除父表
-      - 添加数据的时候，先添加父表，在添加子表
-      - 创建表的时候，先创建父表，在创建子表
-      - 删除表的时候，先删除子表，在删除父表
+  - `t_student`中的`classno`字段引用`t_class`表中的`classno`字段，此时，`t_student`叫做子表，`t_class`叫做副表
 
-    - ```mysql
-      create table t_class(
-      	classno int,
-          classname varchar(255),
-          primary key(classno)
-      )
+  - 顺序要求
 
-      create table t_student(
-      	sno int,
-          sname varchar(255),
-          cno int,
-          primary key(sno),
-          foreign key(cno) references t_class(classno)
-      )
-      ```
+    - 删除数据的时候，先删除子表，在删除父表
+    - 添加数据的时候，先添加父表，在添加子表
+    - 创建表的时候，先创建父表，在创建子表
+    - 删除表的时候，先删除子表，在删除父表
+
+
+```mysql
+create table t_class(
+	classno int,
+    classname varchar(255),
+    primary key(classno)
+)
+
+create table t_student(
+	sno int,
+    sname varchar(255),
+    cno int,
+    primary key(sno),
+    foreign key(cno) references t_class(classno)
+)
+```
 
 - 语法
 
-  - ```mysql
-    foreign key(需要外键字段) references 父表名(要引用的字段)
-    ```
 
-  - 子表中的外键值需要引用父表的外键值，不可以和父表的外键值不一样
+```mysql
+foreign key(需要外键字段) references 父表名(要引用的字段)
+```
 
-  - 外键值可以为`NULL`
+- 子表中的外键值需要引用父表的外键值，不可以和父表的外键值不一样
 
-  - 外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？
+- 外键值可以为`NULL`
 
-    - 被引用的字段不一定是主键，但是至少要有`unique`唯一性
+- 外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？
+
+  - 被引用的字段不一定是主键，但是至少要有`unique`唯一性
 
 ### 默认值约束
 
@@ -1409,25 +1453,26 @@ Transactions: NO 						-- 事务（TCL）
 
 - 开始和结束的标志
 
-  - ```mysql
-    假设一个事儿，需要先执行一条insert，在执行一条update，最后执行一条detele，这个事才算完成
 
-    开启事务机制（开始）
+```mysql
+假设一个事儿，需要先执行一条insert，在执行一条update，最后执行一条detele，这个事才算完成
 
-    执行insert语句-->insert....（这个执行成功之后，把这个执行记录到数据库的操作历史当中，并不会向文件中保存一条数据，不会真正修改硬盘上的数据）
-    执行一条update语句 --> update...（这个执行也是记录一下历史操作，不会真正的修改硬盘上的数据）
-    执行delete语句 --> delete...（这个执行也是记录以下历史操作【记录到缓存】，不会真正的修改硬盘上的数据）
+开启事务机制（开始）
 
-    提交事务或者回滚事务（结束）
-    ```
+执行insert语句-->insert....（这个执行成功之后，把这个执行记录到数据库的操作历史当中，并不会向文件中保存一条数据，不会真正修改硬盘上的数据）
+执行一条update语句 --> update...（这个执行也是记录一下历史操作，不会真正的修改硬盘上的数据）
+执行delete语句 --> delete...（这个执行也是记录以下历史操作【记录到缓存】，不会真正的修改硬盘上的数据）
 
-  - 开始的标志：任何一条`DML`语句执行，标志着事务的开始
+提交事务或者回滚事务（结束）
+```
 
-  - 结束的标志：
+- 开始的标志：任何一条`DML`语句执行，标志着事务的开始
 
-    - 提交（`commit`）、回滚（`rollback`）
-      - 提交：成功的结束，将所有的`DML`语句操作记录和底层硬盘文件中数据进行一次同步
-      - 回滚：失败的结束，将所有的`DML`语句操作记录全部清空
+- 结束的标志：
+
+  - 提交（`commit`）、回滚（`rollback`）
+    - 提交：成功的结束，将所有的`DML`语句操作记录和底层硬盘文件中数据进行一次同步
+    - 回滚：失败的结束，将所有的`DML`语句操作记录全部清空
 
 - **重点**
 
@@ -1485,19 +1530,20 @@ Transactions: NO 						-- 事务（TCL）
 
   - 在`my.ini`文件中的`[mysqlid]`下面添加
 
-  - ```mysql
-    -------------------------my.ini------------------------------
-    [mysqld]
-    transaction-isolation = isolation-level
-    --------------------------my.ini-------------------------------
-    ```
 
-  - `isolation-level`可选项为：
+```mysql
+-------------------------my.ini------------------------------
+[mysqld]
+transaction-isolation = isolation-level
+--------------------------my.ini-------------------------------
+```
 
-    - `read-uncommitted`
-    - `read-committed`
-    - `repeatable-read`
-    - `serializable`
+- `isolation-level`可选项为：
+
+  - `read-uncommitted`
+  - `read-committed`
+  - `repeatable-read`
+  - `serializable`
 
 - 第二种：通过命令方式设置事务隔离级别
 
@@ -1539,113 +1585,116 @@ Transactions: NO 						-- 事务（TCL）
 
 - 演示：自动提交
 
-  - ```mysql
-    drop table if exists t_user;
-    create table t_user(
-    	id int primary key auto_increment,
-        username varchar(255)
-    );
 
-    insert into t_user(username) values('zs');
-    mysql> select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    +----+----------+
-    1 row in set (0.00 sec)
+```mysql
+drop table if exists t_user;
+create table t_user(
+	id int primary key auto_increment,
+    username varchar(255)
+);
 
-    mysql> rollback; -- 回滚
-    Query OK, 0 rows affected (0.00 sec)
+insert into t_user(username) values('zs');
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+1 row in set (0.00 sec)
 
-    mysql> select * from t_usre;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    +----+----------+
-    1 row in set (0.00 sec)
+mysql> rollback; -- 回滚
+Query OK, 0 rows affected (0.00 sec)
 
-    -- 回滚没有管用，说明commit（提交）是自动的
-    ```
+mysql> select * from t_usre;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+1 row in set (0.00 sec)
+
+-- 回滚没有管用，说明commit（提交）是自动的
+```
 
 - 演示：关闭自动提交
 
-  - ```mysql
-    select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    +----+----------+
-    1 row in set (0.00 sec)
 
-    mysql> start transaction; -- 开启事务
-    Query OK, 0 rows affected (0.00 sec)
+```mysql
+select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+1 row in set (0.00 sec)
 
-    mysql> insert into t_user(username) values('ls');
-    Query OK, 1 row affected (0.04 sec)
+mysql> start transaction; -- 开启事务
+Query OK, 0 rows affected (0.00 sec)
 
-    mysql> select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    |  2 | ls       |
-    +----+----------+
-    2 rows in set (0.00 sec)
+mysql> insert into t_user(username) values('ls');
+Query OK, 1 row affected (0.04 sec)
 
-    mysql> rollback; -- 回滚，清空历史记录，结束事务
-    Query OK, 0 rows affected (0.04 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
+|  2 | ls       |
++----+----------+
+2 rows in set (0.00 sec)
 
-    mysql> select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    +----+----------+
-    1 row in set (0.00 sec)
+mysql> rollback; -- 回滚，清空历史记录，结束事务
+Query OK, 0 rows affected (0.04 sec)
 
-    -- 回滚成功，说明自动提交关闭了
-    ```
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+1 row in set (0.00 sec)
+
+-- 回滚成功，说明自动提交关闭了
+```
 
 - 演示：提交事务
 
-  - ```mysql
-    mysql> start transaction; -- 开始事务
-    Query OK, 0 rows affected (0.00 sec)
 
-    mysql> insert into t_user(username) values('wangwu');
-    Query OK, 1 row affected (0.05 sec)
+```mysql
+mysql> start transaction; -- 开始事务
+Query OK, 0 rows affected (0.00 sec)
 
-    mysql> insert into t_user(username) values('rose');
-    Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values('wangwu');
+Query OK, 1 row affected (0.05 sec)
 
-    mysql> select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    |  3 | wangwu   |
-    |  4 | rose     |
-    +----+----------+
-    3 rows in set (0.00 sec)
+mysql> insert into t_user(username) values('rose');
+Query OK, 1 row affected (0.00 sec)
 
-    mysql> commit; -- 提交，结束事务
-    Query OK, 0 rows affected (0.04 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
+|  3 | wangwu   |
+|  4 | rose     |
++----+----------+
+3 rows in set (0.00 sec)
 
-    mysql> select * from t_user;
-    +----+----------+
-    | id | username |
-    +----+----------+
-    |  1 | zs       |
-    |  3 | wangwu   |
-    |  4 | rose     |
-    +----+----------+
-    3 rows in set (0.00 sec)
+mysql> commit; -- 提交，结束事务
+Query OK, 0 rows affected (0.04 sec)
 
-    -- 提交成功，没有错误
-    ```
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
+|  3 | wangwu   |
+|  4 | rose     |
++----+----------+
+3 rows in set (0.00 sec)
+
+-- 提交成功，没有错误
+```
 
 - 演示四个级别
 
@@ -1688,11 +1737,12 @@ Transactions: NO 						-- 事务（TCL）
 
   - 通过`B True`缩小扫描范围，底层索引进行了排序，分区，索引会携带数据在表中的“物理地址”，最终通过索引检索到数据之后，获取到关联的物理地址，通过物理地址定位表中的数据，效率是最高的
 
-  - ```mysql
-    select ename from emp where ename = 'smith';
-    通过索引转换为
-    select ename from emp where 物理地址 = 'xxx';
-    ```
+
+```mysql
+select ename from emp where ename = 'smith';
+通过索引转换为
+select ename from emp where 物理地址 = 'xxx';
+```
 
 - 索引的分类？
   - 单一索引：给单个字段添加索引
@@ -1721,12 +1771,13 @@ Transactions: NO 						-- 事务（TCL）
 
 - 视图的操作
 
-  - ```mysql
-    create table emp_bak as select * from emp;
-    ccreate view myview as select ename,empno,sal from emp_bak; // 建立视图
-    update myview set ename='hehe',sal=1 where empno='7369'; // 通过视图修改原表数据
-    delete from myview where empno = 7369; // 通过视图删除原表数据
-    ```
+
+```mysql
+create table emp_bak as select * from emp;
+ccreate view myview as select ename,empno,sal from emp_bak; // 建立视图
+update myview set ename='hehe',sal=1 where empno='7369'; // 通过视图修改原表数据
+delete from myview where empno = 7369; // 通过视图删除原表数据
+```
 
 - 视图的作用？
 
@@ -1740,10 +1791,11 @@ Transactions: NO 						-- 事务（TCL）
 
 - 实例：
 
-  - ```mysql
-    create user username identified by '123';
-    可以登录但是只可以看见一个库information_schema
-    ```
+
+```mysql
+create user username identified by '123';
+可以登录但是只可以看见一个库information_schema
+```
 
 ### 授权
 
@@ -1784,19 +1836,20 @@ Transactions: NO 						-- 事务（TCL）
 
 - 命令详解
 
-- ```mysql
-  回收授权
-  revoke privileges on dbname[.tbname] from username;
-  revoke all privileges on *.* from p361;
 
-  use mysql
-  select * from user
-  迚入 mysql库中
-  修改密码;
-  update user set password = password('qwe') where user = 'p646';
-  刷新权限;
-  flush privileges
-  ```
+```mysql
+回收授权
+revoke privileges on dbname[.tbname] from username;
+revoke all privileges on *.* from p361;
+
+use mysql
+select * from user
+迚入 mysql库中
+修改密码;
+update user set password = password('qwe') where user = 'p646';
+刷新权限;
+flush privileges
+```
 
 ### 导入导出
 
@@ -1812,11 +1865,12 @@ Transactions: NO 						-- 事务（TCL）
 
 - 导入数据
 
-  - ```mysql
-    create databases 数据库名称;
-    use 数据库名称;
-    source sql文件所在的路径地址
-    ```
+
+```mysql
+create databases 数据库名称;
+use 数据库名称;
+source sql文件所在的路径地址
+```
 
 ## 数据库设计三范式
 
@@ -1830,85 +1884,88 @@ Transactions: NO 						-- 事务（TCL）
 
   - 第二范式：建立在第一范式的基础之上，所有非主键字段完全依赖主键，不能产生部份依赖
 
-    - ```mysql
-      多对多？ 三张表 关系表，两个外键
 
-      t_student 学生表
-      sno(pk)		sname
-      ---------------------
-      1			张三
-      2			李四
-      3			王五
+```mysql
+多对多？ 三张表 关系表，两个外键
 
-      t_teacher 讲师表
-      tno(pk)		tname
-      ---------------------
-      1			王老师
-      2			张老师
-      3			李老师
+t_student 学生表
+sno(pk)		sname
+---------------------
+1			张三
+2			李四
+3			王五
 
-      t_student_teacher_relation 学生关系讲师表
-      id(pk)		sno(fk)		tno(fk)
-      ---------------------------------
-      1			1			3
-      2			1			1
-      3			2			2
-      4			2			3
-      5			3			1
-      6			3			3
-      ```
+t_teacher 讲师表
+tno(pk)		tname
+---------------------
+1			王老师
+2			张老师
+3			李老师
 
-  - 第三范式：建立在第二范式之上，所有非主键字段直接依赖主键，不能产生传递依赖
+t_student_teacher_relation 学生关系讲师表
+id(pk)		sno(fk)		tno(fk)
+---------------------------------
+1			1			3
+2			1			1
+3			2			2
+4			2			3
+5			3			1
+6			3			3
+```
 
-    - ```mysql
-      一对多？ 两张表 多的表加外键
+- 第三范式：建立在第二范式之上，所有非主键字段直接依赖主键，不能产生传递依赖
 
-      班级t_class
-      cno(pk)		cname
-      ------------------
-      1			班级1
-      2			班级2
 
-      学生t_student
-      sno(pk)		sname		classno(fk)
-      ------------------------------------
-      101			张1			1
-      102			张2			1
-      103			张3			2
-      104			张4			2
-      105			张5			2
-      ```
+```mysql
+一对多？ 两张表 多的表加外键
 
-  - 提醒：在实际的开发中，以满足客户的需求为主，有的时候会拿冗余换执行速度
+班级t_class
+cno(pk)		cname
+------------------
+1			班级1
+2			班级2
+
+学生t_student
+sno(pk)		sname		classno(fk)
+------------------------------------
+101			张1			1
+102			张2			1
+103			张3			2
+104			张4			2
+105			张5			2
+```
+
+- 提醒：在实际的开发中，以满足客户的需求为主，有的时候会拿冗余换执行速度
 
 - 一对一怎么设计？
 
-  - ```mysql
-    第一种方案：主键共享
-    t_user_login  用户登录表
-    id(pk)		username	  password
-    ------------------------------------
-    1			zs			  123
-    2			ls			  456
 
-    t_user_detail  用户详细信息表
-    id(pk+fk)	realname	tel		...
-    ------------------------------------
-    2			李四		 12345
-    1			张三		 87998
-    ```
+```mysql
+第一种方案：主键共享
+t_user_login  用户登录表
+id(pk)		username	  password
+------------------------------------
+1			zs			  123
+2			ls			  456
 
-  - ```mysql
-    第二种方案：外键唯一
-    t_user_login  用户登录表
-    id(pk)		username	  password
-    ------------------------------------
-    1			zs			  123
-    2			ls			  456
+t_user_detail  用户详细信息表
+id(pk+fk)	realname	tel		...
+------------------------------------
+2			李四		 12345
+1			张三		 87998
+```
 
-    t_user_detail  用户详细信息表
-    id(pk)	realname	  tel		userid(fk+unique)	...
-    --------------------------------------------------------
-    2			李四		 12345	   2
-    1			张三		 87998	   1
-    ```
+```mysql
+第二种方案：外键唯一
+t_user_login  用户登录表
+id(pk)		username	  password
+------------------------------------
+1			zs			  123
+2			ls			  456
+
+t_user_detail  用户详细信息表
+id(pk)	realname	  tel		userid(fk+unique)	...
+--------------------------------------------------------
+2			李四		 12345	   2
+1			张三		 87998	   1
+```
